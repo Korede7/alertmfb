@@ -15,8 +15,8 @@ type HomepageProps = {
 };
 
 const images = [
-  { src: "/heroBg2.jpg", textClass: "text-[#17145D]", buttonClass: "border-[#17145D] text-[#17145D]", bgClass: "bg-white", buttonClass2: "border-white text-[#17145D] bg--[#17145D]" },
-  { src: "/heroBg24.jpg", textClass: "text-white", buttonClass: "border-white text-white", bgClass: "bg-[#17145D]", buttonClass2: "border-=white text-[#17145D] bg-white" },
+  { src: "/heroBg2.jpg", textClass: "text-primary", buttonClass: "border-primary text-primary", bgClass: "bg-white", buttonClass2: "border-white text-primary bg-primary" },
+  { src: "/heroBg24.jpg", textClass: "text-white", buttonClass: "border-white text-white", bgClass: "bg-primary", buttonClass2: "border-white text-primary bg-white" },
 ];
 
 const Homepage = ({ onThemeChange }: HomepageProps) => {
@@ -105,24 +105,7 @@ const Homepage = ({ onThemeChange }: HomepageProps) => {
         </AnimatePresence>
       </div>
 
-      {/* Shifting Ethereal "Smoke" Overlay */}
-      {/* Using a shifting dynamic gradient with high blur to simulate passing clouds/smoke */}
-      <motion.div
-        animate={{
-          background: [
-            "radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 50%)",
-            "radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 60%)",
-            "radial-gradient(circle at 40% 80%, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0) 50%)",
-            "radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 50%)"
-          ]
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute inset-0 pointer-events-none z-[2] mix-blend-screen backdrop-blur-[1px]"
-      />
+    
 
 
 
@@ -168,100 +151,136 @@ const Homepage = ({ onThemeChange }: HomepageProps) => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`flex h-11 items-center gap-2 rounded-full px-5 text-sm transition sm:h-12 sm:px-7 ${activeIndex === 0 ? "bg-[#17145D] text-white hover:bg-[#100d46]" : "bg-white text-[#17145D] hover:bg-white/90"}`}
+            className={`flex h-11 items-center gap-2 rounded-full px-5 text-sm transition sm:h-12 sm:px-7 ${activeIndex === 0 ? "bg-primary text-white hover:bg-[#100d46]" : "bg-white text-primary hover:bg-white/90"}`}
           >
-            <IoLogoApple size={18} />
+            <IoLogoApple size={20} />
             <span className="text-sm font-medium">Get on iPhone</span>
           </motion.button>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`flex h-11 items-center gap-2 rounded-full border bg-transparent px-5 text-sm transition hover:bg-white/10 sm:h-12 sm:px-7 ${activeIndex === 0 ? "border-[#17145D] text-[#17145D]" : "border-white text-white"}`}
+            className={`flex h-11 items-center gap-2 rounded-full border bg-transparent px-5 text-sm transition hover:bg-white/10 sm:h-12 sm:px-7 ${activeIndex === 0 ? "border-primary text-primary" : "border-white text-white"}`}
           >
-            <IoLogoGooglePlaystore size={18} />
+            <IoLogoGooglePlaystore size={20} />
             <span className="text-sm font-medium">Get on Android</span>
           </motion.button>
         </motion.div>
       </motion.div>
 
-      {/* Floating Navigation - Desktop */}
-      <motion.div
-        initial={{ y: 30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        className="hidden md:flex absolute bottom-25 left-1/2 z-10 w-auto max-w-5xl -translate-x-1/2 flex-col items-center gap-3 rounded-2xl bg-white/10 p-2 shadow-2xl backdrop-blur-md sm:bottom-24 sm:flex-row sm:gap-0"
-      >
-        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white/20 sm:mr-2">
-          <img src="/logo2.jpg" className="h-10 w-10 rounded-lg object-contain" alt="Alert MFB Logo" />
-        </div>
+     {/* Floating Navigation - Desktop */}
+<motion.div
+  initial={{ y: 30, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ duration: 0.8, delay: 0.5 }}
+  className="hidden md:flex absolute bottom-25 left-1/2 z-10 w-auto max-w-5xl -translate-x-1/2 flex-col items-center gap-3 rounded-2xl bg-white/10 p-2 shadow-2xl backdrop-blur-md sm:bottom-24 sm:flex-row sm:gap-0"
+>
+  <motion.div
+    initial={{ scale: 0, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    transition={{ duration: 0.5, delay: 0.7 }}
+    className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white/20 sm:mr-2"
+  >
+    <img src="/logo2.jpg" className="h-10 w-10 rounded-lg object-contain" alt="Alert MFB Logo" />
+  </motion.div>
 
-        <div className={`flex items-center gap-3 justify-center sm:gap-2 ${activeImage.bgClass} p-1 rounded-xl flex-wrap sm:flex-nowrap`}>
-          {["Our Products", "Digital Banking", "Point of Sale", "Cards", "SME Loans"].map((text) => (
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              key={text}
-              className={`whitespace-nowrap cursor-pointer px-3 py-2 text-xs sm:text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 ${activeImage.textClass}`}
-            >
-              {text}
-            </motion.button>
-          ))}
-        </div>
+  <motion.div
+    initial="hidden"
+    animate="visible"
+    variants={{
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: {
+          staggerChildren: 0.08,
+          delayChildren: 0.2,
+        },
+      },
+    }}
+    className={`flex items-center gap-3 justify-center sm:gap-2 ${activeImage.bgClass} p-1 rounded-xl flex-wrap sm:flex-nowrap`}
+  >
+    {["Our Products", "Digital Banking", "Point of Sale", "Cards", "SME Loans"].map((text) => (
+      <motion.button
+        variants={{
+          hidden: { y: 20, opacity: 0, scale: 0.9 },
+          visible: { y: 0, opacity: 1, scale: 1 },
+        }}
+        whileHover={{ scale: 1.05, y: -2 }}
+        whileTap={{ scale: 0.95 }}
+        key={text}
+        className={`whitespace-nowrap cursor-pointer px-3 py-2 text-xs sm:text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 ${activeImage.textClass}`}
+      >
+        {text}
+      </motion.button>
+    ))}
+  </motion.div>
+
+  <motion.button
+    initial={{ x: 20, opacity: 0 }}
+    animate={{ x: 0, opacity: 1 }}
+    transition={{ duration: 0.5, delay: 0.9 }}
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="ml-0 whitespace-nowrap cursor-pointer rounded-xl bg-white px-4 py-2.5 text-xs font-medium border border-white/30 hover:bg-white/30 transition backdrop-blur-sm sm:ml-2 sm:px-6 sm:py-3 sm:text-sm"
+  >
+    Goldbucks
+  </motion.button>
+</motion.div>
+
+{/* Floating Navigation - Mobile */}
+<div className="md:hidden absolute bottom-20 left-1/2 z-10 w-[calc(100%-1.5rem)] max-w-xs -translate-x-1/2">
+  <motion.button
+    initial={{ y: 20, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    transition={{ duration: 0.5, delay: 0.5 }}
+    onClick={() => setNavOpen(!navOpen)}
+    className={`w-full rounded-2xl bg-white/10 backdrop-blur-sm p-3 shadow-2xl flex items-center justify-between ${activeImage.textClass} transition-all duration-300 hover:bg-white/20`}
+  >
+    <div className="flex items-center gap-3">
+      <motion.div
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+        className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/20"
+      >
+        <img src="/logo2.jpg" className="h-8 w-8 rounded-lg object-contain" alt="Alert MFB Logo" />
+      </motion.div>
+      <span className="text-sm font-medium">Quick Links</span>
+    </div>
+    <motion.div animate={{ rotate: navOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
+      <ChevronDown size={20} />
+    </motion.div>
+  </motion.button>
+
+  <AnimatePresence>
+    {navOpen && (
+      <motion.div
+        variants={dropdownVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className={`flex flex-col ${activeImage.bgClass} p-1 rounded-xl gap-0.5`}
+      >
+        {["Our Products", "Digital Banking", "Point of Sale", "Cards", "SME Loans"].map((text) => (
+          <motion.button
+            key={text}
+            variants={itemVariants}
+            className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 ${activeImage.textClass}`}
+          >
+            {text}
+          </motion.button>
+        ))}
 
         <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="ml-0 whitespace-nowrap cursor-pointer rounded-xl bg-white px-4 py-2.5 text-xs font-medium border border-white/30 hover:bg-white/30 transition backdrop-blur-sm sm:ml-2 sm:px-6 sm:py-3 sm:text-sm"
+          variants={itemVariants}
+          className={`w-full text-left px-4 py-3 text-sm font-medium rounded-xl bg-white/20 hover:bg-white/30 transition backdrop-blur-sm ${activeImage.textClass}`}
         >
           Goldbucks
         </motion.button>
       </motion.div>
-
-      {/* Floating Navigation - Mobile */}
-      <div className="md:hidden absolute bottom-20 left-1/2 z-10 w-[calc(100%-1.5rem)] max-w-xs -translate-x-1/2">
-        <button
-          onClick={() => setNavOpen(!navOpen)}
-          className={`w-full rounded-2xl bg-white/10 backdrop-blur-sm p-3 shadow-2xl flex items-center justify-between ${activeImage.textClass} transition-all duration-300 hover:bg-white/20`}
-        >
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/20">
-              <img src="/logo2.jpg" className="h-8 w-8 rounded-lg object-contain" alt="Alert MFB Logo" />
-            </div>
-            <span className="text-sm font-medium">Quick Links</span>
-          </div>
-          <motion.div animate={{ rotate: navOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
-            <ChevronDown size={20} />
-          </motion.div>
-        </button>
-
-        <AnimatePresence>
-          {navOpen && (
-            <motion.div
-              variants={dropdownVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="mt-2 rounded-2xl bg-white/10 backdrop-blur-sm p-2 shadow-2xl overflow-hidden border border-white/10"
-            >
-              <div className={`flex flex-col ${activeImage.bgClass} p-1 rounded-xl gap-0.5`}>
-                {["Our Products", "Digital Banking", "Point of Sale", "Cards", "SME Loans"].map((text) => (
-                  <motion.button
-                    variants={itemVariants}
-                    key={text}
-                    className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 ${activeImage.textClass}`}
-                  >
-                    {text}
-                  </motion.button>
-                ))}
-                <motion.button variants={itemVariants} className={`w-full text-left px-4 py-3 text-sm font-medium rounded-xl bg-white/20 hover:bg-white/30 transition backdrop-blur-sm ${activeImage.textClass}`}>
-                  Goldbucks
-                </motion.button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+    )}
+  </AnimatePresence>
+</div>
 
       {/* Sticky Footer */}
       <div className="absolute bottom-0 z-10 flex h-auto w-full flex-col gap-2 border-t border-white/20 bg-white/95 px-4 py-2 text-[10px] text-gray-700 backdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">

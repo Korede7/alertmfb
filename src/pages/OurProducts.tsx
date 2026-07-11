@@ -27,7 +27,7 @@ const products = [
 
 const OurProducts = () => {
   return (
-    <motion.section 
+    <motion.section
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
@@ -35,36 +35,36 @@ const OurProducts = () => {
       className="bg-white py-24 max-w-full sm:py-32 lg:py-40"
     >
       {/* Heading */}
-      <motion.div 
+      <motion.div
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.1 }}
         className="mx-auto max-w-2xl px-4 text-center"
       >
-        <motion.p 
+        <motion.p
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xs font-semibold uppercase tracking-[0.25em] text-[#E8912D]"
+          className="text-xs font-semibold uppercase tracking-[0.25em] text-secondary sm:text-sm"
         >
           Our Products
         </motion.p>
-        
-        <motion.h2 
+
+        <motion.h2
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-4 text-2xl font-bold leading-tight text-[#150F45] sm:text-5xl"
+          className="mt-4 text-2xl font-bold leading-tight text-primary sm:text-5xl"
         >
           One Bank for
           <br />
           Everything you need.
         </motion.h2>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -74,7 +74,7 @@ const OurProducts = () => {
           From your first salary to financing your business, Alert MFB grows with you
         </motion.p>
 
-        <motion.button 
+        <motion.button
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -84,7 +84,7 @@ const OurProducts = () => {
           className="mx-auto mt-8 flex items-center gap-4 rounded-full bg-[#150F45] py-1.5 pl-6 pr-1.5 text-sm font-medium text-white transition hover:bg-[#0f0b34]"
         >
           Open an account in minutes
-          <motion.span 
+          <motion.span
             whileHover={{ x: 3 }}
             transition={{ duration: 0.2 }}
             className="flex h-8 w-8 items-center justify-center rounded-full bg-white"
@@ -95,20 +95,20 @@ const OurProducts = () => {
       </motion.div>
 
       {/* Goldbucks banner */}
-      <motion.div 
+      <motion.div
         initial={{ y: 40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.2 }}
         className="relative mx-auto mt-16 max-w-6xl px-4"
       >
-        <motion.div 
+        <motion.div
           transition={{ duration: 0.3 }}
           className="relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-[#C57A2E] to-[#F6C568]"
         >
           <div className="flex h-[280px] flex-col justify-between px-8 py-8 sm:h-[300px] sm:max-w-sm sm:px-12 sm:py-10">
             <div>
-              <motion.h3 
+              <motion.h3
                 initial={{ x: -20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -117,7 +117,7 @@ const OurProducts = () => {
               >
                 Goldbucks
               </motion.h3>
-              <motion.p 
+              <motion.p
                 initial={{ x: -20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -131,14 +131,14 @@ const OurProducts = () => {
               </motion.p>
             </div>
 
-            <motion.div 
+            <motion.div
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.6 }}
               className="flex flex-nowrap items-center gap-3"
             >
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-white px-5 py-2.5 text-xs font-medium text-[#150F45] transition hover:bg-gray-50"
@@ -147,7 +147,7 @@ const OurProducts = () => {
                 Get on iPhone
               </motion.button>
 
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-white/60 px-5 py-2.5 text-xs font-medium text-white transition hover:bg-white/10"
@@ -172,7 +172,7 @@ const OurProducts = () => {
       </motion.div>
 
       {/* Product cards */}
-      <motion.div 
+      <motion.div
         initial={{ y: 40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
@@ -186,47 +186,53 @@ const OurProducts = () => {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 + (index * 0.15) }}
-            whileHover={{ 
-              y: -8, 
+            whileHover={{
+              y: -8,
               scale: 1.02,
               boxShadow: "0 20px 40px -12px rgba(0,0,0,0.15)"
             }}
-           
+
             className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm"
           >
-            <motion.div
-              whileHover={{ rotate: 10, scale: 1.1 }}
-              transition={{ duration: 0.3 }}
-              className={`flex h-10 w-10 items-center justify-center rounded-xl ${p.iconBg}`}
-            >
-              <Smartphone size={18} className={p.iconColor} />
-            </motion.div>
-            
-            <motion.h4 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: 0.5 + (index * 0.15) }}
-              className="mt-4 text-sm font-semibold text-[#150F45]"
-            >
-              {p.title}
-            </motion.h4>
-            
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: 0.6 + (index * 0.15) }}
-              className="mt-1 text-xs text-slate-400"
-            >
-              {p.description}
-            </motion.p>
+
+
+            <span className="flex flex-row gap-3 items-center">
+              <motion.div
+                whileHover={{ rotate: 10, scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+                className={`flex h-10 w-10 mt-3 items-center justify-center rounded-xl ${p.iconBg}`}
+              >
+                <Smartphone size={18} className={p.iconColor} />
+              </motion.div>
+              <span>
+                <motion.h4
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.5 + (index * 0.15) }}
+                  className="mt-4 text-sm font-semibold text-[#150F45]"
+                >
+                  {p.title}
+                </motion.h4>
+
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.6 + (index * 0.15) }}
+                  className="mt-1 text-xs text-primary font-light"
+                >
+                  {p.description}
+                </motion.p>
+              </span>
+            </span>
+
 
             <motion.a
               href="#"
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
-              className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-[#E8912D]"
+              className="mt-13 ml-13 inline-flex items-center  gap-1 text-xs font-medium text-[#E8912D]"
             >
               {p.cta} <ArrowRight size={12} />
             </motion.a>

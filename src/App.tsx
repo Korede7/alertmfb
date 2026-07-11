@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Homepage from "./pages/Homepage";
 import OurProducts from "./pages/OurProducts";
+import DigitalBanking from "./quicklinks/DigitalBanking";
 
 const defaultTheme = {
   textClass: "text-[#17145D]",
@@ -39,10 +40,11 @@ const App = () => {
   };
 
   return (
-    <div className="">
+    <div className="bg-white min-h-screen">
       <Navbar theme={isHomeActive ? activeTheme : defaultTheme} />
       <Homepage onThemeChange={handleThemeChange} />
       <OurProducts />
+      <DigitalBanking/>
     </div>
   );
 };

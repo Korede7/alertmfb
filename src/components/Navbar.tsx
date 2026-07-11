@@ -52,7 +52,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                     <div className="flex items-center">
                         <div className="flex items-center rounded-full shadow-sm bg-white/10 pr-8 pl-0 py-">
                             {/* Logo Circle */}
-                            <div className={`flex h-[40px] w-[40px] items-center justify-center rounded-full shadow-sm ${theme.textClass === "text-white" ? "bg-white" : "bg-[#17145D]"}`}>
+                            <div className={`flex h-[40px] w-[40px] items-center justify-center rounded-full shadow-sm ${theme.textClass === "text-white" ? "bg-white" : "bg-primary"}`}>
                                 <img
                                     src={theme.textClass === "text-white" ? "/logo2.jpg" : "/logo.jpg"}
                                     alt="Alert MFB"
@@ -109,10 +109,10 @@ const Navbar = ({ theme }: NavbarProps) => {
                         </button>
 
                         {/* Sign In */}
-                        <button className={`flex h-11.5 items-center rounded-full pl-7 pr-1 text-[15px] font-medium transition ${theme.textClass === "text-white" ? "bg-white text-[#150F45] hover:bg-[#f8f8f8]" : "bg-[#150F45] text-white hover:bg-[#100b33]"}`}>
+                        <button className={`flex h-11.5 items-center rounded-full pl-7 pr-1 text-[15px] font-medium transition ${theme.textClass === "text-white" ? "bg-white text-primary hover:bg-[#f8f8f8]" : "bg-primary text-white hover:bg-[#100b33]"}`}>
                             <span>Sign In</span>
 
-                            <span className={`ml-5 flex h-10 w-10 items-center justify-center rounded-full ${theme.textClass === "text-white" ? "bg-[#150F45] text-white" : "bg-white text-[#150F45]"}`}>
+                            <span className={`ml-5 flex h-10 w-10 items-center justify-center rounded-full ${theme.textClass === "text-white" ? "bg-primary text-white" : "bg-white text-primary"}`}>
                                 <ArrowRight size={18} strokeWidth={2.5} />
                             </span>
                         </button>

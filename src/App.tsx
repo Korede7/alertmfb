@@ -3,6 +3,12 @@ import Navbar from "./components/Navbar";
 import Homepage from "./pages/Homepage";
 import OurProducts from "./pages/OurProducts";
 import DigitalBanking from "./quicklinks/DigitalBanking";
+import PointOfSales from "./quicklinks/PointOfSales";
+import Cards from "./quicklinks/Cards";
+import SMELoans from "./quicklinks/SMELoans";
+import Testimonials from "./components/Testimonials";
+import GetStarted from "./components/GetStarted";
+import FindABranch from "./components/FindABranch";
 
 const defaultTheme = {
   textClass: "text-[#17145D]",
@@ -45,6 +51,12 @@ const App = () => {
       <Homepage onThemeChange={handleThemeChange} />
       <OurProducts />
       <DigitalBanking/>
+      <PointOfSales/>
+      <Cards/>
+      <SMELoans/>
+      <Testimonials/>
+      <GetStarted/>
+      <FindABranch/>
     </div>
   );
 };

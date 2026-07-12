@@ -1,5 +1,7 @@
-import { ArrowRight, Apple, PlayCircle, Smartphone } from "lucide-react";
+import { ArrowRight, Smartphone } from "lucide-react";
 import { motion } from "framer-motion";
+import { IoLogoGooglePlaystore } from "react-icons/io5";
+import { IoLogoApple } from "react-icons/io";
 
 const products = [
   {
@@ -47,7 +49,7 @@ const OurProducts = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xs font-semibold uppercase tracking-[0.25em] text-secondary sm:text-sm"
+          className="text-xs font-semibold tracking-[0.9rem] uppercase tracking-[0.25em] text-secondary sm:text-sm"
         >
           Our Products
         </motion.p>
@@ -57,7 +59,7 @@ const OurProducts = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-4 text-2xl font-bold leading-tight text-primary sm:text-5xl"
+          className="mt-4 text-2xl font-medium leading-tight text-primary sm:text-5xl"
         >
           One Bank for
           <br />
@@ -81,7 +83,7 @@ const OurProducts = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="mx-auto mt-8 flex items-center gap-4 rounded-full bg-[#150F45] py-1.5 pl-6 pr-1.5 text-sm font-medium text-white transition hover:bg-[#0f0b34]"
+          className="mx-auto mt-8 flex items-center gap-4 rounded-full bg-[#150F45] py-1.5 pl-6 pr-1.5 text-sm text-white transition hover:bg-[#0f0b34]"
         >
           Open an account in minutes
           <motion.span
@@ -113,7 +115,7 @@ const OurProducts = () => {
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="text-2xl font-bold text-white"
+                className="text-2xl font-semibold text-white"
               >
                 Goldbucks
               </motion.h3>
@@ -141,18 +143,18 @@ const OurProducts = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-white px-5 py-2.5 text-xs font-medium text-[#150F45] transition hover:bg-gray-50"
+                className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-white px-5 py-2.5 text-xs font-medium text-secondary transition hover:bg-gray-50 cursor-pointer"
               >
-                <Apple size={14} />
+                <IoLogoApple size={20} />
                 Get on iPhone
               </motion.button>
 
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-white/60 px-5 py-2.5 text-xs font-medium text-white transition hover:bg-white/10"
+                className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-white/60 px-5 py-2.5 text-xs font-medium text-white transition hover:bg-white/10 cursor-pointer"
               >
-                <PlayCircle size={14} />
+                <IoLogoGooglePlaystore size={20} />
                 Get on Android
               </motion.button>
             </motion.div>
@@ -232,7 +234,7 @@ const OurProducts = () => {
               href="#"
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
-              className="mt-13 ml-13 inline-flex items-center  gap-1 text-xs font-medium text-[#E8912D]"
+              className="mt-8 ml-13 inline-flex items-center  gap-1 text-xs font-medium text-[#E8912D]"
             >
               {p.cta} <ArrowRight size={12} />
             </motion.a>

@@ -15,7 +15,7 @@ type HomepageProps = {
 };
 
 const images = [
-  { src: "/heroBg2.jpg", textClass: "text-primary", buttonClass: "border-primary text-primary", bgClass: "bg-white", buttonClass2: "border-white text-primary bg-primary" },
+  { src: "/heroBg2.jpg", textClass: "text-primary", buttonClass: "border-primary text-primary hover:bg-gray-50", bgClass: "bg-white", buttonClass2: "border-white text-primary bg-primary" },
   { src: "/heroBg24.jpg", textClass: "text-white", buttonClass: "border-white text-white", bgClass: "bg-primary", buttonClass2: "border-white text-primary bg-white" },
 ];
 
@@ -151,7 +151,7 @@ const Homepage = ({ onThemeChange }: HomepageProps) => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`flex h-11 items-center gap-2 rounded-full px-5 text-sm transition sm:h-12 sm:px-7 ${activeIndex === 0 ? "bg-primary text-white hover:bg-[#100d46]" : "bg-white text-primary hover:bg-white/90"}`}
+            className={`flex h-11 items-center gap-2 rounded-full px-5 text-sm transition sm:h-12 sm:px-7 cursor-pointer ${activeIndex === 0 ? "bg-primary text-white hover:bg-[#100d46]" : "bg-white text-primary hover:bg-white/90 "}`}
           >
             <IoLogoApple size={20} />
             <span className="text-sm font-medium">Get on iPhone</span>
@@ -160,8 +160,8 @@ const Homepage = ({ onThemeChange }: HomepageProps) => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`flex h-11 items-center gap-2 rounded-full border bg-transparent px-5 text-sm transition hover:bg-white/10 sm:h-12 sm:px-7 ${activeIndex === 0 ? "border-primary text-primary" : "border-white text-white"}`}
-          >
+            className={`flex h-11 items-center gap-2 rounded-full border bg-transparent px-5 text-sm transition hover:bg-white/10 sm:h-12 sm:px-7 cursor-pointer ${activeIndex === 0 ? "border-primary text-primary" : "border-white text-white" }`}
+          > 
             <IoLogoGooglePlaystore size={20} />
             <span className="text-sm font-medium">Get on Android</span>
           </motion.button>

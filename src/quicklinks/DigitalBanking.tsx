@@ -116,7 +116,7 @@ const DigitalBanking = () => {
                 className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-8"
             >
                 <div>
-                    <p className="text-[11px] tracking-[0.2em] font-bold text-[#e0a030] mb-3">
+                    <p className="text-[11px] tracking-[0.9em] font-bold text-secondary mb-3">
                         DIGITAL BANKING
                     </p>
                     <h1 className="text-xl md:text-4xl leading-[1.15] font-extrabold text-[#171338] mb-4">
@@ -167,7 +167,7 @@ const DigitalBanking = () => {
                     layout
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                     whileHover={{ y: -2 }}
-                    className={`relative rounded-2xl overflow-hidden h-80 md:h-85 p-5 flex flex-col justify-between cursor-pointer
+                    className={`relative rounded-2xl overflow-hidden h-80 md:h-85 p-8 flex flex-col justify-between cursor-pointer
             bg-gradient-to-br from-[#241a52] via-[#1a1440] to-[#0e0b22]
             transition-[flex-grow] duration-500 ease-in-out
             ${isActive("personal") ? "" : "min-w-[110px]"}`}
@@ -198,7 +198,7 @@ const DigitalBanking = () => {
                     {/* Expanded content */}
                     <FadeIn active={isActive("personal")} className="flex flex-col justify-between h-full">
                         <div>
-                            <h3 className="text-white font-semibold text-base mb-1">
+                            <h3 className="text-white font-semibold text-2xl mb-1">
                                 Personal Banking
                             </h3>
                             <p className="text-[#c9c4e8] text-xs leading-relaxed max-w-md">
@@ -229,8 +229,8 @@ const DigitalBanking = () => {
                                     goals faster.
                                 </p>
                             </div>
-                            <span className="w-10 h-10 shrink-0 self-end rounded-full  bg-white flex items-center justify-center">
-                                <ArrowRight size={14} className="text-[#171338]" />
+                            <span className="w-10 h-10 shrink-0 shadow-md self-end rounded-full  bg-white flex items-center justify-center">
+                                <ArrowRight size={20} className="text-[#171338]" />
                             </span>
                         </div>
                     </FadeIn>
@@ -246,7 +246,7 @@ const DigitalBanking = () => {
                     layout
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                     whileHover={{ y: -2 }}
-                    className={`relative rounded-2xl overflow-hidden h-80 md:h-85 p-5 flex flex-col justify-between cursor-pointer
+                    className={`relative rounded-2xl overflow-hidden h-80 md:h-85 p-8 flex flex-col justify-between cursor-pointer
             bg-gradient-to-br from-[#c9922e] via-[#dba647] to-[#f0cf94]
             transition-[flex-grow] duration-500 ease-in-out
             ${isActive("business") ? "" : "min-w-[110px]"}`}
@@ -278,7 +278,7 @@ const DigitalBanking = () => {
                     {/* Expanded content */}
                     <FadeIn active={isActive("business")} className="flex flex-col justify-between h-full">
                         <div>
-                            <h3 className="text-white font-semibold text-base mb-1">
+                            <h3 className="text-white font-semibold text-2xl mb-1">
                                 Business
                             </h3>
                             <p className="text-white/90 text-xs leading-relaxed max-w-md">
@@ -292,7 +292,7 @@ const DigitalBanking = () => {
                                     Instant Business Accounts:
                                 </p>
                                 <p className="text-white/90 text-[11px] leading-snug">
-                                    register your business, open
+                                    Register your business, <br /> open
                                     your account online, and
                                     receive client payments instantly.
                                 </p>
@@ -308,8 +308,8 @@ const DigitalBanking = () => {
                                     your physical storefront.
                                 </p>
                             </div>
-                            <span className="w-10 h-10 shrink-0 self-end rounded-full  bg-white flex items-center justify-center">
-                                <ArrowRight size={14} className="text-[#171338]" />
+                            <span className="w-10 h-10 shrink-0 shadow-md self-end rounded-full  bg-white flex items-center justify-center">
+                                <ArrowRight size={20} className="text-[#171338]" />
                             </span>
                         </div>
                     </FadeIn>
@@ -325,7 +325,7 @@ const DigitalBanking = () => {
                     layout
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                     whileHover={{ y: -2 }}
-                    className={`relative rounded-2xl overflow-hidden h-80 md:h-85 bg-[#1a1542] p-5 flex flex-col justify-between cursor-pointer
+                    className={`relative rounded-2xl overflow-hidden h-80 md:h-85 bg-[#1a1542] p-8 flex flex-col justify-between cursor-pointer
             transition-[flex-grow] duration-500 ease-in-out
             ${isActive("credit") ? "" : "min-w-[110px]"}`}
                 >
@@ -356,7 +356,7 @@ const DigitalBanking = () => {
                     {/* Expanded content */}
                     <FadeIn active={isActive("credit")} className="relative z-10 flex flex-col justify-between h-full">
                         <div>
-                            <h3 className="text-white font-semibold text-base mb-1">
+                            <h3 className="text-white font-semibold text-2xl mb-1">
                                 Credit &amp; Loans
                             </h3>
                             <p className="text-[#c9c4e8] text-xs leading-relaxed max-w-md">
@@ -385,8 +385,8 @@ const DigitalBanking = () => {
                                     backing from ₦500,000 to ₦1,000,000.
                                 </p>
                             </div>
-                            <span className="w-10 h-10 shrink-0 self-end rounded-full  bg-white flex items-center justify-center">
-                                <ArrowRight size={14} className="text-[#171338]" />
+                            <span className="w-10 h-10 shrink-0 self-end shadow-md rounded-full  bg-white flex items-center justify-center">
+                                <ArrowRight size={20} className="text-[#171338]" />
                             </span>
                         </div>
                     </FadeIn>
@@ -405,9 +405,9 @@ const DigitalBanking = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: featuresInView ? 1 : 0, x: featuresInView ? 0 : -20 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="bg-[#f6f6fa] rounded-xl p-4 flex flex-col gap-3"
+                    className="bg-[#f6f6fa] rounded-xl p-4 flex flex-col gap-3 shadow-m"
                 >
-                    <span className="w-8 h-8 rounded-md bg-[#f6f6fa]/90 shadow-sm flex items-center justify-center text-[#171338]">
+                    <span className="w-8 h-8 rounded-md bg-white shadow-sm flex items-center justify-center text-primary">
                         <Shield size={16} />
                     </span>
                     <div>
@@ -427,7 +427,7 @@ const DigitalBanking = () => {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="bg-[#f6f6fa] rounded-xl p-4 flex flex-col gap-3"
                 >
-                    <span className="w-8 h-8 rounded-md bg-white shadow-sm flex items-center justify-center text-[#171338]">
+                    <span className="w-8 h-8 rounded-md bg-white shadow-sm flex items-center justify-center text-primary">
                         <Headset size={16} />
                     </span>
                     <div>
@@ -467,7 +467,7 @@ const DigitalBanking = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: statsInView ? 1 : 0, y: statsInView ? 0 : 30 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="grid grid-cols-3 gap-4 border-t border-gray-100 pt-6"
+                className="grid grid-cols-3 gap-8 pt-6"
             >
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -479,7 +479,7 @@ const DigitalBanking = () => {
                         <h1 className="text-xs text-primary">App Store Rating</h1>
                     </div>
                     <p className="text-xl font-bold text-primary flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 bg-red-500" />
+                        <span className="w-2.5 h-2.5 bg-red-500 animate-pulse" />
                         <h2 className="text-5xl font-semibold text-[#171338]">{rating.toFixed(1)}</h2>
                     </p>
                 </motion.div>
@@ -493,7 +493,7 @@ const DigitalBanking = () => {
                         <h1 className="text-xs text-primary">Customers Served</h1>
                     </div>
                     <p className="text-xl font-bold text-primary flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 bg-gray-400" />
+                        <span className="w-2.5 h-2.5 bg-gray-400 animate-pulse" />
                         <h2 className="text-5xl font-semibold text-[#171338]">{customers >= 1000 ? `${Math.round(customers/1000)}k+` : customers}</h2>
                     </p>
                 </motion.div>
@@ -507,7 +507,7 @@ const DigitalBanking = () => {
                         <h1 className="text-xs text-primary">Customer Satisfaction (NPS-based)</h1>
                     </div>
                     <p className="text-xl sm:text-2xl font-bold text-primary flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 bg-green-400" />
+                        <span className="w-2.5 h-2.5 bg-green-400 animate-pulse" />
                         <h2 className="text-5xl font-semibold text-[#171338]">{satisfaction}%</h2>
                     </p>
                 </motion.div>

@@ -1,6 +1,10 @@
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
+import card3 from "/card3.png"
+import card2 from "/card2.png"
+import card1 from "/card1.png"
+import { BsBank } from "react-icons/bs";
 
 const cards = [
     {
@@ -11,6 +15,7 @@ const cards = [
             "Contactless payments",
             "Full control via app",
         ],
+        image: card3
     },
     {
         title: "International Debit Card",
@@ -20,6 +25,7 @@ const cards = [
             "Use anywhere Visa/Mastercard is accepted",
             "Activate international use in-app",
         ],
+        image: card2
     },
     {
         title: "Prepaid Card",
@@ -29,6 +35,8 @@ const cards = [
             "Reloadable anytime",
             "No bank account required to gift",
         ],
+        image: card1
+
     },
 ];
 
@@ -44,6 +52,8 @@ const Cards = () => {
     const statsRef = useRef(null);
     const isInView = useInView(statsRef, { once: true, margin: "-100px" });
     const [hasAnimated, setHasAnimated] = useState(false);
+    const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
 
     // Animation for stats counters
     useEffect(() => {
@@ -135,7 +145,7 @@ const Cards = () => {
                 {/* Animated heading */}
                 <motion.h2
                     variants={itemVariants}
-                    className="text-primary text-4xl md:text-5xl font-medium mb-4"
+                    className="text-primary text-xl md:text-5xl font-medium mb-4"
                 >
                     A card for every way you pay
                 </motion.h2>
@@ -179,41 +189,167 @@ const Cards = () => {
                 >
                     {cards.map((card, index) => (
                         <motion.div
-                            key={card.title}
+                            key={index}
                             variants={cardVariants}
+                            onHoverStart={() => setHoveredCard(index)}
+                            onHoverEnd={() => setHoveredCard(null)}
                             whileHover={{
                                 y: -10,
                                 boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
                             }}
                             transition={{ duration: 0.3 }}
-                            className="relative rounded-2xl mt-6 p-6 h-95 flex flex-col justify-between overflow-hidden"
+                            className="relative rounded-2xl mt-6 p-5 h-[390px] overflow-hidden"
                             style={{
                                 background:
                                     "linear-gradient(160deg, #4a3f8a 0%, #2c2560 45%, #150f30 100%)",
                             }}
                         >
+                            {/* Title */}
                             <motion.h3
                                 whileHover={{ scale: 1.05 }}
-                                className="text-white text-base text-right font-semibold"
+                                className="text-white text-md font-semibold text-right mb-5"
                             >
                                 {card.title}
                             </motion.h3>
-                            <ul className={`space-y-1.5 ${index < 2 ? 'list-disc list-inside' : ''}`}>
-                                {card.features.map((f, idx) => (
+                            {/* Card Image */}
+                            <div className="flex justify-center mb-4 mt-1">
+                                <motion.img
+                                    src={card.image}
+                                    alt={card.title}
+                                    animate={
+                                        hoveredCard === index
+                                            ? {
+                                                scale: index === 0 ? 5 : 5,
+                                                x: 55,
+                                                y: -35,
+                                                rotate: index === 0 ? 0 : 12,
+                                            }
+                                            : {
+                                                scale: 1,
+                                                x: 0,
+                                                y: 0,
+                                                rotate: 0,
+                                            }
+                                    }
+                                    transition={{
+                                        duration: 0.8,
+                                        ease: [0.22, 1, 0.36, 1],
+                                    }}
+                                    className={`w-3/4 h-auto object-contain  mt-7.5 ${index === 0
+                                            ? "drop-shadow-[0_8px_25px_rgba(168,85,247,0.4)] scale-105"
+                                            : index === 1
+                                                ? "drop-shadow-[0_8px_25px_rgba(59,130,246,0.4)] scale-105"
+                                                : "drop-shadow-[0_8px_25px_rgba(16,185,129,0.4)] scale-105"
+                                        }`}
+                                    style={{
+                                        ...(index === 0 && {
+                                            filter: "brightness(1.05) contrast(1.05)",
+                                        }),
+                                        ...(index === 1 && {
+                                            filter: "brightness(1.1) saturate(1.1)",
+                                        }),
+                                        ...(index === 2 && {
+                                            filter: "brightness(1.05) saturate(0.95)",
+                                        }),
+                                        transformOrigin: "center center",
+                                    }}
+                                />
+                                {[
+                                    {
+                                        text: "Premium Banking",
+                                        color: "border-green-400 text-green-400",
+                                    },
+                                    {
+                                        text: "Worldwide Access",
+                                        color: "border-blue-400 text-blue-400",
+                                    },
+                                    {
+                                        text: "Budget Friendly",
+                                        color: "border-amber-400 text-amber-400",
+                                    },
+                                ][index] && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={
+                                                hoveredCard === index
+                                                    ? {
+                                                        opacity: 1,
+                                                        y: [0, -6, 0],
+                                                    }
+                                                    : {
+                                                        opacity: 0,
+                                                        y: 10,
+                                                    }
+                                            }
+                                            transition={{
+                                                opacity: { duration: 0.25 },
+                                                y: {
+                                                    duration: 2.5,
+                                                    repeat: Infinity,
+                                                    ease: "easeInOut",
+                                                },
+                                            }}
+                                            className={`absolute top-16 left-5 z-30 rounded-full bg-white/10 px-3 py-1 backdrop-blur-md border ${[
+                                                "border-green-400 text-green-400",
+                                                "border-black text-black",
+                                                "border-white text-white",
+                                            ][index]
+                                                }`}
+                                        >
+                                            <span className="text-[9px] font-medium uppercase tracking-[0.2em] flex items-center">
+                                                <BsBank className="mr-2" />
+                                                {
+                                                    [
+                                                        "Premium Banking",
+                                                        "Worldwide Access",
+                                                        "Budget Friendly",
+                                                    ][index]
+                                                }
+                                            </span>
+                                        </motion.div>
+                                    )}
+                            </div>
+
+
+                            {/* Features */}
+                            <motion.ul
+                                animate={
+                                    hoveredCard === index
+                                        ? {
+                                            y: -12, // move features up on hover
+                                        }
+                                        : {
+                                            y: 0,
+                                        }
+                                }
+                                transition={{ duration: 0.35 }}
+                                className={`space-y-1 text-white text-[10px] leading-4 mb-5 absolute bottom-3 left-5 z-20`}
+                            >
+                                {card.features.map((f) => (
                                     <motion.li
                                         key={f}
                                         variants={featureVariants}
-                                        custom={idx}
-                                        className={`text-white text-shadow text-xs leading-relaxed ${index < 2 ? 'pl-1' : ''
-                                            }`}
-                                        whileHover={{ x: 5, color: "#ffffff" }}
+                                        animate={
+                                            hoveredCard === index
+                                                ? {
+                                                    fontWeight: 700,
+
+                                                    x: 1,
+                                                }
+                                                : {
+                                                    fontWeight: 400,
+
+                                                    x: 1,
+                                                }
+                                        }
+                                        transition={{ duration: 0.25 }}
                                     >
-                                        {f}
+                                        • {f}
                                     </motion.li>
                                 ))}
-                            </ul>
+                            </motion.ul>
 
-                            {/* Animated glow effect */}
+                            {/* Glow Effects */}
                             <motion.div
                                 className="absolute -top-20 -right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-2xl"
                                 animate={{
@@ -226,6 +362,7 @@ const Cards = () => {
                                     ease: "easeInOut",
                                 }}
                             />
+
                             <motion.div
                                 className="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"
                                 animate={{

@@ -1,8 +1,9 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { aboutUsMenu, businessBankingMenu, helpAndSupportMenu, loansMenu, personalBankingMenu } from "../utils";
+import NavDropdown from "./NavDropDown";
+import { Link } from "react-router-dom";
 
 type NavbarProps = {
     theme: {
@@ -15,13 +16,16 @@ type NavbarProps = {
 const Navbar = ({ theme }: NavbarProps) => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const navRef = useRef<HTMLDivElement>(null);
+
+    const toggleDropdown = (id: string) => {
+        setActiveDropdown((prev) => (prev === id ? null : id));
+    };
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
-
-        // run once on mount in case the page loads already scrolled
         handleScroll();
-
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
@@ -38,20 +42,38 @@ const Navbar = ({ theme }: NavbarProps) => {
         };
     }, [mobileMenuOpen]);
 
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                navRef.current &&
+                !navRef.current.contains(event.target as Node)
+            ) {
+                setActiveDropdown(null);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     return (
         <nav
             className={`w-full fixed left-0 top-0 z-50 transition-colors duration-300 ${scrolled ? "bg-white shadow-sm" : "bg-transparent"
                 }`}
         >
             <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-10">
-
                 {/* Left */}
                 <div className="flex items-center gap-8 sm:gap-10 lg:gap-14">
                     {/* Logo */}
-                    <div className="flex items-center">
-                        <div className="flex items-center rounded-full shadow-xs bg-gray-200/30 pr-8 pl-0 py-">
+                    <Link to="/" className="flex items-center">
+                        <div className="flex items-center rounded-full shadow-xs bg-gray-200/30 pr-8 pl-0 cursor-pointer transition-transform duration-300 hover:scale-105">
                             {/* Logo Circle */}
-                            <div className={`flex h-[40px] w-[40px] items-center justify-center rounded-full shadow-sm ${theme.textClass === "text-white" ? "bg-white" : "bg-primary"}`}>
+                            <div
+                                className={`flex h-[40px] w-[40px] items-center justify-center rounded-full shadow-sm ${theme.textClass === "text-white" ? "bg-white" : "bg-primary"
+                                    }`}
+                            >
                                 <img
                                     src={theme.textClass === "text-white" ? "/logo2.jpg" : "/logo.jpg"}
                                     alt="Alert MFB"
@@ -64,42 +86,64 @@ const Navbar = ({ theme }: NavbarProps) => {
                                 Alert MFB
                             </span>
                         </div>
-                    </div>
+                    </Link>
 
-                    {/* Left Links - hidden on mobile, visible on lg */}
-                    <div className="hidden items-center gap-9 lg:flex">
-                        <button className={`flex items-center gap-1 text-[12px] font-medium ${theme.textClass}`}>
-                            Personal Banking
-                            <ChevronDown size={13} />
-                        </button>
-
-                        <button className={`flex items-center gap-1 text-[12px] font-medium ${theme.textClass}`}>
-                            Business Banking
-                            <ChevronDown size={13} />
-                        </button>
+                    {/* All Nav Links - Single container with ref */}
+                    <div
+                        ref={navRef}
+                        className="hidden items-center gap-8 lg:flex lg:gap-12"
+                    >
+                        <div className="hidden flex items-center gap-40 lg:flex justify-between ">
+                            <span className="flex gap-6">
+                                <NavDropdown
+                                    label="Personal Banking"
+                                    id="personal"
+                                    items={personalBankingMenu}
+                                    theme={theme}
+                                    activeDropdown={activeDropdown}
+                                    toggleDropdown={toggleDropdown}
+                                />
+                                <NavDropdown
+                                    label="Business Banking"
+                                    id="business"
+                                    items={businessBankingMenu}
+                                    theme={theme}
+                                    activeDropdown={activeDropdown}
+                                    toggleDropdown={toggleDropdown}
+                                />
+                            </span>
+                            <span className="flex gap-9">
+                                <NavDropdown
+                                    label="Loans"
+                                    id="Loans"
+                                    items={loansMenu}
+                                    theme={theme}
+                                    activeDropdown={activeDropdown}
+                                    toggleDropdown={toggleDropdown}
+                                />
+                                <NavDropdown
+                                    label="About Us"
+                                    id="about"
+                                    items={aboutUsMenu}
+                                    theme={theme}
+                                    activeDropdown={activeDropdown}
+                                    toggleDropdown={toggleDropdown}
+                                />
+                                <NavDropdown
+                                    label="Help & Support"
+                                    id="support"
+                                    items={helpAndSupportMenu}
+                                    theme={theme}
+                                    activeDropdown={activeDropdown}
+                                    toggleDropdown={toggleDropdown}
+                                />
+                            </span>
+                        </div>
                     </div>
                 </div>
 
-                {/* Right Side - Desktop */}
+                {/* Right Side - Desktop Buttons */}
                 <div className="hidden items-center gap-8 lg:flex lg:gap-12">
-
-                    {/* Right Links */}
-                    <div className="flex items-center gap-6 lg:gap-9">
-                        <button className={`flex items-center gap-1 text-[12px] font-medium ${theme.textClass}`}>
-                            Loans
-                            <ChevronDown size={13} />
-                        </button>
-
-                        <button className={`flex items-center gap-1 text-[12px] font-medium ${theme.textClass}`}>
-                            About Us
-                            <ChevronDown size={13} />
-                        </button>
-
-                        <button className={`text-[12px] font-medium ${theme.textClass}`}>
-                            Help & Support
-                        </button>
-                    </div>
-
                     {/* Buttons */}
                     <div className="flex items-center gap-3">
                         {/* Join Alert */}
@@ -110,10 +154,19 @@ const Navbar = ({ theme }: NavbarProps) => {
                         </button>
 
                         {/* Sign In */}
-                        <button className={`flex h-11.5 items-center rounded-full pl-7 pr-1 cursor-pointer text-[15px] font-medium transition-transform duration-300 hover:scale-105  ${theme.textClass === "text-white" ? "bg-white text-primary hover:bg-[#f8f8f8]" : "bg-primary text-white hover:bg-[#100b33]"}`}>
+                        <button
+                            className={`flex h-11.5 items-center rounded-full pl-7 pr-1 cursor-pointer text-[15px] font-medium transition-transform duration-300 hover:scale-105  ${theme.textClass === "text-white"
+                                ? "bg-white text-primary hover:bg-[#f8f8f8]"
+                                : "bg-primary text-white hover:bg-[#100b33]"
+                                }`}
+                        >
                             <span>Sign In</span>
-
-                            <span className={`ml-5 flex h-10 w-10 items-center justify-center rounded-full ${theme.textClass === "text-white" ? "bg-primary text-white" : "bg-white text-primary"}`}>
+                            <span
+                                className={`ml-5 flex h-10 w-10 items-center justify-center rounded-full ${theme.textClass === "text-white"
+                                    ? "bg-primary text-white"
+                                    : "bg-white text-primary"
+                                    }`}
+                            >
                                 <ArrowRight size={18} strokeWidth={2.5} />
                             </span>
                         </button>
@@ -127,7 +180,6 @@ const Navbar = ({ theme }: NavbarProps) => {
                 >
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
-
             </div>
 
             {/* Mobile Menu - Slide in from left */}
@@ -164,27 +216,52 @@ const Navbar = ({ theme }: NavbarProps) => {
 
                                 {/* Mobile Links */}
                                 <div className="flex flex-col space-y-1">
-                                    <button className={`flex items-center gap-1 text-sm font-medium ${theme.textClass === "text-white" ? "text-[#23235A]" : theme.textClass} py-3 px-4 rounded-lg hover:bg-gray-50 transition`}>
+                                    <button
+                                        className={`flex items-center gap-1 text-sm font-medium ${theme.textClass === "text-white"
+                                            ? "text-[#23235A]"
+                                            : theme.textClass
+                                            } py-3 px-4 rounded-lg hover:bg-gray-50 transition`}
+                                    >
                                         Personal Banking
                                         <ChevronDown size={13} />
                                     </button>
 
-                                    <button className={`flex items-center gap-1 text-sm font-medium ${theme.textClass === "text-white" ? "text-[#23235A]" : theme.textClass} py-3 px-4 rounded-lg hover:bg-gray-50 transition`}>
+                                    <button
+                                        className={`flex items-center gap-1 text-sm font-medium ${theme.textClass === "text-white"
+                                            ? "text-[#23235A]"
+                                            : theme.textClass
+                                            } py-3 px-4 rounded-lg hover:bg-gray-50 transition`}
+                                    >
                                         Business Banking
                                         <ChevronDown size={13} />
                                     </button>
 
-                                    <button className={`flex items-center gap-1 text-sm font-medium ${theme.textClass === "text-white" ? "text-[#23235A]" : theme.textClass} py-3 px-4 rounded-lg hover:bg-gray-50 transition`}>
+                                    <button
+                                        className={`flex items-center gap-1 text-sm font-medium ${theme.textClass === "text-white"
+                                            ? "text-[#23235A]"
+                                            : theme.textClass
+                                            } py-3 px-4 rounded-lg hover:bg-gray-50 transition`}
+                                    >
                                         Loans
                                         <ChevronDown size={13} />
                                     </button>
 
-                                    <button className={`flex items-center gap-1 text-sm font-medium ${theme.textClass === "text-white" ? "text-[#23235A]" : theme.textClass} py-3 px-4 rounded-lg hover:bg-gray-50 transition`}>
+                                    <button
+                                        className={`flex items-center gap-1 text-sm font-medium ${theme.textClass === "text-white"
+                                            ? "text-[#23235A]"
+                                            : theme.textClass
+                                            } py-3 px-4 rounded-lg hover:bg-gray-50 transition`}
+                                    >
                                         About Us
                                         <ChevronDown size={13} />
                                     </button>
 
-                                    <button className={`text-sm font-medium ${theme.textClass === "text-white" ? "text-[#23235A]" : theme.textClass} py-3 px-4 rounded-lg hover:bg-gray-50 transition`}>
+                                    <button
+                                        className={`text-sm font-medium ${theme.textClass === "text-white"
+                                            ? "text-[#23235A]"
+                                            : theme.textClass
+                                            } py-3 px-4 rounded-lg hover:bg-gray-50 transition`}
+                                    >
                                         Help & Support
                                     </button>
                                 </div>
@@ -194,13 +271,28 @@ const Navbar = ({ theme }: NavbarProps) => {
 
                                 {/* Mobile Buttons */}
                                 <div className="flex flex-col gap-3">
-                                    <button className={`h-11 rounded-full border px-8 text-[15px] font-medium transition-transform hover:scale-105 ${theme.buttonClass === "border-white text-white hover:bg-white/10" ? "border-[#1A1B67] text-[#1A1B67]" : theme.buttonClass}`}>
+                                    <button
+                                        className={`h-11 rounded-full border px-8 text-[15px] font-medium transition-transform hover:scale-105 ${theme.buttonClass === "border-white text-white hover:bg-white/10"
+                                            ? "border-[#1A1B67] text-[#1A1B67]"
+                                            : theme.buttonClass
+                                            }`}
+                                    >
                                         Join Alert
                                     </button>
 
-                                    <button className={`flex h-11.5 items-center justify-center rounded-full pl-7 pr-1 text-[15px] font-medium transition ${theme.textClass === "text-white" ? "bg-white text-[#150F45] hover:bg-[#f8f8f8]" : "bg-[#150F45] text-white hover:bg-[#100b33]"}`}>
+                                    <button
+                                        className={`flex h-11.5 items-center justify-center rounded-full pl-7 pr-1 text-[15px] font-medium transition ${theme.textClass === "text-white"
+                                            ? "bg-white text-[#150F45] hover:bg-[#f8f8f8]"
+                                            : "bg-[#150F45] text-white hover:bg-[#100b33]"
+                                            }`}
+                                    >
                                         <span>Sign In</span>
-                                        <span className={`ml-5 flex h-10 w-10 items-center justify-center rounded-full ${theme.textClass === "text-white" ? "bg-[#E8912D] text-white" : "bg-white text-[#E8912D]"}`}>
+                                        <span
+                                            className={`ml-5 flex h-10 w-10 items-center justify-center rounded-full ${theme.textClass === "text-white"
+                                                ? "bg-[#E8912D] text-white"
+                                                : "bg-white text-[#E8912D]"
+                                                }`}
+                                        >
                                             <ArrowRight size={18} strokeWidth={2.5} />
                                         </span>
                                     </button>

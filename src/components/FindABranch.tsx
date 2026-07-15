@@ -85,7 +85,7 @@ const FindABranch = () => {
     >
     
 
-      {/* Map image with floating animation */}
+      {/* Map image */}
       <motion.div
         className="absolute inset-0 pointer-events-none flex items-center justify-end"
         variants={mapVariants}
@@ -102,7 +102,7 @@ const FindABranch = () => {
           <img
             src="/map.png"
             alt="Nigeria map showing Alert MFB branch locations"
-            className="w-full h-full object-contain opacity-90"
+            className="w-full h-full object-contain opacity-90 animate-pulse"
           />
         </motion.div>
       </motion.div>
@@ -125,7 +125,7 @@ const FindABranch = () => {
         {/* Typewriter heading */}
         <motion.div
           variants={itemVariants}
-          className="text-white text-4xl md:text-5xl font-bold mb-4 min-h-[3.5rem] md:min-h-[4.5rem] flex items-center justify-center"
+          className="text-white text-xl md:text-5xl font-bold mb-4 min-h-[3.5rem] md:min-h-[4.5rem] flex items-center justify-center"
         >
           <span>{displayText}</span>
           {!isTypingComplete && (

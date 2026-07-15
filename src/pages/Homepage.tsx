@@ -1,27 +1,53 @@
+import { useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { IoLogoApple } from "react-icons/io";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 type ThemeState = {
   textClass: string;
   buttonClass: string;
   bgClass: string;
 };
-
-type HomepageProps = {
-  onThemeChange: (theme: ThemeState) => void;
+type LayoutContext = {
+  theme: ThemeState;
+  setTheme: React.Dispatch<React.SetStateAction<ThemeState>>;
 };
 
+
+
+
 const images = [
-  { src: "/heroBg2.jpg", textClass: "text-primary", buttonClass: "border-primary text-primary hover:bg-gray-50", bgClass: "bg-white", buttonClass2: "border-white text-primary bg-primary" },
-  { src: "/heroBg24.jpg", textClass: "text-white", buttonClass: "border-white text-white", bgClass: "bg-primary", buttonClass2: "border-white text-primary bg-white" },
+  { src: "/heroBg.jpg", textClass: "text-primary", buttonClass: "border-primary text-primary hover:bg-gray-50", bgClass: "bg-white", buttonClass2: "border-white text-primary bg-primary" },
+  { src: "/heroBg4.jpg", textClass: "text-white", buttonClass: "border-white text-white", bgClass: "bg-primary", buttonClass2: "border-white text-primary bg-white" },
 ];
 
-const Homepage = ({ onThemeChange }: HomepageProps) => {
+const quickLinks = [
+  { label: "Our Products", id: "our-products" },
+  { label: "Digital Banking", id: "digital-banking" },
+  { label: "Point of Sale", id: "point-of-sale" },
+  { label: "Cards", id: "cards" },
+  { label: "SME Loans", id: "sme-loans" },
+];
+
+const Homepage = () => {
+  const { setTheme } = useOutletContext<LayoutContext>();
   const [activeIndex, setActiveIndex] = useState(0);
   const [navOpen, setNavOpen] = useState(false);
+  const navigate = useNavigate()
+
+
+
+
+  const handleLogoClick = () => {
+    navigate("/");
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     // 10 seconds interval change
@@ -34,14 +60,28 @@ const Homepage = ({ onThemeChange }: HomepageProps) => {
 
   useEffect(() => {
     const activeImage = images[activeIndex];
-    onThemeChange({
+
+    setTheme({
       textClass: activeImage.textClass,
       buttonClass: activeImage.buttonClass,
       bgClass: activeImage.bgClass,
     });
-  }, [activeIndex, onThemeChange]);
+  }, [activeIndex, setTheme]);
 
   const activeImage = images[activeIndex];
+
+
+  // scroll function
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   // Pure ethereal fade & deep scale transition
   const smokeZoomVariants: Variants = {
@@ -83,8 +123,9 @@ const Homepage = ({ onThemeChange }: HomepageProps) => {
   };
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-black">
-      {/* Background Image Carousel with Zoom */}
+    <section className="relative h-[100vh] w-full overflow-hidden bg-blue-300">
+
+      {/* Background Image Carousel*/}
       <div className="absolute inset-0 h-full w-full overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
@@ -98,23 +139,19 @@ const Homepage = ({ onThemeChange }: HomepageProps) => {
               backgroundImage: `url('${activeImage.src}')`,
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              backgroundSize: "100% auto",
+              backgroundSize: "100% 100%",
               backgroundAttachment: "scroll",
             }}
           />
         </AnimatePresence>
       </div>
 
-    
-
-
-
       {/* Hero Content Container */}
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center px-4 pt-20 text-center sm:px-8 sm:pt-24 lg:pt-28"
+        className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center px-4 pt-20 text-center sm:px-8 sm:pt-24 lg:pt-28"
       >
         <motion.h1
           key={`title-${activeIndex}`}
@@ -160,127 +197,133 @@ const Homepage = ({ onThemeChange }: HomepageProps) => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`flex h-11 items-center gap-2 rounded-full border bg-transparent px-5 text-sm transition hover:bg-white/10 sm:h-12 sm:px-7 cursor-pointer ${activeIndex === 0 ? "border-primary text-primary" : "border-white text-white" }`}
-          > 
+            className={`flex h-11 items-center gap-2 rounded-full border bg-transparent px-5 text-sm transition hover:bg-white/10 sm:h-12 sm:px-7 cursor-pointer ${activeIndex === 0 ? "border-primary text-primary" : "border-white text-white"}`}
+          >
             <IoLogoGooglePlaystore size={20} />
             <span className="text-sm font-medium">Get on Android</span>
           </motion.button>
         </motion.div>
       </motion.div>
 
-     {/* Floating Navigation - Desktop */}
-<motion.div
-  initial={{ y: 30, opacity: 0 }}
-  animate={{ y: 0, opacity: 1 }}
-  transition={{ duration: 0.8, delay: 0.5 }}
-  className="hidden md:flex absolute bottom-25 left-1/2 z-10 w-auto max-w-5xl -translate-x-1/2 flex-col items-center gap-3 rounded-2xl bg-white/10 p-2 shadow-2xl backdrop-blur-md sm:bottom-24 sm:flex-row sm:gap-0"
->
-  <motion.div
-    initial={{ scale: 0, opacity: 0 }}
-    animate={{ scale: 1, opacity: 1 }}
-    transition={{ duration: 0.5, delay: 0.7 }}
-    className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white/20 sm:mr-2"
-  >
-    <img src="/logo2.jpg" className="h-10 w-10 rounded-lg object-contain" alt="Alert MFB Logo" />
-  </motion.div>
-
-  <motion.div
-    initial="hidden"
-    animate="visible"
-    variants={{
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: 1,
-        transition: {
-          staggerChildren: 0.08,
-          delayChildren: 0.2,
-        },
-      },
-    }}
-    className={`flex items-center gap-3 justify-center sm:gap-2 ${activeImage.bgClass} p-1 rounded-xl flex-wrap sm:flex-nowrap`}
-  >
-    {["Our Products", "Digital Banking", "Point of Sale", "Cards", "SME Loans"].map((text) => (
-      <motion.button
-        variants={{
-          hidden: { y: 20, opacity: 0, scale: 0.9 },
-          visible: { y: 0, opacity: 1, scale: 1 },
-        }}
-        whileHover={{ scale: 1.05, y: -2 }}
-        whileTap={{ scale: 0.95 }}
-        key={text}
-        className={`whitespace-nowrap cursor-pointer px-3 py-2 text-xs sm:text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 ${activeImage.textClass}`}
-      >
-        {text}
-      </motion.button>
-    ))}
-  </motion.div>
-
-  <motion.button
-    initial={{ x: 20, opacity: 0 }}
-    animate={{ x: 0, opacity: 1 }}
-    transition={{ duration: 0.5, delay: 0.9 }}
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className="ml-0 whitespace-nowrap cursor-pointer rounded-xl bg-white px-4 py-2.5 text-xs font-medium border border-white/30 hover:bg-white/30 transition backdrop-blur-sm sm:ml-2 sm:px-6 sm:py-3 sm:text-sm"
-  >
-    Goldbucks
-  </motion.button>
-</motion.div>
-
-{/* Floating Navigation - Mobile */}
-<div className="md:hidden absolute bottom-20 left-1/2 z-10 w-[calc(100%-1.5rem)] max-w-xs -translate-x-1/2">
-  <motion.button
-    initial={{ y: 20, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }}
-    transition={{ duration: 0.5, delay: 0.5 }}
-    onClick={() => setNavOpen(!navOpen)}
-    className={`w-full rounded-2xl bg-white/10 backdrop-blur-sm p-3 shadow-2xl flex items-center justify-between ${activeImage.textClass} transition-all duration-300 hover:bg-white/20`}
-  >
-    <div className="flex items-center gap-3">
+      {/* Floating Navigation Quick Links - Desktop */}
       <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-        className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/20"
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        className="hidden md:flex fixed bottom-8 left-1/2 z-50 w-auto max-w-5xl -translate-x-1/2 flex-col items-center gap-3 rounded-2xl bg-white/10 p-2 shadow-2xl backdrop-blur-md sm:flex-row sm:gap-0"
       >
-        <img src="/logo2.jpg" className="h-8 w-8 rounded-lg object-contain" alt="Alert MFB Logo" />
-      </motion.div>
-      <span className="text-sm font-medium">Quick Links</span>
-    </div>
-    <motion.div animate={{ rotate: navOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
-      <ChevronDown size={20} />
-    </motion.div>
-  </motion.button>
+        <motion.button
+          onClick={handleLogoClick}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="flex h-12 w-12 flex-shrink-0 items-center cursor-pointer justify-center rounded-xl bg-white/20 sm:mr-2"
+        >
+          <img src="/logo2.jpg" className="h-10 w-10 rounded-lg object-contain" alt="Alert MFB Logo" />
+        </motion.button>
 
-  <AnimatePresence>
-    {navOpen && (
-      <motion.div
-        variants={dropdownVariants}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        className={`flex flex-col ${activeImage.bgClass} p-1 rounded-xl gap-0.5`}
-      >
-        {["Our Products", "Digital Banking", "Point of Sale", "Cards", "SME Loans"].map((text) => (
-          <motion.button
-            key={text}
-            variants={itemVariants}
-            className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 ${activeImage.textClass}`}
-          >
-            {text}
-          </motion.button>
-        ))}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.08,
+                delayChildren: 0.2,
+              },
+            },
+          }}
+          className={`flex items-center gap-3 justify-center sm:gap-2 ${activeImage.bgClass} p-1 rounded-xl flex-wrap sm:flex-nowrap`}
+        >
+          {quickLinks.map((item) => (
+            <motion.button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              variants={{
+                hidden: { y: 20, opacity: 0, scale: 0.9 },
+                visible: { y: 0, opacity: 1, scale: 1 },
+              }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className={`whitespace-nowrap cursor-pointer px-3 py-2 text-xs sm:text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 ${activeImage.textClass}`}
+            >
+              {item.label}
+            </motion.button>
+          ))}
+        </motion.div>
 
         <motion.button
-          variants={itemVariants}
-          className={`w-full text-left px-4 py-3 text-sm font-medium rounded-xl bg-white/20 hover:bg-white/30 transition backdrop-blur-sm ${activeImage.textClass}`}
+          initial={{ x: 20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="ml-0 whitespace-nowrap cursor-pointer rounded-xl bg-white px-4 py-2.5 text-xs font-medium border border-white/30 hover:bg-white/30 transition backdrop-blur-sm sm:ml-2 sm:px-6 sm:py-3 sm:text-sm"
         >
           Goldbucks
         </motion.button>
       </motion.div>
-    )}
-  </AnimatePresence>
-</div>
+
+      {/* Floating Navigation - Mobile */}
+      <div className="md:hidden fixed bottom-6 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-xs -translate-x-1/2">
+        <motion.button
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          onClick={() => setNavOpen(!navOpen)}
+          className={`w-full rounded-2xl bg-white/10 backdrop-blur-sm p-3 shadow-2xl flex items-center justify-between ${activeImage.textClass} transition-all duration-300 hover:bg-white/20`}
+        >
+          <div className="flex items-center gap-3">
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/20"
+            >
+              <img src="/logo2.jpg" className="h-8 w-8 rounded-lg object-contain" alt="Alert MFB Logo" />
+            </motion.div>
+            <span className="text-sm font-medium">Quick Links</span>
+          </div>
+          <motion.div animate={{ rotate: navOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
+            <ChevronDown size={20} />
+          </motion.div>
+        </motion.button>
+
+        <AnimatePresence>
+          {navOpen && (
+            <motion.div
+              variants={dropdownVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className={`flex flex-col ${activeImage.bgClass} p-1 rounded-xl gap-0.5`}
+            >
+              {quickLinks.map((item) => (
+                <motion.button
+                  key={item.id}
+                  variants={itemVariants}
+                  onClick={() => {
+                    scrollToSection(item.id);
+                    setNavOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 ${activeImage.textClass}`}
+                >
+                  {item.label}
+                </motion.button>
+              ))}
+
+              <motion.button
+                variants={itemVariants}
+                className={`w-full text-left px-4 py-3 text-sm font-medium rounded-xl bg-white/20 hover:bg-white/30 transition backdrop-blur-sm ${activeImage.textClass}`}
+              >
+                Goldbucks
+              </motion.button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* Sticky Footer */}
       <div className="absolute bottom-0 z-10 flex h-auto w-full flex-col gap-2 border-t border-white/20 bg-white/95 px-4 py-2 text-[10px] text-gray-700 backdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">

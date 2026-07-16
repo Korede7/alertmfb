@@ -1,21 +1,78 @@
 import { IoLogoApple } from "react-icons/io";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
-import { ArrowRight, ChevronRight, Shield } from "lucide-react";
+import { ChevronRight, Shield } from "lucide-react";
 import { useEffect, useState } from "react";
+import { motion, LayoutGroup } from "framer-motion";
 
 const Overview = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [activeTab, setActiveTab] = useState("current-account");
 
     useEffect(() => {
         setIsVisible(true);
     }, []);
 
+    const segmentedNav = [
+        {
+            label: "Current Account",
+            id: "current-account"
+        },
+        {
+            label: "Savings Account",
+            id: "savings-account"
+        },
+        {
+            label: "Internet & Mobile Banking",
+            id: "internet-mobile-banking"
+        }
+    ];
+
+    // scroll function
+    const scrollToSection = (id: string) => {
+        setActiveTab(id);
+        const element = document.getElementById(id);
+
+        if (element) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
+    };
+
+    useEffect(() => {
+        const sections = segmentedNav.map((item) =>
+            document.getElementById(item.id)
+        );
+
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + 180; // offset for your fixed nav
+
+            for (const section of sections) {
+                if (!section) continue;
+
+                const top = section.offsetTop;
+                const bottom = top + section.offsetHeight;
+
+                if (scrollPosition >= top && scrollPosition < bottom) {
+                    setActiveTab(section.id);
+                    break;
+                }
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // initialize
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <div className="pt-24 min-h-screen bg-white overflow-hidden">
             <div className="max-w-5xl mx-auto px-8 lg:px-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-6 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-6 items-center ">
                     {/* Left column */}
-                    <div className={`pt-8 lg:pt-12 transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+                    <div className={`pt-4 lg:pt-12 transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
                         }`}>
                         <h1 className="text-4xl md:text-4xl lg:text-7xl leading-[0.95] font-semibold tracking-[-2.5px] text-primary">
                             Banking made
@@ -28,21 +85,50 @@ const Overview = () => {
                             a simple account that works — Alert MFB has a product for it.
                         </p>
 
-                        <div className="mt-8 flex flex-wrap items-center gap-4">
-                            <button className="flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                                <IoLogoApple className="w-5 h-5" />
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 0.6,
+                                delay: 0.5,
+                                ease: "easeOut",
+                            }}
+                            className="mt-8 flex flex-wrap items-center gap-4"
+                        >
+                            <motion.button
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.7,
+                                }}
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                whileTap={{ scale: 0.96 }}
+                                className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:opacity-90 hover:shadow-lg"
+                            >
+                                <IoLogoApple className="h-5 w-5" />
                                 Get on iPhone
-                            </button>
+                            </motion.button>
 
-                            <button className="flex items-center gap-2 border border-[#141B4D]/20 text-[#141B4D] px-6 py-3 rounded-full text-sm font-medium hover:bg-[#141B4D]/5 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                                <IoLogoGooglePlaystore className="w-5 h-5" />
+                            <motion.button
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.85,
+                                }}
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                whileTap={{ scale: 0.96 }}
+                                className="flex items-center gap-2 rounded-full border border-[#141B4D]/20 px-6 py-3 text-sm font-medium text-[#141B4D] transition-all duration-300 hover:bg-[#141B4D]/5 hover:shadow-lg"
+                            >
+                                <IoLogoGooglePlaystore className="h-5 w-5" />
                                 Get on Android
-                            </button>
-                        </div>
+                            </motion.button>
+                        </motion.div>
                     </div>
 
                     {/* Right column — image */}
-                    <div className={`relative flex justify-center lg:justify-end pt-8 lg:pt-12 transition-all bg-gradient-from-tr  duration-1000 delay-300 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+                    <div className={`relative flex justify-center lg:justify-end pt-8 lg:pt-12 transition-all bg-gradient-from-tr duration-1000 delay-300 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
                         }`}>
                         <div className="relative w-[410px] h-[400px]">
                             {/* Gradient Background - moved down */}
@@ -118,24 +204,29 @@ const Overview = () => {
                                 className={`absolute -bottom-1 -left-6 lg:-left-4 bg-white/80 text-center rounded-2xl backdrop-blur-md shadow-xl p-3.5 w-38 space-y-1.5 z-10 transition-all duration-700 delay-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                                     } animate-float-delayed`}
                             >
-                                <button className="group w-full bg-[#E0A63A] text-white text-[10px] font-semibold rounded-md px-3 py-1.5 hover:opacity-90 transition-all duration-300 hover:scale-105">
+                                <button className="cursor-pointer group w-full rounded-md bg-white/90 px-3 py-1.5 text-[10px] font-medium text-primary transition-all duration-300 hover:scale-105 hover:bg-[#E0A63A] hover:text-white">
                                     <div className="flex items-center justify-center gap-1">
-                                        <span>Loans</span>
-                                        <ChevronRight className="w-2.5 h-2.5 transition-transform duration-300 group-hover:translate-x-1" />
+                                        <span className="transition-colors duration-300 group-hover:text-white">
+                                            Loans
+                                        </span>
+                                        <ChevronRight className="w-2.5 h-2.5 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
+                                    </div>
+                                </button>
+                                <button className="cursor-pointer group w-full rounded-md bg-white/90 px-3 py-1.5 text-[10px] font-medium text-primary transition-all duration-300 hover:scale-105 hover:bg-[#E0A63A] hover:text-white">
+                                    <div className="flex items-center justify-center gap-1">
+                                        <span className="transition-colors duration-300 group-hover:text-white">
+                                            Savings
+                                        </span>
+                                        <ChevronRight className="w-2.5 h-2.5 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
                                     </div>
                                 </button>
 
-                                <button className="group w-full bg-white/90 text-[#141B4D] text-[10px] font-medium rounded-md px-3 py-1.5 hover:bg-[#E8E7ED] transition-all duration-300 hover:scale-105">
+                                <button className=" cursor-pointer group w-full rounded-md bg-white/90 px-3 py-1.5 text-[10px] font-medium text-primary transition-all duration-300 hover:scale-105 hover:bg-[#E0A63A] hover:text-white">
                                     <div className="flex items-center justify-center gap-1">
-                                        <span>Savings</span>
-                                        <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
-                                    </div>
-                                </button>
-
-                                <button className="group w-full bg-[#F5F4F8] text-[#141B4D] text-[10px] font-medium rounded-md px-3 py-1.5 hover:bg-[#E8E7ED] transition-all duration-300 hover:scale-105">
-                                    <div className="flex items-center justify-center gap-1">
-                                        <span>Cards</span>
-                                        <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
+                                        <span className="transition-colors duration-300 group-hover:text-white">
+                                            Cards
+                                        </span>
+                                        <ChevronRight className="w-2.5 h-2.5 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
                                     </div>
                                 </button>
                             </div>
@@ -144,24 +235,48 @@ const Overview = () => {
                 </div>
 
                 {/* Segmented nav */}
-                <div className={`mt-16 flex justify-center transition-all duration-1000 delay-900 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                    }`}>
-                    <div className="inline-flex items-center bg-[#EDEDF5] rounded-lg p-1.5 gap-1 flex-wrap justify-center">
-                        <button className="bg-primary text-white text-sm font-medium px-5 py-2 rounded-lg whitespace-nowrap transition-all duration-300 hover:scale-105 hover:shadow-md">
-                            Current Account
-                        </button>
-                        <button className="text-primary text-sm font-medium px-5 py-2 rounded-lg hover:bg-white/60 transition-all duration-300 hover:scale-105">
-                            Savings Account
-                        </button>
-                        <button className="text-primary text-sm font-medium px-5 py-2 rounded-lg hover:bg-white/60 transition-all duration-300 hover:scale-105">
-                            Internet &amp; Mobile Banking
-                        </button>
-                    </div>
-                </div>
+                <div
+                    className={`fixed bottom-4 sm:bottom-6 left-1/2 z-50 w-[calc(100%-1.5rem)] sm:w-auto max-w-5xl -translate-x-1/2 transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                        }`}
+                >
+                    <LayoutGroup>
+                        <div className="relative flex items-center gap-2 rounded-xl bg-[#EDEDF5]/90 backdrop-blur-xl border border-white/60 shadow-sm p-2 overflow-x-auto scrollbar-hide">
+                            {segmentedNav.map((item) => (
+                                <button
+                                    key={item.id}
+                                    onClick={() => scrollToSection(item.id)}
+                                    className="relative flex-shrink-0 cursor-pointer rounded-xl px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-medium whitespace-nowrap"
+                                >
+                                    {activeTab === item.id && (
+                                        <motion.div
+                                            layoutId="active-pill"
+                                            className="absolute inset-0 rounded-lg bg-primary"
+                                            transition={{
+                                                type: "spring",
+                                                stiffness: 500,
+                                                damping: 35,
+                                            }}
+                                        />
+                                    )}
 
+                                    <span
+                                        className={`relative z-10 transition-colors duration-300 ${activeTab === item.id
+                                                ? "text-white"
+                                                : "text-primary"
+                                            }`}
+                                    >
+                                        {item.label}
+                                    </span>
+                                </button>
+                            ))}
+                        </div>
+                    </LayoutGroup>
+                </div>
             </div>
+
+
             {/* Footer */}
-            <div className={`mt-16 border-t border-[#141B4D]/10 bg-[#FAFAFC] transition-all duration-1000 delay-1100 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'
+            <div className={`mt-40 border-t border-[#141B4D]/10 bg-[#FAFAFC] transition-all duration-1000 delay-1100 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'
                 }`}>
                 <div className="w-full px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-1 text-[11px] text-[#141B4D]/70">
                     <div className="flex items-center gap-2 text-center sm:text-left">

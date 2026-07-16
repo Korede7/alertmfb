@@ -1,6 +1,6 @@
 // import Navbar from "../components/Navbar";
 import Homepage from "../pages/Homepage";
-import OurProducts from "../pages/OurProducts";
+import OurProducts from "../quicklinks/OurProducts";
 import DigitalBanking from "../quicklinks/DigitalBanking";
 import PointOfSales from "../quicklinks/PointOfSales";
 import Cards from "../quicklinks/Cards";

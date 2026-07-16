@@ -2,7 +2,7 @@ export const ROUTES = {
     HOME: "/",
 
     PERSONAL_BANKING: {
-        PERSONAL_BANKING: "/personal-banking/personal-banking",
+        PERSONAL_BANKING: "/personal-banking/overview",
         KOLO: "/personal-banking/kolo",
         CURRENT_ACCOUNT: "/personal-banking/current-account",
         AJO_GROUP_SAVINGS: "/personal-banking/ajo-group-savings",

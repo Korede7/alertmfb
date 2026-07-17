@@ -199,8 +199,7 @@ const FeaturePill = ({ label }: { label: string }) => {
             transition={{ duration: 0.2 }}
         >
             <motion.span 
-                className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-200 shadow-md"
-                whileHover={{ rotate: 360 }}
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-200 shadow-lg border border-white"
                 transition={{ duration: 0.6 }}
             >
                 <ArrowRightFromLine className="h-3.5 w-3.5 text-primary" />
@@ -276,7 +275,7 @@ const InternetMobileBanking: React.FC = () => {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                     variants={staggerContainer}
-                    className="bg-white rounded-[20px] p-6 sm:p-8 flex flex-col lg:flex-row gap-8 items-center mb-6"
+                    className="bg-white/90 rounded-[20px] p-6 sm:p-8 flex flex-col lg:flex-row gap-8 items-center mb-6"
                 >
                     {/* Left: copy */}
                     <motion.div 
@@ -407,7 +406,7 @@ const InternetMobileBanking: React.FC = () => {
                         >
                             <motion.h2 
                                 variants={fadeInUp}
-                                className="text-xl sm:text-2xl leading-tight font-medium text-primary xl:ml-5"
+                                className="text-xl sm:text-2xl leading-tight font-medium text-primary text-shadow-md"
                             >
                                 The Alert MFB Mobile App
                             </motion.h2>
@@ -431,7 +430,7 @@ const InternetMobileBanking: React.FC = () => {
                                     whileTap={{ scale: 0.95 }}
                                     className="flex items-center gap-2 rounded-full bg-secondary px-6 py-3 text-sm font-medium text-white transition hover:scale-105"
                                 >
-                                    <IoLogoApple className="text-lg" />
+                                    <IoLogoApple className="text-xl" />
                                     Get on iPhone
                                 </motion.button>
 

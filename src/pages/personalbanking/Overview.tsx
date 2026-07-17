@@ -8,6 +8,7 @@ const Overview = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [activeTab, setActiveTab] = useState("current-account");
 
+
     useEffect(() => {
         setIsVisible(true);
     }, []);
@@ -67,6 +68,31 @@ const Overview = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const useTypewriter = (text: string, speed = 60) => {
+        const [displayedText, setDisplayedText] = useState("");
+
+        useEffect(() => {
+            let index = 0;
+
+            const interval = setInterval(() => {
+                setDisplayedText(text.slice(0, index + 1));
+                index++;
+
+                if (index >= text.length) {
+                    clearInterval(interval);
+                }
+            }, speed);
+
+            return () => clearInterval(interval);
+        }, [text, speed]);
+
+        return displayedText;
+    };
+    const first = "Banking made";
+    const full = useTypewriter("Banking made\nfor Real life.", 60);
+    const [line1, line2 = ""] = full.split("\n");
+    console.log(first)
+
     return (
         <div className="pt-24 min-h-screen bg-white overflow-hidden">
             <div className="max-w-5xl mx-auto px-8 lg:px-12">
@@ -75,9 +101,10 @@ const Overview = () => {
                     <div className={`pt-4 lg:pt-12 transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
                         }`}>
                         <h1 className="text-4xl md:text-4xl lg:text-7xl leading-[0.95] font-semibold tracking-[-2.5px] text-primary">
-                            Banking made
+                            {line1}
                             <br />
-                            for Real life.
+                            {line2}
+                            <span className="inline-block w-[2px] h-[0.9em] ml-1 bg-primary animate-pulse align-middle" />
                         </h1>
 
                         <p className="mt-8 max-w-[420px] text-[17px] leading-7 text-primary">
@@ -261,8 +288,8 @@ const Overview = () => {
 
                                     <span
                                         className={`relative z-10 transition-colors duration-300 ${activeTab === item.id
-                                                ? "text-white"
-                                                : "text-primary"
+                                            ? "text-white"
+                                            : "text-primary"
                                             }`}
                                     >
                                         {item.label}

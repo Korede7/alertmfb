@@ -219,10 +219,10 @@ const Cards = () => {
                                     animate={
                                         hoveredCard === index
                                             ? {
-                                                scale: index === 0 ? 5 : 5,
+                                                scale: index === 0 ? 1.7 : 1.7,
                                                 x: 55,
-                                                y: -35,
-                                                rotate: index === 0 ? 0 : 12,
+                                                y: 100,
+                                                rotate: index === 1 ? 0 : 0,
                                             }
                                             : {
                                                 scale: 1,
@@ -235,7 +235,7 @@ const Cards = () => {
                                         duration: 0.8,
                                         ease: [0.22, 1, 0.36, 1],
                                     }}
-                                    className={`w-3/4 h-auto object-contain  mt-7.5 ${index === 0
+                                    className={`w-3/4 h-auto object-contain  mt-7 ${index === 0
                                             ? "drop-shadow-[0_8px_25px_rgba(168,85,247,0.4)] scale-105"
                                             : index === 1
                                                 ? "drop-shadow-[0_8px_25px_rgba(59,130,246,0.4)] scale-105"

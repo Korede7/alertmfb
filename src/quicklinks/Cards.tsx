@@ -219,10 +219,10 @@ const Cards = () => {
                                     animate={
                                         hoveredCard === index
                                             ? {
-                                                scale: index === 0 ? 5 : 5,
+                                                scale: index === 0 ? 1.5 : 1.5,
                                                 x: 55,
-                                                y: -35,
-                                                rotate: index === 0 ? 0 : 12,
+                                                y: 75,
+                                                rotate: index === 0 ? 0 : 0,
                                             }
                                             : {
                                                 scale: 1,

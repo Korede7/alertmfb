@@ -128,19 +128,16 @@ const Homepage = () => {
       {/* Background Image Carousel*/}
       <div className="absolute inset-0 h-full w-full overflow-hidden">
         <AnimatePresence mode="wait">
-          <motion.div
+          <motion.img
             key={activeImage.src}
+            src={activeImage.src}
             variants={smokeZoomVariants}
             initial="enter"
             animate="center"
             exit="exit"
-            className="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 w-full h-full object-cover"
             style={{
-              backgroundImage: `url('${activeImage.src}')`,
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "100% 100%",
-              backgroundAttachment: "scroll",
+              objectPosition: "center center", // or "right center"
             }}
           />
         </AnimatePresence>
@@ -267,27 +264,40 @@ const Homepage = () => {
       </motion.div>
 
       {/* Floating Navigation - Mobile */}
-      <div className="md:hidden fixed bottom-6 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-xs -translate-x-1/2">
+      <div className="md:hidden fixed bottom-6 left-1/2 z-20 w-[calc(100%-1.5rem)] max-w-xs -translate-x-1/2 text-center">
         <motion.button
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
           onClick={() => setNavOpen(!navOpen)}
-          className={`w-full rounded-2xl bg-white/10 backdrop-blur-sm p-3 shadow-2xl flex items-center justify-between ${activeImage.textClass} transition-all duration-300 hover:bg-white/20`}
+          className="w-full rounded-2xl bg-primary backdrop-blur-sm p-3 shadow-2xl flex items-center transition-all duration-300 hover:bg-white/20"
         >
-          <div className="flex items-center gap-3">
+          {/* Left side */}
+          <div className="flex-1 flex items-center justify-center relative">
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/20"
+              className="absolute left-0 flex h-10 w-10 items-center justify-center rounded-xl bg-white/20"
             >
-              <img src="/logo2.jpg" className="h-8 w-8 rounded-lg object-contain" alt="Alert MFB Logo" />
+              <img
+                src="/logo2.jpg"
+                className="h-8 w-8 rounded-lg object-contain"
+                alt="Alert MFB Logo"
+              />
             </motion.div>
-            <span className="text-sm font-medium">Quick Links</span>
+
+            <span className="text-lg font-medium text-white">
+              Quick Links
+            </span>
           </div>
-          <motion.div animate={{ rotate: navOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
-            <ChevronDown size={20} />
+
+          {/* Right side */}
+          <motion.div
+            animate={{ rotate: navOpen ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ChevronDown size={20} className="text-white" />
           </motion.div>
         </motion.button>
 

@@ -131,24 +131,85 @@ const Overview = () => {
                     <div className={`relative flex justify-center lg:justify-end pt-8 lg:pt-12 transition-all bg-gradient-from-tr duration-1000 delay-300 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
                         }`}>
                         <div className="relative w-[410px] h-[400px]">
-                            {/* Gradient Background - moved down */}
-                            <div
-                                className="absolute inset-0 rounded-[48px] overflow-hidden transition-all duration-2000 delay-500 ease-out"
+
+                            {/* Background */}
+                            <svg
+                                className="absolute bottom-0 left-0 w-full h-[90%] transition-all duration-[2000ms] delay-500 ease-out"
+                                viewBox="0 0 410 380"
+                                preserveAspectRatio="none"
                                 style={{
-                                    clipPath: "polygon(16% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                                    background: `
-  radial-gradient(circle at top left, rgba(255,255,255,0.22) 0%, transparent 35%),
-  radial-gradient(circle at top right, rgba(255,255,255,0.18) 0%, transparent 30%),
-  radial-gradient(circle at bottom right, rgba(255,255,255,0.12) 0%, transparent 32%),
-  linear-gradient(135deg, #7A70C2 0%, #4B428E 45%, #17143F 100%)
-`,
-                                    transform: isVisible ? "translateY(8%)" : "translateY(0%)",
-                                    height: "90%",
-                                    top: "auto",
-                                    bottom: 0,
                                     opacity: isVisible ? 1 : 0,
+                                    transform: isVisible ? "translateY(8%)" : "translateY(0%)",
                                 }}
-                            />
+                            >
+                                <defs>
+                                    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stopColor="#17143F" />
+                                        <stop offset="35%" stopColor="#2C275F" />
+                                        <stop offset="70%" stopColor="#4C468C" />
+                                        <stop offset="100%" stopColor="#706DA5" />
+                                    </linearGradient>
+
+                                    <radialGradient id="glow1" cx="16%" cy="82%" r="35%">
+                                        <stop offset="0%" stopColor="rgba(255,255,255,.28)" />
+                                        <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+                                    </radialGradient>
+
+                                    <radialGradient id="glow2" cx="72%" cy="10%" r="28%">
+                                        <stop offset="0%" stopColor="rgba(255,255,255,.16)" />
+                                        <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+                                    </radialGradient>
+                                </defs>
+
+
+                                <path
+                                    d="
+    M48 0
+    H362
+    Q410 0 410 48
+    V332
+    Q410 380 362 380
+    H48
+    Q0 380 0 332
+    C0 250 20 150 48 48
+    Q52 0 96 0
+    Z
+  "
+                                    fill="url(#heroGradient)"
+                                />
+
+                                <path
+                                    d="
+      M72 0
+      H362
+      Q410 0 410 48
+      V332
+      Q410 380 362 380
+      H62
+      Q0 380 0 318
+      C0 288 12 235 24 178
+      C38 114 54 52 72 0
+      Z
+    "
+                                    fill="url(#glow1)"
+                                />
+
+                                <path
+                                    d="
+      M72 0
+      H362
+      Q410 0 410 48
+      V332
+      Q410 380 362 380
+      H62
+      Q0 380 0 318
+      C0 288 12 235 24 178
+      C38 114 54 52 72 0
+      Z
+    "
+                                    fill="url(#glow2)"
+                                />
+                            </svg>
 
                             {/* Image - overlapping from bottom */}
                             <div className="absolute bottom-0 right-0" style={{ height: "115%" }}>
@@ -164,26 +225,12 @@ const Overview = () => {
                                         opacity: isVisible ? 1 : 0,
                                     }}
                                 />
-                                {/* White fade overlay from top */}
-                                <div
-                                    className="absolute bottom-0 right-0 pointer-events-none"
-                                    style={{
-                                        height: "100%",
-                                        width: "100%",
-                                        clipPath: "polygon(12% 0%, 88% 0%, 100% 100%, 0% 100%)",
-                                        background: "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 25%)",
-                                        transform: isVisible ? "translateY(6%)" : "translateY(15%)",
-                                        zIndex: 3,
-                                        opacity: isVisible ? 1 : 0,
-                                        transition: "all 1000ms ease-out 700ms",
-                                    }}
-                                />
                             </div>
 
                             {/* App badge - positioned absolutely with floating animation */}
                             <div className={`absolute top-26 -right-15 z-20 transition-all duration-700 delay-500 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
                                 } animate-float`}>
-                                <div className="flex items-center rounded-full shadow-lg bg-gray-500/40 backdrop-blur-md pr-4 p-0.5 border border-white/20 w-40">
+                                <div className="flex items-center rounded-full shadow-lg bg-gray-300/40 backdrop-blur-md pr-4 p-0.5 border border-white/20 w-40">
                                     {/* Logo Circle */}
                                     <div className="flex h-9 w-9 items-center justify-center rounded-full">
                                         <img
@@ -201,7 +248,7 @@ const Overview = () => {
                             </div>
 
                             <div
-                                className={`absolute -bottom-1 -left-6 lg:-left-4 bg-white/80 text-center rounded-2xl backdrop-blur-md shadow-xl p-3.5 w-38 space-y-1.5 z-10 transition-all duration-700 delay-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                                className={`absolute -bottom-1 -left-6 lg:-left-13 bg-white/80 text-center rounded-2xl backdrop-blur-md shadow-xl p-3.5 w-38 space-y-1.5 z-10 transition-all duration-700 delay-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                                     } animate-float-delayed`}
                             >
                                 <button className="cursor-pointer group w-full rounded-md bg-white/90 px-3 py-1.5 text-[10px] font-medium text-primary transition-all duration-300 hover:scale-105 hover:bg-[#E0A63A] hover:text-white">
@@ -236,7 +283,7 @@ const Overview = () => {
 
                 {/* Segmented nav */}
                 <div
-                    className={`fixed bottom-4 sm:bottom-6 left-1/2 z-50 w-[calc(100%-1.5rem)] sm:w-auto max-w-5xl -translate-x-1/2 transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    className={`fixed bottom-4 sm:bottom-6 left-1/2 z-30 w-[calc(100%-1.5rem)] sm:w-auto max-w-5xl -translate-x-1/2 transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         }`}
                 >
                     <LayoutGroup>
@@ -261,8 +308,8 @@ const Overview = () => {
 
                                     <span
                                         className={`relative z-10 transition-colors duration-300 ${activeTab === item.id
-                                                ? "text-white"
-                                                : "text-primary"
+                                            ? "text-white"
+                                            : "text-primary"
                                             }`}
                                     >
                                         {item.label}

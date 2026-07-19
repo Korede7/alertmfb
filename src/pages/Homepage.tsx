@@ -75,14 +75,17 @@ const Homepage = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
 
+    console.log(`Looking for element with id: ${id}`, element); // Debug log
+
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
+    } else {
+      console.warn(`Element with id "${id}" not found`);
     }
   };
-
   // Pure ethereal fade & deep scale transition
   const smokeZoomVariants: Variants = {
     enter: {
@@ -162,7 +165,7 @@ const Homepage = () => {
             initial="enter"
             animate="center"
             exit="exit"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-fit"
             style={{
               objectPosition: "center center", // or "right center"
             }}
@@ -342,21 +345,21 @@ const Homepage = () => {
                 duration: 0.3,
                 ease: "easeInOut" // Added easeInOut to dropdown container
               }}
-              className={`flex flex-col bg-white p-1 rounded-xl gap-0.5 mt-3`}
+              className={`flex flex-col p-1 bg-white rounded-xl gap-0.5 mt-3`}
             >
               {quickLinks.map((item) => (
                 <motion.button
                   key={item.id}
                   variants={itemVariants}
                   onClick={() => {
-                    scrollToSection(item.id);
                     setNavOpen(false);
+                    requestAnimationFrame(() => scrollToSection(item.id));
                   }}
                   transition={{
                     duration: 0.2,
                     ease: "easeInOut" // Added easeInOut to individual items
                   }}
-                  className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 ${activeImage.textClass}`}
+                  className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 `}
                 >
                   {item.label}
                 </motion.button>
@@ -368,7 +371,7 @@ const Homepage = () => {
                   duration: 0.2,
                   ease: "easeInOut" // Added easeInOut to Goldbucks button
                 }}
-                className={`w-full text-left px-4 py-3 text-sm font-medium rounded-xl bg-white/20 hover:bg-white/30 transition backdrop-blur-sm ${activeImage.textClass}`}
+                className={`w-full text-left px-4 py-3 text-sm font-medium rounded-xl bg-white/20 hover:bg-white/30 transition backdrop-blur-sm `}
               >
                 Goldbucks
               </motion.button>

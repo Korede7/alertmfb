@@ -361,8 +361,8 @@ const Navbar = ({ theme }: NavbarProps) => {
                                                     className="flex items-center justify-between w-full py-3 px-3 rounded-xl hover:bg-orange-50/50 transition-all duration-300 group"
                                                 >
                                                     <div className="flex items-center gap-3">
-                                                        <span className="text-[#E8912D]">{section.icon}</span>
-                                                        <span className="text-sm font-semibold text-[#23235A] group-hover:text-[#E8912D] transition-colors">
+                                                        <span className="text-secondary">{section.icon}</span>
+                                                        <span className="text-sm font-semibold text-primary group-hover:text-[#E8912D] transition-colors cursor-pointer">
                                                             {section.label}
                                                         </span>
                                                     </div>
@@ -372,7 +372,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                                                         }}
                                                         transition={{ duration: 0.3 }}
                                                     >
-                                                        <ChevronDown size={16} className="text-[#23235A]" />
+                                                        <ChevronDown size={16} className="text-secondary" />
                                                     </motion.div>
                                                 </button>
                                                 
@@ -420,13 +420,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                                             onClick={() => handleMobileNavigation('/signin')}
                                         >
                                             <span>Sign In</span>
-                                            <motion.span 
-                                                className="ml-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#E8912D] text-white"
-                                                whileHover={{ rotate: 360 }}
-                                                transition={{ duration: 0.5 }}
-                                            >
-                                                <ArrowRight size={18} strokeWidth={2.5} />
-                                            </motion.span>
+                                           
                                         </motion.button>
                                     </motion.div>
                                 </div>

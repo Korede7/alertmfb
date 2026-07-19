@@ -50,7 +50,7 @@ const BusinessReport = () => {
                         Business Reports
                     </p>
 
-                    <h2 className="mx-auto max-w-3xl text-[44px] font-medium leading-[1.08] tracking-[-0.04em] text-primary">
+                    <h2 className="mx-auto max-w-3xl text-md sm:text-[44px] font-medium leading-[1.08] tracking-[-0.04em] text-primary">
                         Every number your business needs,
                         <br />
                         exactly when you need it.

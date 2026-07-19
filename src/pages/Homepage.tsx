@@ -20,8 +20,8 @@ type LayoutContext = {
 
 
 const images = [
-  { src: "/heroBg.jpg", textClass: "text-primary", buttonClass: "border-primary text-primary hover:bg-gray-50", bgClass: "bg-white", buttonClass2: "border-white text-primary bg-primary" },
-  { src: "/heroBg4.jpg", textClass: "text-white", buttonClass: "border-white text-white", bgClass: "bg-primary", buttonClass2: "border-white text-primary bg-white" },
+  { src: "/heroBg7.jpg", textClass: "text-primary", buttonClass: "border-primary text-primary hover:bg-gray-50", bgClass: "bg-white", buttonClass2: "border-white text-primary bg-primary" },
+  { src: "/h.png", textClass: "text-white", buttonClass: "border-white text-white", bgClass: "bg-primary", buttonClass2: "border-white text-primary bg-white" },
 ];
 
 const quickLinks = [
@@ -165,9 +165,9 @@ const Homepage = () => {
             initial="enter"
             animate="center"
             exit="exit"
-            className="absolute inset-0 w-full h-full object-fit"
+            className="absolute inset-0 w-full h-full object-cover"
             style={{
-              objectPosition: "center center", // or "right center"
+              objectPosition: "center center", 
             }}
           />
         </AnimatePresence>
@@ -186,7 +186,7 @@ const Homepage = () => {
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           exit={{ opacity: 0, filter: "blur(10px)" }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className={`mt-6 max-w-4xl text-2xl font-bold leading-[1.05] tracking-[-2px] ${activeImage.textClass} sm:mt-8 sm:text-4xl lg:text-6xl`}
+          className={`mt-6 max-w-4xl text-3xl font-bold leading-[1.05] tracking-[-2px] ${activeImage.textClass} sm:mt-8 sm:text-4xl lg:text-6xl`}
         >
           Banking That Moves at the
           <br />

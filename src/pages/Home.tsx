@@ -14,7 +14,7 @@ import FAQ from "../components/FAQ";
 
 const Home = () => {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen overflow-hidden">
       <Homepage />
 
       <div id="our-products" className="scroll-mt-24">

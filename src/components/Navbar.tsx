@@ -1,9 +1,10 @@
 import { useEffect, useState, useRef } from "react";
-import { ChevronDown, ArrowRight, Menu, X, User, Building2, HandCoins, Info, LifeBuoy } from "lucide-react";
+import { ChevronDown, ArrowRight, X, User, Building2, HandCoins, Info, LifeBuoy } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { aboutUsMenu, businessBankingMenu, helpAndSupportMenu, loansMenu, personalBankingMenu } from "../utils";
 import NavDropdown from "./NavDropDown";
 import { Link, useNavigate } from "react-router-dom";
+import { TfiMenuAlt } from "react-icons/tfi";
 
 type NavbarProps = {
     theme: {
@@ -261,15 +262,9 @@ const Navbar = ({ theme }: NavbarProps) => {
                     {mobileMenuOpen ? (
                         <X size={24} className="text-[#23235A]" />
                     ) : (
-                        <Menu size={24} className={theme.textClass} />
+                        <TfiMenuAlt size={26} className={theme.textClass} />
                     )}
-                    {!mobileMenuOpen && (
-                        <motion.span
-                            className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-[#E8912D]"
-                            animate={{ scale: [1, 1.5, 1] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                        />
-                    )}
+                    
                 </motion.button>
             </div>
 

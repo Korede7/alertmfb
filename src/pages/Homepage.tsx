@@ -218,7 +218,7 @@ const Homepage = () => {
             className={`flex h-11 items-center gap-2 rounded-full px-5 text-sm transition sm:h-12 sm:px-7 cursor-pointer ${activeIndex === 0 ? "bg-primary text-white hover:bg-[#100d46]" : "bg-white text-primary hover:bg-white/90 "}`}
           >
             <IoLogoApple size={20} />
-            <span className="text-sm font-medium">Get on iPhone</span>
+            <span className="text-[10px] sm:text-sm font-medium">Get on iPhone</span>
           </motion.button>
 
           <motion.button
@@ -227,7 +227,7 @@ const Homepage = () => {
             className={`flex h-11 items-center gap-2 rounded-full border bg-transparent px-5 text-sm transition hover:bg-white/10 sm:h-12 sm:px-7 cursor-pointer ${activeIndex === 0 ? "border-primary text-primary" : "border-white text-white"}`}
           >
             <IoLogoGooglePlaystore size={20} />
-            <span className="text-sm font-medium">Get on Android</span>
+            <span className="text-[10px] sm:text-sm font-medium">Get on Android</span>
           </motion.button>
         </motion.div>
       </motion.div>

@@ -104,7 +104,7 @@ const Overview = () => {
                                 }}
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.96 }}
-                                className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[10px] sm:text-sm font-medium text-white transition-all duration-300 hover:opacity-90 hover:shadow-lg"
+                                className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 c font-medium text-white text-[10px] sm:text-sm transition-all duration-300 hover:opacity-90 hover:shadow-lg"
                             >
                                 <IoLogoApple className="h-5 w-5" />
                                 Get on iPhone
@@ -119,7 +119,7 @@ const Overview = () => {
                                 }}
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.96 }}
-                                className="flex items-center gap-2 rounded-full border border-[#141B4D]/20 px-6 py-3 text-sm font-medium text-[#141B4D] transition-all duration-300 hover:bg-[#141B4D]/5 hover:shadow-lg"
+                                className="flex items-center gap-2 rounded-full border border-[#141B4D]/20 px-6 py-3 text-[10px] sm:text-sm font-medium text-[#141B4D] transition-all duration-300 hover:bg-[#141B4D]/5 hover:shadow-lg"
                             >
                                 <IoLogoGooglePlaystore className="h-5 w-5" />
                                 Get on Android

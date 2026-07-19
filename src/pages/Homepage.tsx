@@ -110,11 +110,38 @@ const Homepage = () => {
     }
   };
 
-  // Dropdown animation variants
+
   const dropdownVariants: Variants = {
-    hidden: { opacity: 0, y: -20, scale: 0.9, transition: { duration: 0.2, ease: "easeInOut" } },
-    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.3, ease: "easeOut", staggerChildren: 0.05, delayChildren: 0.05 } },
-    exit: { opacity: 0, y: -20, scale: 0.9, transition: { duration: 0.2, ease: "easeInOut" } }
+    hidden: {
+      opacity: 0,
+      height: 0,
+      y: -8,
+      transition: {
+        duration: 0.35,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+    visible: {
+      opacity: 1,
+      height: "auto",
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1],
+        when: "beforeChildren",
+        staggerChildren: 0.05,
+      },
+    },
+    exit: {
+      opacity: 0,
+      height: 0,
+      y: -8,
+      transition: {
+        duration: 0.35,
+        ease: [0.22, 1, 0.36, 1],
+        when: "afterChildren",
+      },
+    },
   };
 
   const itemVariants: Variants = {
@@ -148,7 +175,7 @@ const Homepage = () => {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center px-4 pt-20 text-center sm:px-8 sm:pt-24 lg:pt-28"
+        className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center px-4 pt-60 text-center sm:px-8 sm:pt-24 lg:pt-28 md:pt-80"
       >
         <motion.h1
           key={`title-${activeIndex}`}
@@ -180,7 +207,7 @@ const Homepage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 px-2 sm:mt-10 sm:gap-4"
+          className="mt-8 flex flex-row sm:flex-row items-center justify-center gap-3 px-2 sm:mt-10 sm:gap-4"
         >
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -207,7 +234,7 @@ const Homepage = () => {
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="hidden md:flex fixed bottom-8 left-1/2 z-50 w-auto max-w-5xl -translate-x-1/2 flex-col items-center gap-3 rounded-2xl bg-white/10 p-2 shadow-2xl backdrop-blur-md sm:flex-row sm:gap-0"
+        className="hidden md:flex fixed bottom-18 left-1/2 z-50 w-auto max-w-5xl -translate-x-1/2 flex-col items-center gap-3 rounded-2xl bg-white/10 p-2 shadow-2xl backdrop-blur-md sm:flex-row sm:gap-0"
       >
         <motion.button
           onClick={handleLogoClick}
@@ -268,9 +295,9 @@ const Homepage = () => {
         <motion.button
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
           onClick={() => setNavOpen(!navOpen)}
-          className="w-full rounded-2xl bg-primary backdrop-blur-sm p-3 shadow-2xl flex items-center transition-all duration-300 hover:bg-white/20"
+          className="w-full rounded-2xl bg-primary backdrop-blur-sm p-3 shadow-2xl flex items-center transition-all duration-300 hover:bg-white/20 "
         >
           {/* Left side */}
           <div className="flex-1 flex items-center justify-center relative">
@@ -295,7 +322,10 @@ const Homepage = () => {
           {/* Right side */}
           <motion.div
             animate={{ rotate: navOpen ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{
+              duration: 0.3,
+              ease: "easeInOut" // Added easeInOut to chevron rotation
+            }}
           >
             <ChevronDown size={20} className="text-white" />
           </motion.div>
@@ -308,7 +338,11 @@ const Homepage = () => {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className={`flex flex-col ${activeImage.bgClass} p-1 rounded-xl gap-0.5`}
+              transition={{
+                duration: 0.3,
+                ease: "easeInOut" // Added easeInOut to dropdown container
+              }}
+              className={`flex flex-col bg-white p-1 rounded-xl gap-0.5 mt-3`}
             >
               {quickLinks.map((item) => (
                 <motion.button
@@ -318,6 +352,10 @@ const Homepage = () => {
                     scrollToSection(item.id);
                     setNavOpen(false);
                   }}
+                  transition={{
+                    duration: 0.2,
+                    ease: "easeInOut" // Added easeInOut to individual items
+                  }}
                   className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 ${activeImage.textClass}`}
                 >
                   {item.label}
@@ -326,6 +364,10 @@ const Homepage = () => {
 
               <motion.button
                 variants={itemVariants}
+                transition={{
+                  duration: 0.2,
+                  ease: "easeInOut" // Added easeInOut to Goldbucks button
+                }}
                 className={`w-full text-left px-4 py-3 text-sm font-medium rounded-xl bg-white/20 hover:bg-white/30 transition backdrop-blur-sm ${activeImage.textClass}`}
               >
                 Goldbucks

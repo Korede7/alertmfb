@@ -15,8 +15,8 @@ export type ThemeState = {
 };
 
 const defaultTheme = {
-    textClass: "text-[#17145D]",
-    buttonClass: "border-[#17145D] text-[#17145D]",
+    textClass: "text-primary",
+    buttonClass: "border-[#17145D] text-primary",
     bgClass: "bg-white",
 };
 

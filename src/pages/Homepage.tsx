@@ -345,7 +345,7 @@ const Homepage = () => {
                 duration: 0.3,
                 ease: "easeInOut" // Added easeInOut to dropdown container
               }}
-              className={`flex flex-col p-1 bg-white rounded-xl gap-0.5 mt-3`}
+              className={`flex flex-col p-1 bg-white border border-gray-200 shadow-md rounded-xl gap-0.5 mt-3`}
             >
               {quickLinks.map((item) => (
                 <motion.button
@@ -359,7 +359,7 @@ const Homepage = () => {
                     duration: 0.2,
                     ease: "easeInOut" // Added easeInOut to individual items
                   }}
-                  className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 `}
+                  className={`w-full text-center px-4 py-3 text-sm font-medium rounded-lg border border-gray-200 mb-2 p-2`}
                 >
                   {item.label}
                 </motion.button>
@@ -369,9 +369,9 @@ const Homepage = () => {
                 variants={itemVariants}
                 transition={{
                   duration: 0.2,
-                  ease: "easeInOut" // Added easeInOut to Goldbucks button
+                  ease: "easeInOut" 
                 }}
-                className={`w-full text-left px-4 py-3 text-sm font-medium rounded-xl bg-white/20 hover:bg-white/30 transition backdrop-blur-sm `}
+                className={`w-full px-4 py-3 text-sm font-medium rounded-xl bg-white/20 hover:bg-white/30 transition backdrop-blur-sm border border-gray-200 text-center `}
               >
                 Goldbucks
               </motion.button>

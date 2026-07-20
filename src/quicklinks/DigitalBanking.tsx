@@ -476,11 +476,11 @@ const DigitalBanking = () => {
                 >
                     <div className="flex items-center gap-2 mb-2">
 
-                        <h1 className="text-xs text-primary">App Store Rating</h1>
+                        <h1 className="text-sm sm:text-[10px] text-primary">App Store Rating</h1>
                     </div>
                     <p className="text-xl font-bold text-primary flex items-center gap-2">
                         <span className="w-2.5 h-2.5 bg-red-500 animate-pulse" />
-                        <h2 className="text-5xl font-semibold text-[#171338]">{rating.toFixed(1)}</h2>
+                        <h2 className="ext-2xl sm:text-4xl  font-semibold text-primary">{rating.toFixed(1)}</h2>
                     </p>
                 </motion.div>
                 <motion.div
@@ -490,11 +490,11 @@ const DigitalBanking = () => {
                 >
                     <div className="flex items-center gap-2 mb-2">
 
-                        <h1 className="text-xs text-primary">Customers Served</h1>
+                        <h1 className="text-sm sm:text-[10px] text-primary">Customers Served</h1>
                     </div>
                     <p className="text-xl font-bold text-primary flex items-center gap-2">
                         <span className="w-2.5 h-2.5 bg-gray-400 animate-pulse" />
-                        <h2 className="text-5xl font-semibold text-[#171338]">{customers >= 1000 ? `${Math.round(customers/1000)}k+` : customers}</h2>
+                        <h2 className="ext-2xl sm:text-4xl  font-semibold text-primary">{customers >= 1000 ? `${Math.round(customers/1000)}k+` : customers}</h2>
                     </p>
                 </motion.div>
                 <motion.div
@@ -504,11 +504,11 @@ const DigitalBanking = () => {
                 >
                     <div className="flex items-center gap-2 mb-2">
 
-                        <h1 className="text-xs text-primary">Customer Satisfaction (NPS-based)</h1>
+                        <h1 className="text-[8px] sm:text-sm text-primary">Customer Satisfaction (NPS-based)</h1>
                     </div>
-                    <p className="text-xl sm:text-2xl font-bold text-primary flex items-center gap-2">
+                    <p className="text-2xl sm:text-2xl font-bold text-primary flex items-center gap-2">
                         <span className="w-2.5 h-2.5 bg-green-400 animate-pulse" />
-                        <h2 className="text-5xl font-semibold text-[#171338]">{satisfaction}%</h2>
+                        <h2 className="text-xl sm:text-4xl  font-semibold text-primary">{satisfaction}%</h2>
                     </p>
                 </motion.div>
             </motion.div>

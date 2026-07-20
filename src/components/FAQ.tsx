@@ -153,7 +153,7 @@ const FAQ = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="w-full bg-white py-20 px-6"
+            className="w-full bg-white py-20 px-6 p-5"
         >
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
@@ -198,7 +198,7 @@ const FAQ = () => {
                     {/* Left column */}
                     <motion.div
                         variants={leftColumnVariants}
-                        className="flex flex-col gap-6 mt-1"
+                        className="flex flex-col gap-6 mt-1 p-3"
                     >
                         {/* Image carousel */}
                         <motion.div
@@ -291,7 +291,7 @@ const FAQ = () => {
                     {/* Right column — accordion */}
                     <motion.div
                         variants={accordionVariants}
-                        className="flex flex-col gap-3 space-y-1.5"
+                        className="flex flex-col gap-3 space-y-1.5 p-4"
                     >
                         {faqItems.map((item, index) => {
                             const isOpen = openId === item.id;

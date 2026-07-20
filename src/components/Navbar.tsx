@@ -97,7 +97,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                         {item.subtitle && (
                             <span className="relative block text-xs text-gray-500 mt-0.5">{item.subtitle}</span>
                         )}
-                        <motion.div 
+                        <motion.div
                             className="absolute left-0 top-0 h-full w-1 rounded-r-full bg-[#E8912D] opacity-0 transition-opacity group-hover:opacity-100"
                             initial={{ scaleY: 0 }}
                             animate={{ scaleY: 1 }}
@@ -117,7 +117,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                     {item.subtitle && (
                         <span className="relative block text-xs text-gray-500 mt-0.5">{item.subtitle}</span>
                     )}
-                    <motion.div 
+                    <motion.div
                         className="absolute left-0 top-0 h-full w-1 rounded-r-full bg-[#E8912D] opacity-0 transition-opacity group-hover:opacity-100"
                         initial={{ scaleY: 0 }}
                         animate={{ scaleY: 1 }}
@@ -134,24 +134,22 @@ const Navbar = ({ theme }: NavbarProps) => {
 
     return (
         <nav
-            className={`w-full fixed left-0 top-0 z-50 transition-colors duration-300 ${
-                scrolled ? "bg-white shadow-lg" : "bg-transparent"
-            }`}
+            className={`w-full fixed left-0 top-0 z-50 transition-colors duration-300 ${scrolled ? "bg-white shadow-lg" : "bg-transparent"
+                }`}
         >
             <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-10">
                 {/* Left */}
-                <div className="flex items-center gap-8 sm:gap-10 lg:gap-14">
+                <div className="flex items-center gap-8 sm:gap-10 lg:gap-10">
                     {/* Logo */}
                     <Link to="/" className="flex items-center">
-                        <motion.div 
+                        <motion.div
                             className="flex items-center rounded-full shadow-xs bg-gray-200/30 pr-8 pl-0 cursor-pointer"
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
                             <div
-                                className={`flex h-[40px] w-[40px] items-center justify-center rounded-full shadow-sm ${
-                                    theme.textClass === "text-white" ? "bg-white" : "bg-primary"
-                                }`}
+                                className={`flex h-[40px] w-[40px] items-center justify-center rounded-full shadow-sm ${theme.textClass === "text-white" ? "bg-white" : "bg-primary"
+                                    }`}
                             >
                                 <img
                                     src={theme.textClass === "text-white" ? "/logo2.jpg" : "/logo.jpg"}
@@ -159,7 +157,9 @@ const Navbar = ({ theme }: NavbarProps) => {
                                     className="h-10 w-10 object-contain rounded-full"
                                 />
                             </div>
-                            <span className={`ml-3 text-md tracking-tight ${theme.textClass}`}>
+                            <span
+                                className={`ml-2 sm:ml-3 text-sm sm:text-base md:text-lg lg:text-md tracking-tight whitespace-nowrap ${theme.textClass}`}
+                            >
                                 Alert MFB
                             </span>
                         </motion.div>
@@ -170,8 +170,8 @@ const Navbar = ({ theme }: NavbarProps) => {
                         ref={navRef}
                         className="hidden items-center gap-8 lg:flex lg:gap-12"
                     >
-                        <div className="hidden flex items-center gap-40 lg:flex justify-between">
-                            <span className="flex gap-6">
+                        <div className="hidden flex items-center gap-40 lg:flex justify-between text-sm sm:text-base md:text-lg lg:text-md ">
+                            <span className="flex gap-6 text-sm sm:text-base md:text-lg lg:text-md">
                                 <NavDropdown
                                     label="Personal Banking"
                                     id="personal"
@@ -220,12 +220,12 @@ const Navbar = ({ theme }: NavbarProps) => {
                 </div>
 
                 {/* Desktop Buttons */}
-                <div className="hidden items-center gap-8 lg:flex lg:gap-12">
-                    <div className="flex items-center gap-3">
+                <div className="hidden lg:flex items-center ml-2 xl:ml-3">
+                    <div className="flex items-center gap-2 xl:gap-3">
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className={`h-11 rounded-full border px-8 text-[15px] font-medium cursor-pointer transition-all duration-300 ${theme.buttonClass}`}
+                            className={`h-10 xl:h-11 rounded-full border px-4 xl:px-6 2xl:px-8 whitespace-nowrap text-xs xl:text-sm 2xl:text-base font-medium cursor-pointer transition-all duration-300 ${theme.buttonClass}`}
                         >
                             Join Alert
                         </motion.button>
@@ -233,21 +233,24 @@ const Navbar = ({ theme }: NavbarProps) => {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className={`flex h-11.5 items-center rounded-full pl-7 pr-1 cursor-pointer text-[15px] font-medium transition-all duration-300 ${
-                                theme.textClass === "text-white"
+                            className={`flex h-10 xl:h-11 items-center whitespace-nowrap rounded-full pl-4 xl:pl-6 pr-1 cursor-pointer text-xs xl:text-sm 2xl:text-[15px] font-medium transition-all duration-300 ${theme.textClass === "text-white"
                                     ? "bg-white text-primary hover:bg-[#f8f8f8]"
                                     : "bg-primary text-white hover:bg-[#100b33]"
-                            }`}
+                                }`}
                         >
                             <span>Sign In</span>
+
                             <span
-                                className={`ml-5 flex h-10 w-10 items-center justify-center rounded-full ${
-                                    theme.textClass === "text-white"
+                                className={`ml-3 xl:ml-5 flex h-8 w-8 xl:h-10 xl:w-10 items-center justify-center rounded-full ${theme.textClass === "text-white"
                                         ? "bg-primary text-white"
                                         : "bg-white text-primary"
-                                }`}
+                                    }`}
                             >
-                                <ArrowRight size={18} strokeWidth={2.5} />
+                                <ArrowRight
+                                    size={16}
+                                    className="xl:w-[18px] xl:h-[18px]"
+                                    strokeWidth={2.5}
+                                />
                             </span>
                         </motion.button>
                     </div>
@@ -264,7 +267,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                     ) : (
                         <TfiMenuAlt size={26} className={theme.textClass} />
                     )}
-                    
+
                 </motion.button>
             </div>
 
@@ -287,9 +290,9 @@ const Navbar = ({ theme }: NavbarProps) => {
                             initial={{ x: "-100%", opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             exit={{ x: "-100%", opacity: 0 }}
-                            transition={{ 
-                                type: "spring", 
-                                stiffness: 300, 
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
                                 damping: 30,
                                 mass: 0.8
                             }}
@@ -304,7 +307,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                                     >
                                         <X size={20} className="text-white" />
                                     </button>
-                                    
+
                                     <motion.div
                                         initial={{ opacity: 0, y: -10 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -326,7 +329,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                                 </div>
 
                                 {/* Navigation Links */}
-                                <div className="flex-1 p-4 space-y-1 overflow-y-auto">
+                                <div className="flex-1 p-4 flex flex-col min-h-0">
                                     {[
                                         { id: 'personal', label: 'Personal Banking', icon: <User size={18} /> },
                                         { id: 'business', label: 'Business Banking', icon: <Building2 size={18} /> },
@@ -362,15 +365,15 @@ const Navbar = ({ theme }: NavbarProps) => {
                                                         </span>
                                                     </div>
                                                     <motion.div
-                                                        animate={{ 
-                                                            rotate: mobileExpandedSections.has(section.id) ? 180 : 0 
+                                                        animate={{
+                                                            rotate: mobileExpandedSections.has(section.id) ? 180 : 0
                                                         }}
                                                         transition={{ duration: 0.3 }}
                                                     >
                                                         <ChevronDown size={16} className="text-secondary" />
                                                     </motion.div>
                                                 </button>
-                                                
+
                                                 <AnimatePresence mode="wait">
                                                     {mobileExpandedSections.has(section.id) && (
                                                         <motion.div
@@ -380,8 +383,10 @@ const Navbar = ({ theme }: NavbarProps) => {
                                                             transition={{ duration: 0.3, ease: "easeInOut" }}
                                                             className="overflow-hidden"
                                                         >
-                                                            <div className="ml-6 pl-4 border-l-2 border-[#E8912D]/30 space-y-1 py-2">
-                                                                {renderMobileSectionItems(items)}
+                                                            <div className="max-h-[320px] overflow-y-auto">
+                                                                <div className="ml-6 pl-4 border-l-2 border-[#E8912D]/30 space-y-1 py-2">
+                                                                    {renderMobileSectionItems(items)}
+                                                                </div>
                                                             </div>
                                                         </motion.div>
                                                     )}
@@ -392,7 +397,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                                 </div>
 
                                 {/* Bottom Actions */}
-                                <div className="p-4 border-t border-gray-200 bg-gray-50 flex-shrink-0">
+                                <div className="p-4 border-t border-gray-200 bg-gray-50 flex-shrink-0 z-50">
                                     <motion.div
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -415,7 +420,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                                             onClick={() => handleMobileNavigation('/signin')}
                                         >
                                             <span>Sign In</span>
-                                           
+
                                         </motion.button>
                                     </motion.div>
                                 </div>

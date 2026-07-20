@@ -57,7 +57,7 @@ export default function NavDropdown({
         <div className="relative">
             <button
                 onClick={() => toggleDropdown(id)}
-                className={`flex items-center gap-1 text-[12px] font-medium cursor-pointer transition-colors duration-300 ${activeDropdown === id ? "text-yellow-700" : theme.textClass
+                className={`inline-flex items-center gap-1 whitespace-nowrap text-[12px] sm:text-xs md:text-xs lg:text-sm font-medium cursor-pointer transition-colors duration-300 ${activeDropdown === id ? "text-yellow-700" : theme.textClass
                     }`}
             >
                 {label}

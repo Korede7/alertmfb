@@ -1,6 +1,6 @@
 import { IoLogoApple } from "react-icons/io";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
-import { ChevronRight, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, LayoutGroup } from "framer-motion";
 
@@ -46,7 +46,7 @@ const Overview = () => {
         );
 
         const handleScroll = () => {
-            const scrollPosition = window.scrollY + 180; 
+            const scrollPosition = window.scrollY + 180;
 
             for (const section of sections) {
                 if (!section) continue;
@@ -163,49 +163,18 @@ const Overview = () => {
 
 
                                 <path
-                                    d="
-    M48 0
-    H362
-    Q410 0 410 48
-    V332
-    Q410 380 362 380
-    H48
-    Q0 380 0 332
-    C0 250 20 150 48 48
-    Q52 0 96 0
-    Z
-  "
+                                    d="M48 0H362Q410 0 410 48V332Q410 380 362 380H48Q0 380 0 332C0 250 20 150 48 48Q52 0 96 0Z"
                                     fill="url(#heroGradient)"
                                 />
 
                                 <path
-                                    d="
-      M72 0
-      H362
-      Q410 0 410 48
-      V332
-      Q410 380 362 380
-      H62
-      Q0 380 0 318
-      C0 288 12 235 24 178
-      C38 114 54 52 72 0
-      Z
+                                    d="M72 0H362Q410 0 410 48V332Q410 380 362 380H62Q0 380 0 318C0 288 12 235 24 178C38 114 54 52 72 0Z
     "
                                     fill="url(#glow1)"
                                 />
 
                                 <path
-                                    d="
-      M72 0
-      H362
-      Q410 0 410 48
-      V332
-      Q410 380 362 380
-      H62
-      Q0 380 0 318
-      C0 288 12 235 24 178
-      C38 114 54 52 72 0
-      Z
+                                    d="M72 0H362Q410 0 410 48V332Q410 380 362 380H62Q0 380 0 318C0 288 12 235 24 178C38 114 54 52 72 0Z
     "
                                     fill="url(#glow2)"
                                 />
@@ -251,31 +220,31 @@ const Overview = () => {
                                 className={`absolute -bottom-1 -left-6 lg:-left-13 bg-white/80 text-center rounded-2xl backdrop-blur-md shadow-xl p-3.5 w-38 space-y-1.5 z-10 transition-all duration-700 delay-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                                     } animate-float-delayed`}
                             >
-                                <button className="cursor-pointer group w-full rounded-md bg-white/90 px-3 py-1.5 text-[10px] font-medium text-primary transition-all duration-300 hover:scale-105 hover:bg-[#E0A63A] hover:text-white">
+                                <div className=" group w-full rounded-md bg-[#E0A63A] px-3 py-1.5 text-[10px] font-medium text-white shadow-md">
                                     <div className="flex items-center justify-center gap-1">
-                                        <span className="transition-colors duration-300 group-hover:text-white">
+                                        <span>
                                             Loans
                                         </span>
-                                        <ChevronRight className="w-2.5 h-2.5 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
+                                    
                                     </div>
-                                </button>
-                                <button className="cursor-pointer group w-full rounded-md bg-white/90 px-3 py-1.5 text-[10px] font-medium text-primary transition-all duration-300 hover:scale-105 hover:bg-[#E0A63A] hover:text-white">
+                                </div>
+                                <div className="group w-full rounded-md bg-white/90 px-3 py-1.5 text-[10px] font-medium text-primary shadow-md ">
                                     <div className="flex items-center justify-center gap-1">
-                                        <span className="transition-colors duration-300 group-hover:text-white">
+                                        <span>
                                             Savings
                                         </span>
-                                        <ChevronRight className="w-2.5 h-2.5 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
+                                       
                                     </div>
-                                </button>
+                                </div>
 
-                                <button className=" cursor-pointer group w-full rounded-md bg-white/90 px-3 py-1.5 text-[10px] font-medium text-primary transition-all duration-300 hover:scale-105 hover:bg-[#E0A63A] hover:text-white">
+                                <div className=" group w-full rounded-md bg-white/90 px-3 py-1.5 text-[10px] font-medium text-primary shadow-md">
                                     <div className="flex items-center justify-center gap-1">
-                                        <span className="transition-colors duration-300 group-hover:text-white">
+                                        <span>
                                             Cards
                                         </span>
-                                        <ChevronRight className="w-2.5 h-2.5 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
+                                       
                                     </div>
-                                </button>
+                                </div>
                             </div>
                         </div>
                     </div>

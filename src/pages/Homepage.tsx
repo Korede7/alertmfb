@@ -190,7 +190,7 @@ const Homepage = () => {
         >
           Banking That Moves at the
           <br />
-          Speed of Your Growth
+          Speed of Your Growth.
         </motion.h1>
 
         <motion.p

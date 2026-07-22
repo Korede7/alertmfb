@@ -186,7 +186,7 @@ const Homepage = () => {
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           exit={{ opacity: 0, filter: "blur(10px)" }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className={`mt-6 max-w-4xl text-3xl font-bold leading-[1.05] tracking-[-2px] ${activeImage.textClass} sm:mt-8 sm:text-4xl lg:text-6xl`}
+          className={`mt-6 max-w-4xl text-3xl font-semibold leading-[1.05] tracking-[-2px] ${activeImage.textClass} sm:mt-8 sm:text-4xl lg:text-6xl`}
         >
           Banking That Moves at the
           <br />
@@ -274,7 +274,7 @@ const Homepage = () => {
               }}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className={`whitespace-nowrap cursor-pointer px-3 py-2 text-xs sm:text-sm font-medium rounded-lg border border-white/30 transition hover:bg-white/20 ${activeImage.textClass}`}
+              className={`whitespace-nowrap cursor-pointer px-3 py-2 text-xs sm:text-sm font-medium rounded-lg border border-white/30 transition shadow-xs hover:bg-white/20 ${activeImage.textClass}`}
             >
               {item.label}
             </motion.button>

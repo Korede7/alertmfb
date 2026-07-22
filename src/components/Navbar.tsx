@@ -152,13 +152,16 @@ const Navbar = ({ theme }: NavbarProps) => {
                                     }`}
                             >
                                 <img
-                                    src={theme.textClass === "text-white" ? "/logo2.jpg" : "/logo.jpg"}
+                                    src={theme.textClass === "text-white" ? "/logo2.jpg" : "/whiteLogo.png"}
                                     alt="Alert MFB"
-                                    className="h-10 w-10 object-contain rounded-full"
+                                    className={`object-contain rounded-full ${theme.textClass === "text-white"
+                                            ? "h-10 w-10"      
+                                            : "h-6 w-6"      
+                                        }`}
                                 />
                             </div>
                             <span
-                                className={`ml-2 sm:ml-3 text-sm sm:text-base md:text-lg lg:text-md tracking-tight whitespace-nowrap ${theme.textClass}`}
+                                className={`ml-2 sm:ml-3 text-[16px] sm:text-base md:text-lg lg:text-md tracking-tight whitespace-nowrap ${theme.textClass}`}
                             >
                                 Alert MFB
                             </span>
@@ -234,16 +237,16 @@ const Navbar = ({ theme }: NavbarProps) => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className={`flex h-10 xl:h-11 items-center whitespace-nowrap rounded-full pl-4 xl:pl-6 pr-1 cursor-pointer text-xs xl:text-sm 2xl:text-[15px] font-medium transition-all duration-300 ${theme.textClass === "text-white"
-                                    ? "bg-white text-primary hover:bg-[#f8f8f8]"
-                                    : "bg-primary text-white hover:bg-[#100b33]"
+                                ? "bg-white text-primary hover:bg-[#f8f8f8]"
+                                : "bg-primary text-white hover:bg-[#100b33]"
                                 }`}
                         >
                             <span>Sign In</span>
 
                             <span
                                 className={`ml-3 xl:ml-5 flex h-8 w-8 xl:h-10 xl:w-10 items-center justify-center rounded-full ${theme.textClass === "text-white"
-                                        ? "bg-primary text-white"
-                                        : "bg-white text-primary"
+                                    ? "bg-primary text-white"
+                                    : "bg-white text-primary"
                                     }`}
                             >
                                 <ArrowRight
@@ -314,11 +317,11 @@ const Navbar = ({ theme }: NavbarProps) => {
                                         transition={{ delay: 0.1 }}
                                         className="flex items-center gap-3"
                                     >
-                                        <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center">
+                                        <div className="h-12 w-12 rounded-full flex items-center justify-center">
                                             <img
                                                 src="/logo2.jpg"
                                                 alt="Alert MFB"
-                                                className="h-10 w-10 object-contain rounded-full"
+                                                className="h-12 w-12 object-contain rounded-full"
                                             />
                                         </div>
                                         <div>

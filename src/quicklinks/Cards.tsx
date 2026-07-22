@@ -316,7 +316,7 @@ const Cards = () => {
                                 animate={
                                     hoveredCard === index
                                         ? {
-                                            y: -12, // move features up on hover
+                                            y: -12, 
                                         }
                                         : {
                                             y: 0,

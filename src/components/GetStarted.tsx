@@ -111,7 +111,7 @@ const GetStarted = () => {
                             <img
                                 src="/getstarted2.jpg"
                                 className="w-full h-full object-cover rounded-xl sm:rounded-2xl"
-                                alt="Alert MFB app interface"
+                                alt="Alert MFB app interface" 
                             />
                         </motion.div>
                     </motion.div>

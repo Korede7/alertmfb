@@ -68,19 +68,19 @@ const Overview = () => {
     }, []);
 
     return (
-        <div className="pt-24 min-h-screen bg-white overflow-hidden">
-            <div className="max-w-5xl mx-auto px-8 lg:px-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-6 items-center ">
+        <div className="pt-20 sm:pt-24 min-h-screen bg-white overflow-hidden">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-10 items-center">
                     {/* Left column */}
                     <div className={`pt-4 lg:pt-12 transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
                         }`}>
-                        <h1 className="text-4xl md:text-4xl lg:text-7xl leading-[0.95] font-semibold tracking-[-2.5px] text-primary">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1] sm:leading-[0.95] font-semibold tracking-[-1.5px] sm:tracking-[-2px] lg:tracking-[-2.5px] text-primary">
                             Banking made
                             <br />
                             for Real life.
                         </h1>
 
-                        <p className="mt-8 max-w-[420px] text-[17px] leading-7 text-primary">
+                        <p className="mt-4 sm:mt-6 lg:mt-8 max-w-full lg:max-w-[420px] text-sm sm:text-base lg:text-[17px] leading-6 sm:leading-7 text-primary">
                             Whether you are saving for rent, growing a deposit, or just want
                             a simple account that works — Alert MFB has a product for it.
                         </p>
@@ -93,7 +93,7 @@ const Overview = () => {
                                 delay: 0.5,
                                 ease: "easeOut",
                             }}
-                            className="mt-8 flex flex-row sm:flex-row  items-center gap-4"
+                            className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center gap-3 sm:gap-4"
                         >
                             <motion.button
                                 initial={{ opacity: 0, x: -20 }}
@@ -104,9 +104,9 @@ const Overview = () => {
                                 }}
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.96 }}
-                                className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 c font-medium text-white text-[10px] sm:text-sm transition-all duration-300 hover:opacity-90 hover:shadow-lg"
+                                className="flex items-center gap-2 rounded-full bg-primary px-4 sm:px-5 lg:px-6 py-2.5 sm:py-3 font-medium text-white text-[10px] sm:text-xs lg:text-sm transition-all duration-300 hover:opacity-90 hover:shadow-lg w-full sm:w-auto justify-center"
                             >
-                                <IoLogoApple className="h-5 w-5" />
+                                <IoLogoApple className="h-4 w-4 sm:h-5 sm:w-5" />
                                 Get on iPhone
                             </motion.button>
 
@@ -119,18 +119,18 @@ const Overview = () => {
                                 }}
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.96 }}
-                                className="flex items-center gap-2 rounded-full border border-[#141B4D]/20 px-6 py-3 text-[10px] sm:text-sm font-medium text-[#141B4D] transition-all duration-300 hover:bg-[#141B4D]/5 hover:shadow-lg"
+                                className="flex items-center gap-2 rounded-full border border-[#141B4D]/20 px-4 sm:px-5 lg:px-6 py-2.5 sm:py-3 text-[10px] sm:text-xs lg:text-sm font-medium text-[#141B4D] transition-all duration-300 hover:bg-[#141B4D]/5 hover:shadow-lg w-full sm:w-auto justify-center"
                             >
-                                <IoLogoGooglePlaystore className="h-5 w-5" />
+                                <IoLogoGooglePlaystore className="h-4 w-4 sm:h-5 sm:w-5" />
                                 Get on Android
                             </motion.button>
                         </motion.div>
                     </div>
 
                     {/* Right column — image */}
-                    <div className={`relative flex justify-center lg:justify-end pt-8 lg:pt-12 transition-all bg-gradient-from-tr duration-1000 delay-300 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+                    <div className={`relative flex justify-center lg:justify-end pt-6 sm:pt-8 lg:pt-12 transition-all bg-gradient-from-tr duration-1000 delay-300 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
                         }`}>
-                        <div className="relative w-[410px] h-[400px]">
+                        <div className="relative w-full max-w-[280px] sm:max-w-[340px] md:max-w-[380px] lg:max-w-[410px] h-[300px] sm:h-[340px] md:h-[370px] lg:h-[400px] mx-auto lg:mx-0">
 
                             {/* Background */}
                             <svg
@@ -168,14 +168,12 @@ const Overview = () => {
                                 />
 
                                 <path
-                                    d="M72 0H362Q410 0 410 48V332Q410 380 362 380H62Q0 380 0 318C0 288 12 235 24 178C38 114 54 52 72 0Z
-    "
+                                    d="M72 0H362Q410 0 410 48V332Q410 380 362 380H62Q0 380 0 318C0 288 12 235 24 178C38 114 54 52 72 0Z"
                                     fill="url(#glow1)"
                                 />
 
                                 <path
-                                    d="M72 0H362Q410 0 410 48V332Q410 380 362 380H62Q0 380 0 318C0 288 12 235 24 178C38 114 54 52 72 0Z
-    "
+                                    d="M72 0H362Q410 0 410 48V332Q410 380 362 380H62Q0 380 0 318C0 288 12 235 24 178C38 114 54 52 72 0Z"
                                     fill="url(#glow2)"
                                 />
                             </svg>
@@ -197,52 +195,49 @@ const Overview = () => {
                             </div>
 
                             {/* App badge - positioned absolutely with floating animation */}
-                            <div className={`absolute top-26 -right-15 z-20 transition-all duration-700 delay-500 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+                            <div className={`absolute top-10 sm:top-16 md:top-20 lg:top-26 -right-4 sm:-right-8 md:-right-12 lg:-right-15 z-20 transition-all duration-700 delay-500 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
                                 } animate-float`}>
-                                <div className="flex items-center rounded-full shadow-lg bg-gray-300/40 backdrop-blur-md pr-4 p-0.5 border border-white/20 w-40">
+                                <div className="flex items-center rounded-full shadow-lg bg-gray-300/40 backdrop-blur-md pr-2 sm:pr-3 lg:pr-4 p-0.5 border border-white/20 w-28 sm:w-32 md:w-36 lg:w-40">
                                     {/* Logo Circle */}
-                                    <div className="flex h-9 w-9 items-center justify-center rounded-full">
+                                    <div className="flex h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 items-center justify-center rounded-full">
                                         <img
                                             src="/logo2.jpg"
                                             alt="Alert MFB"
-                                            className="h-9 w-9 object-fit rounded-full"
+                                            className="h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 object-fit rounded-full"
                                         />
                                     </div>
 
                                     {/* Text */}
-                                    <span className="ml-2 text-sm font-medium text-white">
+                                    <span className="ml-1.5 sm:ml-2 text-[10px] sm:text-xs lg:text-sm font-medium text-white">
                                         Alert MFB
                                     </span>
                                 </div>
                             </div>
 
                             <div
-                                className={`absolute -bottom-1 -left-6 lg:-left-13 bg-white/80 text-center rounded-2xl backdrop-blur-md shadow-xl p-3.5 w-38 space-y-1.5 z-10 transition-all duration-700 delay-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                                className={`absolute -bottom-1 -left-3 sm:-left-4 md:-left-5 lg:-left-6 xl:-left-13 bg-white/80 text-center rounded-2xl backdrop-blur-md shadow-xl p-2.5 sm:p-3 lg:p-3.5 w-28 sm:w-32 md:w-36 lg:w-38 space-y-1 sm:space-y-1.5 z-10 transition-all duration-700 delay-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                                     } animate-float-delayed`}
                             >
-                                <div className=" group w-full rounded-md bg-[#E0A63A] px-3 py-1.5 text-[10px] font-medium text-white shadow-md">
+                                <div className="group w-full rounded-md bg-[#E0A63A] px-2 sm:px-3 py-1 sm:py-1.5 text-[8px] sm:text-[9px] lg:text-[10px] font-medium text-white shadow-md">
                                     <div className="flex items-center justify-center gap-1">
                                         <span>
                                             Loans
                                         </span>
-                                    
                                     </div>
                                 </div>
-                                <div className="group w-full rounded-md bg-white/90 px-3 py-1.5 text-[10px] font-medium text-primary shadow-md ">
+                                <div className="group w-full rounded-md bg-white/90 px-2 sm:px-3 py-1 sm:py-1.5 text-[8px] sm:text-[9px] lg:text-[10px] font-medium text-primary shadow-md">
                                     <div className="flex items-center justify-center gap-1">
                                         <span>
                                             Savings
                                         </span>
-                                       
                                     </div>
                                 </div>
 
-                                <div className=" group w-full rounded-md bg-white/90 px-3 py-1.5 text-[10px] font-medium text-primary shadow-md">
+                                <div className="group w-full rounded-md bg-white/90 px-2 sm:px-3 py-1 sm:py-1.5 text-[8px] sm:text-[9px] lg:text-[10px] font-medium text-primary shadow-md">
                                     <div className="flex items-center justify-center gap-1">
                                         <span>
                                             Cards
                                         </span>
-                                       
                                     </div>
                                 </div>
                             </div>
@@ -252,16 +247,16 @@ const Overview = () => {
 
                 {/* Segmented nav */}
                 <div
-                    className={`fixed bottom-4 sm:bottom-6 left-1/2 z-30 w-[calc(100%-1.5rem)] sm:w-auto max-w-5xl -translate-x-1/2 transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    className={`fixed bottom-3 sm:bottom-4 md:bottom-6 left-1/2 z-30 w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] md:w-auto max-w-5xl -translate-x-1/2 transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         }`}
                 >
                     <LayoutGroup>
-                        <div className="relative flex items-center gap-2 rounded-xl bg-[#EDEDF5]/90 backdrop-blur-xl border border-white/60 shadow-sm p-2 overflow-x-auto scrollbar-hide">
+                        <div className="relative flex items-center gap-1.5 sm:gap-2 rounded-xl bg-[#EDEDF5]/90 backdrop-blur-xl border border-white/60 shadow-sm p-1.5 sm:p-2 overflow-x-auto scrollbar-hide">
                             {segmentedNav.map((item) => (
                                 <button
                                     key={item.id}
                                     onClick={() => scrollToSection(item.id)}
-                                    className="relative flex-shrink-0 cursor-pointer rounded-xl px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-medium whitespace-nowrap"
+                                    className="relative flex-shrink-0 cursor-pointer rounded-xl px-2.5 sm:px-3 md:px-4 lg:px-5 py-1.5 sm:py-2 md:py-2.5 text-[10px] sm:text-xs md:text-sm font-medium whitespace-nowrap"
                                 >
                                     {activeTab === item.id && (
                                         <motion.div
@@ -290,19 +285,18 @@ const Overview = () => {
                 </div>
             </div>
 
-
             {/* Footer */}
-            <div className={`mt-40 border-t border-[#141B4D]/10 bg-[#FAFAFC] transition-all duration-1000 delay-1100 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'
+            <div className={`mt-20 sm:mt-28 md:mt-32 lg:mt-40 border-t border-[#141B4D]/10 bg-[#FAFAFC] transition-all duration-1000 delay-1100 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'
                 }`}>
-                <div className="w-full px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-1 text-[11px] text-[#141B4D]/70">
-                    <div className="flex items-center gap-2 text-center sm:text-left">
-                        <Shield className="w-3.5 h-3.5 shrink-0" />
-                        <span>
+                <div className="w-full px-3 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-col lg:flex-row items-center justify-between gap-2 sm:gap-3 text-[10px] sm:text-[11px] text-[#141B4D]/70">
+                    <div className="flex items-center gap-1.5 sm:gap-2 text-center lg:text-left">
+                        <Shield className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
+                        <span className="text-center lg:text-left">
                             Alert Microfinance Bank Limited is licensed by the Central Bank
                             of Nigeria (CBN). Deposits are insured by the NDIC.
                         </span>
                     </div>
-                    <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 whitespace-nowrap">
+                    <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:gap-5 whitespace-nowrap">
                         <a href="#" className="hover:underline transition-all duration-300 hover:text-[#141B4D]">Privacy Policy</a>
                         <a href="#" className="hover:underline transition-all duration-300 hover:text-[#141B4D]">Terms &amp; Conditions</a>
                         <a href="#" className="hover:underline transition-all duration-300 hover:text-[#141B4D]">Cookie Policy</a>

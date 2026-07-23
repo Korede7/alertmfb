@@ -1,6 +1,7 @@
 import FAQ from "../../components/FAQ"
 import FindABranch from "../../components/FindABranch"
 import CurrentAccount from "./CurrentAccount"
+import FixedDeposits from "./FixedDeposits"
 import InternetMobileBanking from "./InternetMobileBanking"
 import Overview from "./Overview"
 import SavingsAccount from "./SavingsAccount"
@@ -17,6 +18,9 @@ const PersonalBanking = () => {
             </div>
             <div id="internet-mobile-banking" className="scroll_mt-24">
                 <InternetMobileBanking/>
+            </div>
+            <div id="fixed-deposits" className="scroll_mt-24">
+                <FixedDeposits/>
             </div>
             <FindABranch/>
             <FAQ/>

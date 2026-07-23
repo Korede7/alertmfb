@@ -15,7 +15,9 @@ const cards = [
             "Contactless payments",
             "Full control via app",
         ],
-        image: card3
+        image: card3,
+        gradient: "linear-gradient(160deg, #EDE9DF 0%, #50514b 45%,#070707 100%)",
+        glowColor: "purple"
     },
     {
         title: "International Debit Card",
@@ -25,7 +27,9 @@ const cards = [
             "Use anywhere Visa/Mastercard is accepted",
             "Activate international use in-app",
         ],
-        image: card2
+        image: card2,
+        gradient: "linear-gradient(160deg, #DFBB54 0%, #9a813e 45%, #8B5B0B 100%)",
+        glowColor: "blue"
     },
     {
         title: "Prepaid Card",
@@ -35,8 +39,9 @@ const cards = [
             "Reloadable anytime",
             "No bank account required to gift",
         ],
-        image: card1
-
+        image: card1,
+        gradient: "linear-gradient(160deg, #B2B2B0 0%, #8d8d8d 45%, #444443 100%)",
+        glowColor: "green"
     },
 ];
 
@@ -125,8 +130,15 @@ const Cards = () => {
         },
     };
 
+    // Glow color mappings
+    const glowColors = {
+        purple: "bg-purple-500/10",
+        blue: "bg-blue-500/10",
+        green: "bg-green-500/10"
+    };
+
     return (
-        <section className="bg-[#eef0f7] py-20 px-6 overflow-hidden">
+        <section className="bg-[#eef0f7] py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
             <motion.div
                 className="max-w-5xl mx-auto text-center"
                 initial="hidden"
@@ -137,7 +149,7 @@ const Cards = () => {
                 {/* Animated badge */}
                 <motion.p
                     variants={itemVariants}
-                    className="text-secondary text-xs font-medium tracking-[0.7em] mb-3"
+                    className="text-secondary text-[10px] sm:text-xs font-medium tracking-[0.5em] sm:tracking-[0.7em] mb-2 sm:mb-3"
                 >
                     CARDS
                 </motion.p>
@@ -145,7 +157,7 @@ const Cards = () => {
                 {/* Animated heading */}
                 <motion.h2
                     variants={itemVariants}
-                    className="text-primary text-xl md:text-5xl font-medium mb-4"
+                    className="text-primary text-xl sm:text-2xl md:text-3xl lg:text-5xl font-medium mb-3 sm:mb-4"
                 >
                     A card for every way you pay
                 </motion.h2>
@@ -153,7 +165,7 @@ const Cards = () => {
                 {/* Animated description */}
                 <motion.p
                     variants={itemVariants}
-                    className="text-primary text-sm font-medium md:text-base max-w-md mx-auto mb-8"
+                    className="text-primary text-xs sm:text-sm font-medium md:text-base max-w-xs sm:max-w-md mx-auto mb-6 sm:mb-8 px-2"
                 >
                     From everyday spending to international payments and budgeting,
                     Alert MFB cards give you full control.
@@ -164,24 +176,24 @@ const Cards = () => {
                     variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex h-12 items-center rounded-full bg-primary pl-6 pr-2 text-white transition-all duration-300 hover:bg-[#241c52] hover:shadow-xl group"
+                    className="inline-flex h-10 sm:h-12 items-center rounded-full bg-primary pl-4 sm:pl-6 pr-1.5 sm:pr-2 text-white transition-all duration-300 hover:bg-[#241c52] hover:shadow-xl group"
                 >
-                    <span className="text-white font-medium tracking-[-0.02em]">
+                    <span className="text-white font-medium tracking-[-0.02em] text-xs sm:text-sm">
                         Order a Card
                     </span>
 
                     <motion.span
-                        className="ml-5 flex h-9 w-9 items-center justify-center rounded-full bg-white"
+                        className="ml-3 sm:ml-5 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white"
                         whileHover={{ rotate: 12 }}
                         transition={{ duration: 0.2 }}
                     >
-                        <ArrowRight className="h-5 w-5 text-primary" strokeWidth={2.5} />
+                        <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-primary" strokeWidth={2.5} />
                     </motion.span>
                 </motion.button>
 
                 {/* Cards grid with staggered animations */}
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 text-left"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -198,30 +210,29 @@ const Cards = () => {
                                 boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
                             }}
                             transition={{ duration: 0.3 }}
-                            className="relative rounded-2xl mt-6 p-5 h-[390px] overflow-hidden"
+                            className="relative rounded-2xl mt-4 sm:mt-6 p-4 sm:p-5 h-[340px] sm:h-[370px] md:h-[390px] overflow-hidden"
                             style={{
-                                background:
-                                    "linear-gradient(160deg, #4a3f8a 0%, #2c2560 45%, #150f30 100%)",
+                                background: card.gradient,
                             }}
                         >
                             {/* Title */}
                             <motion.h3
                                 whileHover={{ scale: 1.05 }}
-                                className="text-white text-md font-semibold text-right mb-5"
+                                className="text-white text-sm sm:text-md font-semibold text-right mb-3 sm:mb-5"
                             >
                                 {card.title}
                             </motion.h3>
                             {/* Card Image */}
-                            <div className="flex justify-center mb-4 mt-1">
+                            <div className="flex justify-center mb-3 sm:mb-4 mt-0 sm:mt-1">
                                 <motion.img
                                     src={card.image}
                                     alt={card.title}
                                     animate={
                                         hoveredCard === index
                                             ? {
-                                                scale: index === 0 ? 1.5 : 1.5,
-                                                x: 55,
-                                                y: 75,
+                                                scale: index === 0 ? 1.3 : 1.3,
+                                                x: window.innerWidth < 640 ? 30 : 55,
+                                                y: window.innerWidth < 640 ? 40 : 75,
                                                 rotate: index === 0 ? 0 : 0,
                                             }
                                             : {
@@ -235,7 +246,7 @@ const Cards = () => {
                                         duration: 0.8,
                                         ease: [0.22, 1, 0.36, 1],
                                     }}
-                                    className={`w-3/4 h-auto object-contain  mt-7.5 ${index === 0
+                                    className={`w-4/5 sm:w-3/4 h-auto object-contain mt-4 sm:mt-7.5 ${index === 0
                                             ? "drop-shadow-[0_8px_25px_rgba(168,85,247,0.4)] scale-105"
                                             : index === 1
                                                 ? "drop-shadow-[0_8px_25px_rgba(59,130,246,0.4)] scale-105"
@@ -289,15 +300,15 @@ const Cards = () => {
                                                     ease: "easeInOut",
                                                 },
                                             }}
-                                            className={`absolute top-16 left-5 z-30 rounded-full bg-white/10 px-3 py-1 backdrop-blur-md border ${[
-                                                "border-green-400 text-green-400",
-                                                "border-black text-black",
+                                            className={`absolute top-10 sm:top-12 md:top-16 left-3 sm:left-4 md:left-5 z-30 rounded-full bg-white/10 px-2 sm:px-3 py-0.5 sm:py-1 backdrop-blur-md border ${[
+                                                "border-white text-white",
+                                                "border-white text-white",
                                                 "border-white text-white",
                                             ][index]
                                                 }`}
                                         >
-                                            <span className="text-[9px] font-medium uppercase tracking-[0.2em] flex items-center">
-                                                <BsBank className="mr-2" />
+                                            <span className="text-[7px] sm:text-[8px] md:text-[9px] font-medium uppercase tracking-[0.15em] sm:tracking-[0.2em] flex items-center">
+                                                <BsBank className="mr-1 sm:mr-2 text-[8px] sm:text-[10px]" />
                                                 {
                                                     [
                                                         "Premium Banking",
@@ -316,14 +327,14 @@ const Cards = () => {
                                 animate={
                                     hoveredCard === index
                                         ? {
-                                            y: -12, 
+                                            y: -8,
                                         }
                                         : {
                                             y: 0,
                                         }
                                 }
                                 transition={{ duration: 0.35 }}
-                                className={`space-y-1 text-white text-[10px] leading-4 mb-5 absolute bottom-3 left-5 z-20`}
+                                className={`space-y-0.5 sm:space-y-1 text-white text-[8px] sm:text-[9px] md:text-[10px] leading-3 sm:leading-4 mb-3 sm:mb-5 absolute bottom-2 sm:bottom-3 left-3 sm:left-4 md:left-5 z-20`}
                             >
                                 {card.features.map((f) => (
                                     <motion.li
@@ -333,12 +344,10 @@ const Cards = () => {
                                             hoveredCard === index
                                                 ? {
                                                     fontWeight: 700,
-
                                                     x: 1,
                                                 }
                                                 : {
                                                     fontWeight: 400,
-
                                                     x: 1,
                                                 }
                                         }
@@ -349,9 +358,9 @@ const Cards = () => {
                                 ))}
                             </motion.ul>
 
-                            {/* Glow Effects */}
+                            {/* Glow Effects - Different for each card */}
                             <motion.div
-                                className="absolute -top-20 -right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-2xl"
+                                className={`absolute -top-20 -right-20 w-32 sm:w-40 h-32 sm:h-40 ${glowColors[card.glowColor as keyof typeof glowColors]} rounded-full blur-2xl`}
                                 animate={{
                                     scale: [1, 1.2, 1],
                                     opacity: [0.3, 0.6, 0.3],
@@ -364,7 +373,7 @@ const Cards = () => {
                             />
 
                             <motion.div
-                                className="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"
+                                className={`absolute -bottom-20 -left-20 w-32 sm:w-40 h-32 sm:h-40 ${glowColors[card.glowColor as keyof typeof glowColors]} rounded-full blur-2xl`}
                                 animate={{
                                     scale: [1, 1.2, 1],
                                     opacity: [0.3, 0.6, 0.3],
@@ -383,7 +392,7 @@ const Cards = () => {
                 {/* Stats with counters */}
                 <motion.div
                     ref={statsRef}
-                    className="mt-6 bg-white rounded-2xl shadow-xs px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-6"
+                    className="mt-6 sm:mt-8 md:mt-10 bg-white rounded-2xl shadow-xs px-3 sm:px-4 py-6 sm:py-8 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
                     initial={{ opacity: 0, y: 50 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6 }}
@@ -394,9 +403,10 @@ const Cards = () => {
                             key={stat.label}
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.2 }}
+                            className="text-center"
                         >
                             <motion.p
-                                className="text-[#171238] text-2xl md:text-3xl font-medium mb-1"
+                                className="text-primary text-xl sm:text-2xl md:text-3xl font-semibold mb-0.5 sm:mb-1"
                                 initial={{ opacity: 0, scale: 0.5 }}
                                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                                 transition={{
@@ -411,7 +421,7 @@ const Cards = () => {
                                     : `${counts[index]}${stat.suffix}`}
                             </motion.p>
                             <motion.p
-                                className="text-[#f4a54b] text-xs font-medium"
+                                className="text-[#f4a54b] text-[9px] sm:text-xs font-medium"
                                 whileHover={{ color: "#d4893a" }}
                             >
                                 {stat.label}

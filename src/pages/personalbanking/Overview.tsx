@@ -1,12 +1,13 @@
 import { IoLogoApple } from "react-icons/io";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
-import { Shield } from "lucide-react";
+import { Shield, ChevronDown, Menu } from "lucide-react";
 import { useEffect, useState } from "react";
-import { motion, LayoutGroup } from "framer-motion";
+import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 
 const Overview = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [activeTab, setActiveTab] = useState("current-account");
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     useEffect(() => {
         setIsVisible(true);
@@ -24,12 +25,25 @@ const Overview = () => {
         {
             label: "Internet & Mobile Banking",
             id: "internet-mobile-banking"
+        },
+        {
+            label: "Fixed Deposit",
+            id: "fixed-deposits"
+        },
+        {
+            label: "Cards",
+            id: "cards"
+        },
+        {
+            label: "Kolo Ajo",
+            id: "kolo-ajo"
         }
     ];
 
     // scroll function
     const scrollToSection = (id: string) => {
         setActiveTab(id);
+        setIsDropdownOpen(false);
         const element = document.getElementById(id);
 
         if (element) {
@@ -66,6 +80,19 @@ const Overview = () => {
 
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            if (isDropdownOpen && !target.closest('.dropdown-container')) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+        return () => document.removeEventListener('click', handleClickOutside);
+    }, [isDropdownOpen]);
 
     return (
         <div className="pt-20 sm:pt-24 min-h-screen bg-white overflow-hidden">
@@ -245,13 +272,13 @@ const Overview = () => {
                     </div>
                 </div>
 
-                {/* Segmented nav */}
+                {/* Segmented nav - Desktop (hidden on mobile) */}
                 <div
-                    className={`fixed bottom-3 sm:bottom-4 md:bottom-6 left-1/2 z-30 w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] md:w-auto max-w-5xl -translate-x-1/2 transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    className={`hidden md:block fixed bottom-3 sm:bottom-4 md:bottom-6 left-1/2 z-30 w-auto max-w-5xl -translate-x-1/2 transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         }`}
                 >
                     <LayoutGroup>
-                        <div className="relative flex items-center gap-1.5 sm:gap-2 rounded-xl bg-[#EDEDF5]/90 backdrop-blur-xl border border-white/60 shadow-sm p-1.5 sm:p-2 overflow-x-auto scrollbar-hide">
+                        <div className="relative flex items-center gap-1.5 sm:gap-2 rounded-xl bg-[#EDEDF5]/90 backdrop-blur-xl border border-white/60 shadow-sm p-1.5 sm:p-2">
                             {segmentedNav.map((item) => (
                                 <button
                                     key={item.id}
@@ -282,6 +309,84 @@ const Overview = () => {
                             ))}
                         </div>
                     </LayoutGroup>
+                </div>
+
+                {/* Segmented nav - Mobile Dropdown (visible only on mobile) */}
+                <div
+                    className={`md:hidden p-5 fixed bottom-3 sm:bottom-4 left-1/2 z-30 w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-md -translate-x-1/2 transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                        } dropdown-container`}
+                >
+                    <div className="relative">
+                        {/* Dropdown Trigger */}
+                        <motion.button
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="w-full flex items-center justify-between rounded-xl bg-[#EDEDF5]/90 backdrop-blur-xl border border-white/60 shadow-sm px-4 py-3 text-sm font-medium text-primary transition-all duration-300 hover:shadow-md"
+                        >
+                            <motion.span 
+                                className="flex items-center gap-2"
+                                animate={{ 
+                                    scale: isDropdownOpen ? 1.05 : 1 
+                                }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                <Menu size={18} />
+                                Quick Links
+                            </motion.span>
+                            <motion.div
+                                animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                                transition={{ 
+                                    duration: 0.4, 
+                                    ease: "easeInOut" 
+                                }}
+                            >
+                                <ChevronDown size={18} />
+                            </motion.div>
+                        </motion.button>
+
+                        {/* Dropdown Menu */}
+                        <AnimatePresence>
+                            {isDropdownOpen && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    exit={{ opacity: 0, y: -20, scale: 0.9 }}
+                                    transition={{ 
+                                        duration: 0.3,
+                                        ease: "easeOut",
+                                        staggerChildren: 0.05,
+                                        delayChildren: 0.05
+                                    }}
+                                    className="absolute bottom-full mb-2 left-0 right-0 rounded-xl bg-[#EDEDF5]/95 backdrop-blur-xl border border-white/60 shadow-xl p-1.5 max-h-[60vh] overflow-y-auto"
+                                >
+                                    {segmentedNav.map((item, index) => (
+                                        <motion.button
+                                            key={item.id}
+                                            onClick={() => scrollToSection(item.id)}
+                                            initial={{ opacity: 0, x: -10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ 
+                                                duration: 0.2,
+                                                delay: index * 0.05
+                                            }}
+                                            whileHover={{ 
+                                                scale: 1.02,
+                                                backgroundColor: activeTab === item.id ? "#171338" : "rgba(23, 19, 56, 0.05)"
+                                            }}
+                                            whileTap={{ scale: 0.98 }}
+                                            className={`w-full text-left rounded-lg px-4 py-2.5 text-sm font-medium transition-colors duration-200 ${activeTab === item.id
+                                                ? "bg-primary text-white"
+                                                : "text-primary hover:bg-primary/10"
+                                                }`}
+                                        >
+                                            {item.label}
+                                        </motion.button>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
                 </div>
             </div>
 

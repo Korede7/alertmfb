@@ -1,8 +1,10 @@
 import FAQ from "../../components/FAQ"
 import FindABranch from "../../components/FindABranch"
+import Cards from "../../quicklinks/Cards"
 import CurrentAccount from "./CurrentAccount"
 import FixedDeposits from "./FixedDeposits"
 import InternetMobileBanking from "./InternetMobileBanking"
+import KoloAjo from "./KoloAjo"
 import Overview from "./Overview"
 import SavingsAccount from "./SavingsAccount"
 
@@ -21,6 +23,12 @@ const PersonalBanking = () => {
             </div>
             <div id="fixed-deposits" className="scroll_mt-24">
                 <FixedDeposits/>
+            </div>
+            <div id="cards" className="scroll_mt-24">
+                <Cards/>
+            </div>
+            <div id="kolo-ajo" className="scroll_mt-24">
+                <KoloAjo/>
             </div>
             <FindABranch/>
             <FAQ/>

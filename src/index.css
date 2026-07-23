@@ -35,3 +35,12 @@ body,
 .animate-float-delayed {
     animation: float-delayed 3.5s ease-in-out infinite 0.5s;
 }
+
+@media (max-width: 768px) {
+  html,
+  body,
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}

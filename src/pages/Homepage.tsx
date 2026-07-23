@@ -165,7 +165,7 @@ const Homepage = () => {
             initial="enter"
             animate="center"
             exit="exit"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover" 
             style={{
               objectPosition: "center center", 
             }}

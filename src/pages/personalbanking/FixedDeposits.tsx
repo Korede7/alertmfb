@@ -11,7 +11,7 @@ const TENORS = [
   { label: "90 Days", days: 90, rate: 11.5 },
   { label: "180 Days", days: 180, rate: 13.0 },
   { label: "270 Days", days: 270, rate: 14.3 },
-  { label: "365 Days", days: 365, rate: 15.8 },
+  { label: "365 Days", days: 365, rate: 15.8 },  
 ];
 
 const MIN_PRINCIPAL = 50_000;

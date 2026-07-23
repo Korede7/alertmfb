@@ -1,7 +1,8 @@
 import { FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
-import { IoIosMailOpen } from "react-icons/io";
+import { IoIosMailOpen, IoLogoApple } from "react-icons/io";
 import { motion } from "framer-motion";
 import { FiFacebook } from "react-icons/fi";
+import { IoLogoGooglePlaystore } from "react-icons/io5";
 
 const personalBanking = [
     "Current Account",
@@ -132,12 +133,66 @@ const Footer = () => {
                 {/* Purple gradient banner */}
                 <motion.div
                     variants={bannerVariants}
-                    className="w-full h-[400px] rounded-2xl mb-15"
+                    className="relative mb-16 h-[400px] overflow-hidden rounded-[28px]"
                     style={{
                         background:
-                            "linear-gradient(180deg, #4B3A8E 0%, #2A1F5C 55%, #1A1240 100%)",
+                            "linear-gradient(180deg, #52449D 0%, #2A1F5C 55%, #171033 100%)",
                     }}
-                />
+                >
+                    {/* Top Glow */}
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#ffffff20_0%,transparent_60%)]" />
+
+                    {/* Decorative Cards */}
+                    <motion.div
+                        animate={{ y: [0, -8, 0] }}
+                        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                        className="absolute left-16 bottom-0 h-30 w-30 rounded-t-xl bg-white/5 backdrop-blur-sm"
+                    />
+
+                    <motion.div
+                        animate={{ y: [0, 8, 0] }}
+                        transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+                        className="absolute left-[28%] top-6 h-30 w-30 rounded-xl bg-white/5 backdrop-blur-sm"
+                    />
+
+                    <motion.div
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
+                        className="absolute right-[28%] top-6 h-30 w-30 rounded-xl bg-white/5 backdrop-blur-sm"
+                    />
+
+                    <motion.div
+                        animate={{ y: [0, 8, 0] }}
+                        transition={{ repeat: Infinity, duration: 5.5, ease: "easeInOut" }}
+                        className="absolute right-16 bottom-0 h-30 w-30 rounded-t-xl bg-white/5 backdrop-blur-sm"
+                    />
+
+                    {/* Center Glow */}
+                    <div className="absolute left-1/2 top-20 h-48 w-[500px] -translate-x-1/2 rounded-full bg-[#6A59C8]/20 blur-3xl" />
+
+                    {/* Content */}
+                    <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+                        <h2 className="text-4xl font-semibold text-white md:text-5xl">
+                            Bank Smart, Bank Alert.
+                        </h2>
+
+                        <p className="mt-3 max-w-lg text-sm text-white/70">
+                            Everything you need to move, save and grow your money, in one app.
+                        </p>
+
+                        <div className="mt-8 flex flex-wrap justify-center gap-4">
+                            <button className="flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[#1A1240] transition hover:scale-105">
+                                <IoLogoApple className="h-6 w-6 text-primary" />
+                                Get on iPhone
+                            </button>
+
+                            <button className="flex items-center gap-2 rounded-full border border-white/50 bg-transparent px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10">
+                                <IoLogoGooglePlaystore className="h-6 w-6 text-white" />
+                                Get on Android
+                            </button>
+                        </div>
+                    </div>
+                </motion.div>
 
                 {/* Heading + subscribe */}
                 <motion.div

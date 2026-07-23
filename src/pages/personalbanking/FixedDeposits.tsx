@@ -119,15 +119,15 @@ const FixedDeposits = () => {
         {/* ---------------------------------------------------------- Table */}
         <div 
           ref={tableAnimation.ref}
-          className={`mt-12 overflow-hidden px-4 sm:px-0 transition-all duration-1000 ease-out delay-300 ${
+          className={`mt-12 overflow-hidden text-left px-4 sm:px-0 transition-all duration-1000 ease-out delay-300 ${
             tableAnimation.isVisible 
               ? "opacity-100 translate-y-0" 
               : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="mt-10 grid gap-5 sm:grid-cols-[1fr_2fr] bg-[#F9F9FD] px-4 sm:px-6 py-3 text-[13px] font-medium text-slate-500">
+          <div className="mt-10 grid  sm:grid-cols-[2fr_2fr] bg-[#F9F9FD] px-4 sm:px- py-3 text-[13px] font-medium text-slate-500">
             <span className="text-primary">Tenor</span>
-            <span className="text-primary">Interest rates (p.a)</span>
+            <span className="text-primary ">Interest rates (p.a)</span>
           </div>
           {TENORS.map((t, i) => (
             <div
@@ -138,7 +138,7 @@ const FixedDeposits = () => {
               style={{ transitionDelay: `${i * 50}ms` }}
             >
               <span className="text-primary">{t.label}</span>
-              <span className="text-primary">
+              <span className="text-primary text-left">
                 {t.rate.toFixed(1)}% p.a
               </span>
             </div>

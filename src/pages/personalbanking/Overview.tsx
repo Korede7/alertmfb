@@ -1,8 +1,9 @@
 import { IoLogoApple } from "react-icons/io";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
-import { Shield, ChevronDown, Menu } from "lucide-react";
+import { Shield, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
+import { BsMenuButtonWide } from "react-icons/bs";
 
 const Overview = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -322,16 +323,16 @@ const Overview = () => {
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="w-full flex items-center justify-between rounded-xl bg-[#EDEDF5]/90 backdrop-blur-xl border border-white/60 shadow-sm px-4 py-3 text-sm font-medium text-primary transition-all duration-300 hover:shadow-md"
+                            className="w-full flex items-center justify-between rounded-xl bg-primary backdrop-blur-xl border border-white/60 shadow-sm px-4 py-3 text-sm font-medium text-primary transition-all duration-300 hover:shadow-md"
                         >
                             <motion.span 
-                                className="flex items-center gap-2"
+                                className="flex items-center gap-2 text-white"
                                 animate={{ 
                                     scale: isDropdownOpen ? 1.05 : 1 
                                 }}
                                 transition={{ duration: 0.2 }}
                             >
-                                <Menu size={18} />
+                                <BsMenuButtonWide size={18} />
                                 Quick Links
                             </motion.span>
                             <motion.div

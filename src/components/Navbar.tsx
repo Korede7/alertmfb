@@ -303,7 +303,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                         >
                             <div className="flex flex-col h-full bg-white overflow-y-auto">
                                 {/* Header with gradient */}
-                                <div className="relative bg-gradient-to-r from-[#23235A] to-[#2d2d7a] p-6 pt-12 flex-shrink-0">
+                                <div className="relative bg-primary p-6 pt-12 flex-shrink-0">
                                     <button
                                         onClick={() => setMobileMenuOpen(false)}
                                         className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300"

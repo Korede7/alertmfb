@@ -36,7 +36,7 @@ body,
     animation: float-delayed 3.5s ease-in-out infinite 0.5s;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   html,
   body,
   #root {

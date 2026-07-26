@@ -204,7 +204,7 @@ const FAQ = () => {
                         <motion.div
                             whileHover={{ scale: 1.02 }}
                             transition={{ duration: 0.3 }}
-                            className="bg-[#F3F3F8] rounded-2xl overflow-hidden h-[400px] flex items-center justify-center relative"
+                            className="bg-[#F3F3F8] block sm:hidden lg:block rounded-2xl overflow-hidden h-[400px] flex items-center justify-center relative"
                         >
                             <AnimatePresence mode="wait">
                                 <motion.img

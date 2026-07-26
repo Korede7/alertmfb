@@ -75,8 +75,6 @@ const Homepage = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
 
-    console.log(`Looking for element with id: ${id}`, element); // Debug log
-
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",

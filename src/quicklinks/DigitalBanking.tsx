@@ -199,7 +199,7 @@ const DigitalBanking = () => {
     }, [headerInView]);
 
     return (
-        <div ref={sectionRef} className="w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:p-10 mx-auto font-sans">
+        <div ref={sectionRef} className="w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:p-10 mx-auto">
             {/* Header */}
             <motion.div
                 ref={headerRef}

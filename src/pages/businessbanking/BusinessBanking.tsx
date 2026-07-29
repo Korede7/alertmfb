@@ -3,6 +3,7 @@ import FindABranch from "../../components/FindABranch"
 import Cards from "../../quicklinks/Cards"
 import Overview from "../businessbanking/Overview"
 import BusinessReport from "../businessbanking/BusinessReport"
+import BusinessLoans from "./BusinessLoans"
 
 const BusinessBanking = () => {
   return (
@@ -11,6 +12,7 @@ const BusinessBanking = () => {
       <div id="business-report" className="scroll-mt-24">
         <BusinessReport />
       </div>
+      <BusinessLoans/>
       <Cards />
       <FindABranch />
       <FAQ />

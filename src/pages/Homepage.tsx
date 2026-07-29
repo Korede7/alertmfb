@@ -235,7 +235,7 @@ const Homepage = () => {
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="hidden md:flex fixed bottom-18 left-1/2 z-50 w-auto max-w-5xl -translate-x-1/2 flex-col items-center gap-3 rounded-2xl bg-white/10 p-2 shadow-2xl backdrop-blur-md sm:flex-row sm:gap-0"
+        className="hidden md:flex fixed bottom-12 left-1/2 z-50 w-auto max-w-5xl -translate-x-1/2 flex-col items-center gap-3 rounded-2xl bg-white/10 p-2 shadow-2xl backdrop-blur-md sm:flex-row sm:gap-0"
       >
         <motion.button
           onClick={handleLogoClick}

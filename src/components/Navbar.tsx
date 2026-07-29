@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { aboutUsMenu, businessBankingMenu, helpAndSupportMenu, loansMenu, personalBankingMenu } from "../utils";
 import NavDropdown from "./NavDropDown";
 import { Link, useNavigate } from "react-router-dom";
-import { TfiMenuAlt } from "react-icons/tfi";
+import { GrApps } from "react-icons/gr";
 
 type NavbarProps = {
     theme: {
@@ -268,7 +268,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                     {mobileMenuOpen ? (
                         <X size={24} className="text-[#23235A]" />
                     ) : (
-                        <TfiMenuAlt size={26} className={theme.textClass} />
+                        <GrApps size={26} className={theme.textClass} />
                     )}
 
                 </motion.button>

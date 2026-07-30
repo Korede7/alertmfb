@@ -3,8 +3,6 @@ import { motion } from "framer-motion";
 import { IoLogoApple } from "react-icons/io";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
 
-const NAVY = "#191552";
-
 
 const features = [
   {

@@ -13,3 +13,7 @@
 .bg-secondary {
   background-color: var(--secondary-color);
 }
+
+.bg-gray {
+  background-color: var(--gray-color);
+}

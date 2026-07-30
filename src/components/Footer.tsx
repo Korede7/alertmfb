@@ -226,7 +226,7 @@ const Footer = () => {
                         variants={subscribeVariants}
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.3 }}
-                        className="flex items-center bg-[#EDEDF5] rounded-full pl-1 pr-1 py-1 w-full max-w-[400px] shadow-sm"
+                        className="flex items-center bg-gray rounded-full pl-1 pr-1 py-1 w-full max-w-[400px] shadow-sm"
                     >
                         <span className="rounded-full bg-primary p-2.5 ml-0.5">
                             <IoIosMailOpen size={16} className="text-white" />

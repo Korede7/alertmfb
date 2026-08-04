@@ -56,7 +56,7 @@ const BusinessReport = () => {
                         exactly when you need it.
                     </h2>
 
-                    <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-7 text-[#5F6485]">
+                    <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-7 text-gray-500">
                         Real-time account data, downloadable statements, cash flow
                         summaries, and audit-ready transaction reports — all in one
                         dashboard.

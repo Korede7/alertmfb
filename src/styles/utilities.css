@@ -17,3 +17,7 @@
 .bg-gray {
   background-color: var(--gray-color);
 }
+
+.text-gray {
+  color : var(--gray-color)
+}

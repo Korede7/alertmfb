@@ -85,7 +85,7 @@ export const loansMenu = [
   {
     title: "Personal Loans",
     subtitle: "₦50,000 - ₦5,000,000",
-    path: ROUTES.LOANS.PERSONAL_LOANS,
+    path: ROUTES.LOANS.LOANS,
   },
   {
     title: "Salary Advance",

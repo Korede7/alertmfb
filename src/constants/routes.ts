@@ -23,7 +23,7 @@ export const ROUTES = {
     },
 
     LOANS: {
-        PERSONAL_LOANS: "/loans/personal-loans",
+        LOANS: "/loans/loans",
         SALARY_ADVANCE: "/loans/salary-advance",
         SME_LOANS: "/loans/sme-loans",
         APPLY_NOW: "/loans/apply-now",

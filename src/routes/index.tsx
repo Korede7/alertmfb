@@ -2,6 +2,7 @@ import { ROUTES } from "../constants/routes";
 import HomeLayout from "../layouts/HomeLayout";
 import BusinessBanking from "../pages/businessbanking/BusinessBanking";
 import Home from "../pages/Home";
+import Loans from "../pages/loans/Loans";
 import PersonalBanking from "../pages/personalbanking/PersonalBanking";
 
 export const routes = [
@@ -20,6 +21,10 @@ export const routes = [
       {
         path : ROUTES.BUSINESS_BANKING.OVERVIEW,
         element : <BusinessBanking/>
+      },
+      {
+        path : ROUTES.LOANS.LOANS,
+        element : <Loans/>
       }
     ],
   },

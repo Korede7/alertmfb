@@ -15,10 +15,18 @@ const BusinessBanking = () => {
       <div id="business-report" className="scroll-mt-24">
         <BusinessReport />
       </div>
-      <BulkTransfers/>
-      <PointOfSales/>
-      <BusinessLoans/>
-      <UserManagement/>
+      <div id="bulk-transfers" className="scroll-mt-24">
+        <BulkTransfers/>
+      </div>
+      <div id="pos-payment" className="scroll-mt-24">
+        <PointOfSales/>
+      </div>
+      <div id="business-loans" className="scroll-mt-24">
+        <BusinessLoans/>
+      </div>
+      <div id="user-management" className="scroll-mt-24">
+        <UserManagement/>
+      </div>
       <Cards />
       <FindABranch />
       <FAQ />

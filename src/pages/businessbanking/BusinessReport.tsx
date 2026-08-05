@@ -37,7 +37,7 @@ const reports = [
 const BusinessReport = () => {
     return (
         <section className="bg-white py-24">
-            <div className="mx-auto max-w-6xl px-6">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-10">
                 {/* Heading */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

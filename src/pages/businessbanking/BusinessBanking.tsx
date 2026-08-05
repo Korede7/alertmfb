@@ -27,7 +27,9 @@ const BusinessBanking = () => {
       <div id="user-management" className="scroll-mt-24">
         <UserManagement/>
       </div>
-      <Cards />
+     <div id="cards" className="scroll-mt-24">
+       <Cards />
+     </div>
       <FindABranch />
       <FAQ />
     </div>

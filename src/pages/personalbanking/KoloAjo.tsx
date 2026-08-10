@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 
 const KoloAjo = () => {
   return (
-    <div className="w-full min-h-screen bg-[#e9e9f2] flex items-center justify-center p-4 sm:p-8">
+    <div className="w-full min-h-screen bg-gray flex items-center justify-center p-4 sm:p-8">
       <div className="w-full max-w-5xl">
         {/* Header */}
         <div className="text-center mb-10">

@@ -137,13 +137,13 @@ const Navbar = ({ theme }: NavbarProps) => {
             className={`w-full fixed left-0 top-0 z-50 transition-colors duration-300 ${scrolled ? "bg-white shadow-lg" : "bg-transparent"
                 }`}
         >
-            <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-10">
+            <div className="mx-auto flex h-17 max-w-6xl mt-3 items-center justify-between px-6 sm:px-8 lg:px-10">
                 {/* Left */}
                 <div className="flex items-center gap-8 sm:gap-10 lg:gap-10">
                     {/* Logo */}
                     <Link to="/" className="flex items-center">
                         <motion.div
-                            className="flex items-center rounded-full shadow-xs bg-gray-200/30 pr-8 pl-0 cursor-pointer"
+                            className="flex items-center rounded-full shadow-xs bg-purple-100/50 pr-8 pl-0 cursor-pointer"
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
@@ -161,7 +161,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                                 />
                             </div>
                             <span
-                                className={`ml-2 sm:ml-3 text-[16px] sm:text-base md:text-lg lg:text-md tracking-tight whitespace-nowrap ${theme.textClass}`}
+                                className={`ml-2 sm:ml-3 text-[13px] sm:text-base md:text-lg lg:text-sm tracking-tight whitespace-nowrap ${theme.textClass}`}
                             >
                                 Alert MFB
                             </span>
@@ -171,7 +171,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                     {/* Desktop Nav */}
                     <div
                         ref={navRef}
-                        className="hidden items-center gap-8 lg:flex lg:gap-12"
+                        className="hidden items-center gap-8 lg:flex lg:gap-10"
                     >
                         <div className="hidden flex items-center gap-40 lg:flex justify-between text-sm sm:text-base md:text-lg lg:text-md ">
                             <span className="flex gap-6 text-sm sm:text-base md:text-lg lg:text-md">
@@ -223,12 +223,12 @@ const Navbar = ({ theme }: NavbarProps) => {
                 </div>
 
                 {/* Desktop Buttons */}
-                <div className="hidden lg:flex items-center ml-2 xl:ml-3">
-                    <div className="flex items-center gap-2 xl:gap-3">
+                <div className="hidden lg:flex items-center ml-5">
+                    <div className="flex items-center gap-2 xl:gap-2">
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className={`h-10 xl:h-11 rounded-full border px-4 xl:px-6 2xl:px-8 whitespace-nowrap text-xs xl:text-sm 2xl:text-base font-medium cursor-pointer transition-all duration-300 ${theme.buttonClass}`}
+                            className={`h-8 xl:h-9 rounded-full border px-4 xl:px-4 2xl:px-4 whitespace-nowrap text-xs sm:text-sm md:text-[13px] font-medium cursor-pointer transition-all duration-300 ${theme.buttonClass}`}
                         >
                             Join Alert
                         </motion.button>
@@ -236,7 +236,7 @@ const Navbar = ({ theme }: NavbarProps) => {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className={`flex h-10 xl:h-11 items-center whitespace-nowrap rounded-full pl-4 xl:pl-6 pr-1 cursor-pointer text-xs xl:text-sm 2xl:text-[15px] font-medium transition-all duration-300 ${theme.textClass === "text-white"
+                            className={`flex h-8 xl:h-9 items-center whitespace-nowrap rounded-full pl-4 xl:pl-6 pr-0.5 cursor-pointer text-xs sm:text-sm md:text-[13px] font-medium transition-all duration-300 ${theme.textClass === "text-white"
                                 ? "bg-white text-primary hover:bg-[#f8f8f8]"
                                 : "bg-primary text-white hover:bg-[#100b33]"
                                 }`}
@@ -244,14 +244,14 @@ const Navbar = ({ theme }: NavbarProps) => {
                             <span>Sign In</span>
 
                             <span
-                                className={`ml-3 xl:ml-5 flex h-8 w-8 xl:h-10 xl:w-10 items-center justify-center rounded-full ${theme.textClass === "text-white"
+                                className={`ml-3.5 xl:ml-5 flex h-6 w-6 xl:h-8 xl:w-8 items-center justify-center rounded-full ${theme.textClass === "text-white"
                                     ? "bg-primary text-white"
                                     : "bg-white text-primary"
                                     }`}
                             >
                                 <ArrowRight
-                                    size={16}
-                                    className="xl:w-[18px] xl:h-[18px]"
+                                    size={15}
+                                    className="xl:w-[15px] xl:h-[15px]"
                                     strokeWidth={2.5}
                                 />
                             </span>

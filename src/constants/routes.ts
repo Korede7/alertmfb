@@ -5,7 +5,6 @@ export const ROUTES = {
         PERSONAL_BANKING: "/personal-banking/overview",
         KOLO: "/personal-banking/kolo",
         CURRENT_ACCOUNT: "/personal-banking/current-account",
-        AJO_GROUP_SAVINGS: "/personal-banking/ajo-group-savings",
         SAVINGS_ACCOUNT: "/personal-banking/savings-account",
         CARDS: "/personal-banking/cards",
         FIXED_DEPOSIT: "/personal-banking/fixed-deposit",

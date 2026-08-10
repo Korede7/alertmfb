@@ -36,14 +36,14 @@ const PersonalLoans = () => {
     <section className="relative w-full overflow-hidden rounded-[28px] bg-white">
       {/* Background image */}
       <div
-        className={`relative min-h-[500px] w-full bg-cover bg-[center_20%] sm:min-h-[600px] lg:min-h-[680px] transition-transform duration-[1400ms] ease-out ${mounted ? "scale-100" : "scale-125"
+        className={`relative min-h-[500px] w-full bg-cover bg-[center_20%] sm:min-h-[600px] lg:min-h-[620px] transition-transform duration-[3400ms] ease-out ${mounted ? "scale-100" : "scale-125"
           }`}
         style={{
           backgroundImage: "url('/loanBg2.jpg')",
         }}
       >
         {/* Hero copy */}
-        <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-5 pt-12 text-center sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
+        <div className="relative mx-auto flex max-w-5xl flex-col items-center px-5 pt-10 text-center sm:px-8 sm:pt-16 lg:px-10 lg:pt-20">
           <h1
             className={`max-w-3xl text-[32px] font-semibold leading-tight tracking-[-0.04em] text-primary sm:text-[38px] lg:text-[44px] ${fadeUp()}`}
             style={fadeUpStyle(0)}
@@ -137,7 +137,7 @@ const PersonalLoans = () => {
 
       {/* Footer strip */}
       <div
-        className={`flex flex-col items-center justify-between gap-4 border-t border-[#141852]/10 px-5 py-4 text-center text-[11px] text-[#141852]/60 sm:px-6 lg:flex-row lg:text-left ${fadeUp()}`}
+        className={`flex bottom-40 flex-col items-center justify-between gap-4 border-t border-[#141852]/10 px-5 py-2 text-center text-[11px] text-[#141852]/60 sm:px-6 lg:flex-row lg:text-left ${fadeUp()}`}
         style={fadeUpStyle(480)}
       >
         <p className="max-w-3xl">

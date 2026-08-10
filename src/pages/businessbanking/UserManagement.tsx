@@ -104,19 +104,19 @@ const UserManagement = () => {
           </div>
 
           {/* Phone mockup image */}
-        <div className="hidden sm:flex justify-center md:justify-center lg:justify-end items-center">
-  <div className="relative top-[25px] md:translate-x-[-30px] lg:translate-x-0 w-72 sm:w-80 md:w-96 items-center justify-center">
-    <img
-      src="/mockupNobg.png"
-      alt=""
-      className="w-full h-auto object-contain"
-    />
-  </div>
-</div>
+          <div className="hidden sm:flex justify-center md:justify-center lg:justify-end items-center">
+            <div className="relative top-[25px] md:translate-x-[-30px] lg:translate-x-0 w-72 sm:w-80 md:w-96 items-center justify-center">
+              <img
+                src="/mockupNobg.png"
+                alt=""
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
         </div>
 
         {/* ---- Feature grid ---- */}
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
           {features.map((feature) => (
             <div
               key={feature.title}

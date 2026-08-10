@@ -209,7 +209,7 @@ const DigitalBanking = () => {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start mb-6 lg:mb-8"
             >
                 <div>
-                    <p className="text-[10px] sm:text-[11px] tracking-[0.7em] sm:tracking-[0.9em] font-bold text-secondary mb-2 sm:mb-3">
+                    <p className="text-[10px] sm:text-[13px] ml-1 tracking-[0.7em] sm:tracking-[0.9em] font-bold text-secondary mb-2 sm:mb-3">
                         DIGITAL BANKING
                     </p>
                     <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl leading-[1.15] font-extrabold text-[#171338] mb-3 sm:mb-4 min-h-[3.5rem] sm:min-h-[4.5rem]">
@@ -512,7 +512,7 @@ const DigitalBanking = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: featuresInView ? 1 : 0, x: featuresInView ? 0 : -20 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="bg-[#f6f6fa] rounded-xl p-3 sm:p-4 flex flex-col gap-2 sm:gap-3 shadow-m"
+                    className="bg-gray rounded-xl p-3 sm:p-4 flex flex-col gap-2 sm:gap-3 shadow-m"
                 >
                     <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-white shadow-sm flex items-center justify-center text-primary flex-shrink-0">
                         <Shield size={14} className="sm:w-4 sm:h-4" />
@@ -532,7 +532,7 @@ const DigitalBanking = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: featuresInView ? 1 : 0, y: featuresInView ? 0 : -20 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="bg-[#f6f6fa] rounded-xl p-3 sm:p-4 flex flex-col gap-2 sm:gap-3"
+                    className="bg-gray rounded-xl p-3 sm:p-4 flex flex-col gap-2 sm:gap-3"
                 >
                     <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-white shadow-sm flex items-center justify-center text-primary flex-shrink-0">
                         <Headset size={14} className="sm:w-4 sm:h-4" />
@@ -551,7 +551,7 @@ const DigitalBanking = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: featuresInView ? 1 : 0, x: featuresInView ? 0 : 20 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="bg-[#f6f6fa] rounded-xl p-3 sm:p-4 flex flex-col gap-2 sm:gap-3 col-span-1 sm:col-span-2 lg:col-span-1"
+                    className="bg-gray rounded-xl p-3 sm:p-4 flex flex-col gap-2 sm:gap-3 col-span-1 sm:col-span-2 lg:col-span-1"
                 >
                     <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-white shadow-sm flex items-center justify-center text-[#171338] flex-shrink-0">
                         <Smartphone size={14} className="sm:w-4 sm:h-4" />

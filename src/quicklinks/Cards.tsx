@@ -138,7 +138,7 @@ const Cards = () => {
     };
 
     return (
-        <section className="bg-[#eef0f7] py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+        <section className="bg-gray py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
             <motion.div
                 className="max-w-5xl mx-auto text-center"
                 initial="hidden"

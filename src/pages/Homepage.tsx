@@ -21,7 +21,7 @@ type LayoutContext = {
 
 const images = [
   { src: "/heroBg7.jpg", textClass: "text-primary", buttonClass: "border-primary text-primary hover:bg-gray-50", bgClass: "bg-white", buttonClass2: "border-white text-primary bg-primary" },
-  { src: "/h.png", textClass: "text-white", buttonClass: "border-white text-white", bgClass: "bg-primary", buttonClass2: "border-white text-primary bg-white" },
+  { src: "/h.png", textClass: "text-white", buttonClass: "border-white text-white", bgClass: "bg-primary", buttonClass2: "border-white text-primary bg-transparent" },
 ];
 
 const quickLinks = [
@@ -151,10 +151,10 @@ const Homepage = () => {
   };
 
   return (
-    <section className="relative h-[100vh] w-full overflow-hidden bg-blue-300">
+    <section className="relative h-screen w-full overflow-hidden bg-blue-300">
 
       {/* Background Image Carousel*/}
-      <div className="absolute inset-0 h-full w-full overflow-hidden">
+      <div className="absolute inset-0 h-full w-full  overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.img
             key={activeImage.src}
@@ -163,9 +163,9 @@ const Homepage = () => {
             initial="enter"
             animate="center"
             exit="exit"
-            className="absolute inset-0 w-full h-full object-cover" 
+            className="absolute inset-0 w-full h-[700px] object-fit bg-fit"
             style={{
-              objectPosition: "center center", 
+              objectPosition: "center center",
             }}
           />
         </AnimatePresence>
@@ -184,7 +184,7 @@ const Homepage = () => {
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           exit={{ opacity: 0, filter: "blur(10px)" }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className={`mt-6 max-w-4xl text-3xl font-semibold leading-[1.05] tracking-[-2px] ${activeImage.textClass} sm:mt-8 sm:text-4xl lg:text-6xl`}
+          className={`mt-4 max-w-4xl text-3xl font-semibold leading-[1.05] tracking-[-2px] ${activeImage.textClass} sm:mt-8 sm:text-4xl lg:text-5xl`}
         >
           Banking That Moves at the
           <br />
@@ -280,6 +280,7 @@ const Homepage = () => {
         </motion.div>
 
         <motion.button
+          onClick={() => window.open('https://goldbucks.ng', "_blank")}
           initial={{ x: 20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
@@ -367,7 +368,7 @@ const Homepage = () => {
                 variants={itemVariants}
                 transition={{
                   duration: 0.2,
-                  ease: "easeInOut" 
+                  ease: "easeInOut"
                 }}
                 className={`w-full px-4 py-3 text-sm font-medium rounded-xl bg-white/20 hover:bg-white/30 transition backdrop-blur-sm border border-gray-200 text-center `}
               >
@@ -379,7 +380,7 @@ const Homepage = () => {
       </div>
 
       {/* Sticky Footer */}
-      <div className="absolute bottom-0 z-10 flex h-auto w-full flex-col gap-2 border-t border-white/20 bg-white/95 px-4 py-2 text-[10px] text-gray-700 backdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">
+      <div className="absolute bottom-0 sm:mt-0 z-10 flex h-auto w-full flex-col gap-2 border-t border-white/20 bg-white/95 px-4 py-2 text-[10px] text-gray-700 backdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">
         <p className="text-center sm:text-left">
           © Alert Microfinance Bank Limited is licensed by the Central Bank of Nigeria (CBN). Deposits are insured by the NDIC.
         </p>

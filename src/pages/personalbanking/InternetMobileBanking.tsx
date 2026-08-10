@@ -192,16 +192,9 @@ const FeaturePill = ({ label }: { label: string }) => {
             animate={controls}
             variants={fadeInUp}
             className="flex w-fit items-center gap-2 rounded-full bg-white px-3 py-2 shadow-sm"
-            whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
-            }}
-            transition={{ duration: 0.2 }}
         >
             <motion.span 
-                className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-200 shadow-md"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6 }}
+                className="flex h-7 w-7 items-center justify-center rounded-full rounded-full bg-gradient-to-br from-gray-100 to-gray-300 border border-white text-primary shadow-lg shadow-md"
             >
                 <ArrowRightFromLine className="h-3.5 w-3.5 text-primary" />
             </motion.span>
@@ -346,7 +339,7 @@ const InternetMobileBanking: React.FC = () => {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.1 }}
                     variants={staggerContainer}
-                    className="rounded-[26px] bg-[#F3F3F8] px-5 sm:px-8 lg:px-12 py-8 overflow-hidden"
+                    className="rounded-[26px] bg-gray px-5 sm:px-8 lg:px-12 py-8 overflow-hidden"
                 >
                     <div className="grid grid-cols-1 xl:grid-cols-[340px_1fr_360px] gap-10 xl:gap-3 items-center">
                         {/* Phone */}
@@ -383,7 +376,7 @@ const InternetMobileBanking: React.FC = () => {
                             </motion.div>
 
                             {/* Second */}
-                            <motion.div variants={fadeInUp} className="flex">
+                            <motion.div variants={fadeInUp} className="flex"> 
                                 <FeaturePill label={appFeatures[1]} />
                             </motion.div>
 

@@ -345,7 +345,7 @@ const Testimonials = () => {
                     {/* Row 1: fixed image + marquee lane (cards scroll, image stays put) */}
                     <div className="flex flex-col md:flex-row gap-4 items-stretch">
                         <motion.div
-                            className="w-full md:w-1/4 relative overflow-hidden rounded-2xl h-65 shrink-0"
+                            className="w-full md:w-1/4 relative overflow-hidden rounded-2xl h-90 sm:h-65 shrink-0"
                             variants={gridItemVariants}
                         >
                             <AnimatePresence mode="wait" custom={currentImageIndex}>
@@ -383,7 +383,7 @@ const Testimonials = () => {
                             <MarqueeRow cards={row2Cards} direction="right" duration={66} />
                         </motion.div>
                         <motion.div
-                            className="w-full md:w-1/4 relative overflow-hidden rounded-2xl h-65  shrink-0 order-1 md:order-2"
+                            className="w-full md:w-1/4 relative overflow-hidden rounded-2xl h-90 sm:h-65  shrink-0 order-1 md:order-2"
                             variants={gridItemVariants}
                         >
                             <AnimatePresence mode="wait" custom={currentImageIndex}>

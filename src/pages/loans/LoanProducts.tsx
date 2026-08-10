@@ -250,7 +250,7 @@ const LoanProducts = () => {
                     <span className="text-[11px] font-semibold tracking-[0.25em] text-[#E8871E]">
                         LOAN PRODUCTS
                     </span>
-                    <h2 className="mt-3 max-w-xl text-[28px] font-semibold leading-tight tracking-[-0.03em] text-[#141852] sm:text-[32px]">
+                    <h2 className="mt-3 max-w-xl text-xl sm:text-2xl font-semibold leading-tight tracking-[-0.03em] text-[#141852] sm:text-[32px]">
                         Get every kind of funding you need
                         <br />
                         All in one bank

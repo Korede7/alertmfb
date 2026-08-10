@@ -125,7 +125,7 @@ const FixedDeposits = () => {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="mt-6 grid sm:grid-cols-[2fr_2fr] bg-[#F9F9FD] px-3 sm:px-4 py-2 text-[11px] font-medium text-slate-500">
+          <div className="mt-6 grid sm:grid-cols-[2fr_2fr] bg-gray px-3 sm:px-4 py-2 text-[13px] font-medium">
             <span className="text-primary">Tenor</span>
             <span className="text-primary">Interest rates (p.a)</span>
           </div>
@@ -145,7 +145,7 @@ const FixedDeposits = () => {
           ))}
         </div>
 
-        <div className={`mt-3 inline-flex items-center gap-1.5 rounded-lg bg-[#F9F9FD] px-2.5 py-1.5 text-[10px] text-primary mx-2 sm:mx-0 transition-all duration-700 delay-500 ${
+        <div className={`mt-3 inline-flex items-center gap-1.5 rounded-lg bg-gray px-2.5 py-1.5 text-[10px] text-primary mx-2 sm:mx-0 transition-all duration-700 delay-500 ${
           tableAnimation.isVisible 
             ? "opacity-100 translate-y-0" 
             : "opacity-0 translate-y-5"
@@ -263,7 +263,7 @@ const FixedDeposits = () => {
             </div>
 
             {/* Summary */}
-            <div className="mt-4 rounded-xl space-y-6 border-t border-slate-100 bg-[#F9F9FD] p-3 sm:p-5 pt-4 sm:pt-5 text-xs">
+            <div className="mt-4 rounded-xl space-y-6 border-t border-slate-100 bg-gray p-3 sm:p-5 pt-4 sm:pt-5 text-xs">
               <div className="flex items-center justify-between border-b border-gray-400 pb-3 transition-all duration-300 hover:pl-2">
                 <span className="text-primary font-light">Maturity Amount</span>
                 <span className="font-semibold text-secondary">
@@ -309,10 +309,10 @@ const FixedDeposits = () => {
           ].map((label, index) => (
             <div
               key={label}
-              className="flex flex-col items-center gap-4 rounded-lg bg-[#EDEDF5AD] px-3 py-4 text-center transition-all duration-500 hover:scale-105 hover:shadow-md"
+              className="flex flex-col items-center gap-4 rounded-lg bg-gray px-3 py-4 text-center transition-all duration-500 hover:scale-105 hover:shadow-md"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-[#EDEDF5AD] shadow-xl transition-transform duration-300 hover:rotate-12">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-gray-100 to-gray-300 border border-white text-primary shadow-lg ">
                 <ArrowRightFromLine className="h-3 w-3 text-[#0D1533]" />
               </span>
               <span className="text-[10px] font-medium text-primary">

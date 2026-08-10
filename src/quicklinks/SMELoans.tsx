@@ -170,7 +170,7 @@ const SMELoans = () => {
                 variants={containerVariants}
               >
                 <motion.tr 
-                  className="bg-[#f4f3fb]"
+                  className="bg-gray"
                   variants={tableHeaderVariants}
                 >
                   <th className="text-[#171238] text-[10px] sm:text-xs font-medium px-3 sm:px-4 md:px-6 py-3 sm:py-4 whitespace-nowrap">
@@ -219,7 +219,7 @@ const SMELoans = () => {
                     </td>
                     <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 text-right">
                       <motion.button 
-                        className="inline-flex items-center gap-1.5 bg-[#f4f3fb] text-[#171238] text-[10px] sm:text-xs font-medium pl-2 sm:pl-3 md:pl-4 pr-1.5 py-1 sm:py-1.5 rounded-full hover:bg-[#ece9f6] transition-colors whitespace-nowrap"
+                        className="inline-flex items-center gap-1.5 bg-gray text-[#171238] text-[10px] sm:text-xs font-medium pl-2 sm:pl-3 md:pl-4 pr-1.5 py-1 sm:py-1.5 rounded-full hover:bg-[#ece9f6] transition-colors whitespace-nowrap"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >

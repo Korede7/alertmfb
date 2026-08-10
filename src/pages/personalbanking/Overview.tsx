@@ -156,7 +156,7 @@ const Overview = () => {
                     </div>
 
                     {/* Right column — image */}
-                    <div className={`relative flex justify-center lg:justify-end pt-6 sm:pt-8 lg:pt-12 transition-all bg-gradient-from-tr duration-1000 delay-300 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+                    <div className={`relative flex justify-center lg:justify-end pt-6 sm:pt-8 lg:pt-12 transition-all duration-1000 delay-300 ease-out ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
                         }`}>
                         <div className="relative w-full max-w-[280px] sm:max-w-[340px] md:max-w-[380px] lg:max-w-[410px] h-[300px] sm:h-[340px] md:h-[370px] lg:h-[400px] mx-auto lg:mx-0">
 
@@ -224,7 +224,7 @@ const Overview = () => {
 
                             {/* App badge - positioned absolutely with floating animation */}
                             <div className={`absolute top-10 sm:top-16 md:top-20 lg:top-26 -right-4 sm:-right-8 md:-right-12 lg:-right-15 z-20 transition-all duration-700 delay-500 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
-                                } animate-float`}>
+                                } `}>
                                 <div className="flex items-center rounded-full shadow-lg bg-gray-300/40 backdrop-blur-md pr-2 sm:pr-3 lg:pr-4 p-0.5 border border-white/20 w-28 sm:w-32 md:w-36 lg:w-40">
                                     {/* Logo Circle */}
                                     <div className="flex h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 items-center justify-center rounded-full">
@@ -275,11 +275,11 @@ const Overview = () => {
 
                 {/* Segmented nav - Desktop (hidden on mobile) */}
                 <div
-                    className={`hidden md:block fixed bottom-3 sm:bottom-4 md:bottom-6 left-1/2 z-30 w-auto max-w-5xl -translate-x-1/2 transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    className={`hidden  md:block fixed bottom-3 sm:bottom-4 md:bottom-6 left-1/2 z-30 w-auto max-w-5xl -translate-x-1/2 transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         }`}
                 >
                     <LayoutGroup>
-                        <div className="relative flex items-center gap-1.5 sm:gap-2 rounded-xl bg-[#EDEDF5]/90 backdrop-blur-xl border border-white/60 shadow-sm p-1.5 sm:p-2">
+                        <div className="relative flex items-center gap-1.5 sm:gap-2 rounded-xl backdrop-blur-md bg-white/40 shadow-sm p-1.5 sm:p-2">
                             {segmentedNav.map((item) => (
                                 <button
                                     key={item.id}

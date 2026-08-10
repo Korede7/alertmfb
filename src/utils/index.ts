@@ -17,11 +17,6 @@ export const personalBankingMenu = [
     path: ROUTES.PERSONAL_BANKING.CURRENT_ACCOUNT,
   },
   {
-    title: "Ajo Group Savings",
-    subtitle: "Save together with friends and family",
-    path: ROUTES.PERSONAL_BANKING.AJO_GROUP_SAVINGS,
-  },
-  {
     title: "Savings Account",
     subtitle: "Earn while you save",
     path: ROUTES.PERSONAL_BANKING.SAVINGS_ACCOUNT,

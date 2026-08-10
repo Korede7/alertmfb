@@ -124,9 +124,9 @@ const SavingsAccount = () => {
                                 visible: { opacity: 1, y: 0 }
                             }}
                             whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                            className="flex flex-col items-center justify-center gap-3 rounded-3xl bg-[#EDEDF5AD] p-8 py-8 px-4 text-center"
+                            className="flex flex-col items-center justify-center gap-3 rounded-3xl bg-gray p-8 py-8 px-4 text-center"
                         >
-                            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 border border-white shadow-lg">
+                            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-gray-100 to-gray-300 border border-white text-primary shadow-lg">
                                 <feature.icon className="w-5 h-5 text-primary" />
                             </div>
                             <h3 className="text-sm font-semibold text-[#141B4D]">

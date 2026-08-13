@@ -331,8 +331,8 @@ const LoanCalculator: React.FC = () => {
 
         {/* CTA buttons */}
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <button className="flex items-center gap-2 rounded-full  px-6 py-3 text-[14px] font-medium text-primary  transition shadow-lg bg-white shadow-purple-200">
-            <Download className="h-4 w-4" />
+          <button className="flex items-center gap-2 rounded-full  px-6 py-3 text-[14px] font-medium text-primary border border-primary transition hover:bg-primary hover:text-white cursor-pointer hover:bg-gray-100">
+            <Download className="h-4 w-4 text-primary" />
             Download Amortisation Schedule
           </button>
            <button className="  flex cursor-pointer items-center gap-3 rounded-full bg-primary py-1.5 pl-6 pr-2 text-sm font-medium text-white transition hover:bg-[#0F0C4A]">

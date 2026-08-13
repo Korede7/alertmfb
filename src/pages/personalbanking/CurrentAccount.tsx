@@ -201,8 +201,7 @@ const CurrentAccount = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
                 variants={containerVariants}
-                className="max-w-5xl mx-auto px-6 mt-10"
-            >
+                className="max-w-5xl mx-auto px-6 mt-10">
                 <motion.div
                     variants={scaleVariants}
                     whileHover={{
@@ -210,48 +209,59 @@ const CurrentAccount = () => {
                         boxShadow: "0 20px 60px rgba(23, 20, 63, 0.2)",
                         transition: { duration: 0.4 },
                     }}
-                    className="rounded-xl p-8 md:p-15 transition-all duration-300"
+                    className="rounded-xl p-8 md:p-10 lg:p-12 transition-all duration-300"
                     style={{
                         background:
                             "linear-gradient(120deg, #0f0d32 0%, #282353 55%, #7A70C2 100%)",
-                    }}
-                >
-                    <motion.h3
-                        variants={fadeLeftVariants}
-                        className="text-white text-2xl font-semibold mb-5"
-                    >
-                        Who can Open an account?
-                    </motion.h3>
-                    <motion.ul
-                        variants={staggerVariants}
-                        className="mt-2 p-5 space-y-3"
-                    >
-                        {eligibility.map((item, i) => (
-                            <motion.li
-                                key={i}
-                                variants={itemVariants}
-                                whileHover={{
-                                    x: 6,
-                                    transition: { duration: 0.2 },
-                                }}
-                                className="flex items-start gap-2 text-sm text-white/85 leading-relaxed"
+                    }} >
+                    <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center max-w-5xl mx-auto">
+                        <div>
+                            <motion.h3
+                                variants={fadeLeftVariants}
+                                className="text-white text-2xl font-semibold mb-5"
                             >
-                                <motion.span
-                                    initial={{ scale: 0 }}
-                                    whileInView={{ scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{
-                                        duration: 0.3,
-                                        delay: i * 0.1,
-                                        type: "spring",
-                                        stiffness: 300,
-                                    }}
-                                    className="mt-1.5 h-1 w-1 rounded-full bg-white/70 shrink-0"
-                                />
-                                <span>{item}</span>
-                            </motion.li>
-                        ))}
-                    </motion.ul>
+                                Who can Open an account?
+                            </motion.h3>
+                            <motion.ul
+                                variants={staggerVariants}
+                                className="mt-2 p-5 space-y-3"
+                            >
+                                {eligibility.map((item, i) => (
+                                    <motion.li
+                                        key={i}
+                                        variants={itemVariants}
+                                        whileHover={{
+                                            x: 6,
+                                            transition: { duration: 0.2 },
+                                        }}
+                                        className="flex items-start gap-2 text-sm text-white/85 leading-relaxed"
+                                    >
+                                        <motion.span
+                                            initial={{ scale: 0 }}
+                                            whileInView={{ scale: 1 }}
+                                            viewport={{ once: true }}
+                                            transition={{
+                                                duration: 0.3,
+                                                delay: i * 0.1,
+                                                type: "spring",
+                                                stiffness: 300,
+                                            }}
+                                            className="mt-1.5 h-1 w-1 rounded-full bg-white/70 shrink-0"
+                                        />
+                                        <span>{item}</span>
+                                    </motion.li>
+                                ))}
+                            </motion.ul>
+                        </div>
+
+                        <div className="flex items-center justify-center">
+                            <div className="w-full min-h-[220px] md:min-h-[280px] flex items-center justify-center p-6 text-center">
+                                <div>
+                                    <img src="/group.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </motion.div>
             </motion.section>
 
@@ -285,14 +295,10 @@ const CurrentAccount = () => {
                                 stiffness: 80,
                                 damping: 15,
                             }}
-                            whileHover={{
-                                rotate: [0, -3, 3, 0],
-                                transition: { duration: 0.6 },
-                            }}
-                            className="hidden h-full items-center pl-8 sm:flex lg:pl-12"
-                        >
+                            
+                            className="hidden h-full items-center pl-8 sm:flex lg:pl-12" >
                             <img
-                                src="/mockupNobg.png"
+                                src="/group2.png"
                                 alt="Goldbucks App Mockup"
                                 className="pointer-events-none mt-18 mr-8 h-[calc(90%+3rem)] w-auto object-contain"
                             />

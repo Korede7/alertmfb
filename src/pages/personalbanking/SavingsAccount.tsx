@@ -146,62 +146,74 @@ const SavingsAccount = () => {
                 className="max-w-5xl mx-auto px-6 mt-16"
             >
                 <div
-                    className="rounded-xl p-8 md:p-15"
+                    className="rounded-xl p-8 md:p-15 grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
                     style={{
                         background:
                             "linear-gradient(120deg, #0e0c2d 0%, #282353 55%, #7A70C2 100%)",
                     }}
                 >
-                    <motion.h3
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-white text-2xl font-semibold mb-5"
-                    >
-                        Who can Open an account?
-                    </motion.h3>
-                    <motion.ul
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={{
-                            hidden: { opacity: 0 },
-                            visible: {
-                                opacity: 1,
-                                transition: {
-                                    staggerChildren: 0.1
+                    {/* Left side - Text content */}
+                    <div>
+                        <motion.h3
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="text-white text-2xl font-semibold mb-5"
+                        >
+                            Who can Open an account?
+                        </motion.h3>
+                        <motion.ul
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={{
+                                hidden: { opacity: 0 },
+                                visible: {
+                                    opacity: 1,
+                                    transition: {
+                                        staggerChildren: 0.1
+                                    }
                                 }
-                            }
-                        }}
-                        className="mt-2 p-5 space-y-3"
-                    >
-                        {eligibility.map((item, i) => (
-                            <motion.li
-                                key={i}
-                                variants={{
-                                    hidden: { opacity: 0, x: -20 },
-                                    visible: { opacity: 1, x: 0 }
-                                }}
-                                whileHover={{ x: 6, transition: { duration: 0.2 } }}
-                                className="flex items-start gap-2 text-sm text-white/85 leading-relaxed"
-                            >
-                                <motion.span
-                                    initial={{ scale: 0 }}
-                                    whileInView={{ scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{
-                                        duration: 0.3,
-                                        delay: i * 0.05,
-                                        type: "spring",
-                                        stiffness: 300,
+                            }}
+                            className="mt-2 p-5 space-y-3"
+                        >
+                            {eligibility.map((item, i) => (
+                                <motion.li
+                                    key={i}
+                                    variants={{
+                                        hidden: { opacity: 0, x: -20 },
+                                        visible: { opacity: 1, x: 0 }
                                     }}
-                                    className="mt-1.5 h-1 w-1 rounded-full bg-white/70 shrink-0"
-                                />
-                                <span>{item}</span>
-                            </motion.li>
-                        ))}
-                    </motion.ul>
+                                    whileHover={{ x: 6, transition: { duration: 0.2 } }}
+                                    className="flex items-start gap-2 text-sm text-white/85 leading-relaxed"
+                                >
+                                    <motion.span
+                                        initial={{ scale: 0 }}
+                                        whileInView={{ scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{
+                                            duration: 0.3,
+                                            delay: i * 0.05,
+                                            type: "spring",
+                                            stiffness: 300,
+                                        }}
+                                        className="mt-1.5 h-1 w-1 rounded-full bg-white/70 shrink-0"
+                                    />
+                                    <span>{item}</span>
+                                </motion.li>
+                            ))}
+                        </motion.ul>
+                    </div>
+
+                    {/* Right side - Image */}
+                    <div className="flex justify-center items-center">
+
+                        <img
+                            src="/group.png"
+                            className="w-full  object-cover"
+                        />
+                    </div>
                 </div>
             </motion.section>
 
@@ -238,19 +250,19 @@ const SavingsAccount = () => {
 
                     {/* Right */}
                     <motion.button
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: 0.3 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group mt-6 inline-flex items-center gap-2 rounded-full bg-secondary text-white text-sm font-medium pl-6 pr-2 py-2 hover:opacity-90 transition-all duration-300"
-                >
-                    <span>Calculate My Growth</span>
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white group-hover:translate-x-0.5 transition-transform duration-300">
-                        <ArrowRight className="w-3.5 h-3.5 text-secondary" />
-                    </span>
-                </motion.button>
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7, delay: 0.3 }}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="group mt-6 inline-flex items-center gap-2 rounded-full bg-secondary text-white text-sm font-medium pl-6 pr-2 py-2 hover:opacity-90 transition-all duration-300"
+                    >
+                        <span>Calculate My Growth</span>
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white group-hover:translate-x-0.5 transition-transform duration-300">
+                            <ArrowRight className="w-3.5 h-3.5 text-secondary" />
+                        </span>
+                    </motion.button>
                 </div>
             </motion.section>
 

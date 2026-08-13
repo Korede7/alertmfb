@@ -154,7 +154,7 @@ const Homepage = () => {
     <section className="relative h-screen w-full overflow-hidden bg-blue-300">
 
       {/* Background Image Carousel*/}
-      <div className="absolute inset-0 h-full w-full  overflow-hidden">
+      <div className="absolute inset-0 h-full w-full  overflow-hidden p-4">
         <AnimatePresence mode="wait">
           <motion.img
             key={activeImage.src}
@@ -380,7 +380,7 @@ const Homepage = () => {
       </div>
 
       {/* Sticky Footer */}
-      <div className="absolute bottom-0 sm:mt-0 z-10 flex h-auto w-full flex-col gap-2 border-t border-white/20 bg-white/95 px-4 py-2 text-[10px] text-gray-700 backdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">
+      <div className="absolute bottom-0 sm:mt-0 z-10 flex h-auto w-full flex-col gap-2 bg-gray px-4 py-2 text-[10px] text-primarybackdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">
         <p className="text-center sm:text-left">
           © Alert Microfinance Bank Limited is licensed by the Central Bank of Nigeria (CBN). Deposits are insured by the NDIC.
         </p>

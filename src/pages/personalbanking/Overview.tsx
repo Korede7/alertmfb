@@ -4,6 +4,7 @@ import { Shield, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { BsMenuButtonWide } from "react-icons/bs";
+// +1 307 800 0643
 
 const Overview = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -275,7 +276,7 @@ const Overview = () => {
 
                 {/* Segmented nav - Desktop (hidden on mobile) */}
                 <div
-                    className={`hidden  md:block fixed bottom-3 sm:bottom-4 md:bottom-6 left-1/2 z-30 w-auto max-w-5xl -translate-x-1/2 transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    className={`hidden  md:block fixed bottom-3 sm:bottom-4 md:bottom-15 left-1/2 z-30 w-auto max-w-5xl -translate-x-1/2 transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         }`}
                 >
                     <LayoutGroup>
@@ -392,7 +393,7 @@ const Overview = () => {
             </div>
 
             {/* Footer */}
-            <div className={`mt-20 sm:mt-28 md:mt-32 lg:mt-40 border-t border-[#141B4D]/10 bg-[#FAFAFC] transition-all duration-1000 delay-1100 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'
+            <div className={`mt-20 sm:mt-28 md:mt-32 lg:mt-27 border-t border-[#141B4D]/10 bg-gray transition-all duration-1000 delay-1100 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'
                 }`}>
                 <div className="w-full px-3 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-col lg:flex-row items-center justify-between gap-2 sm:gap-3 text-[10px] sm:text-[11px] text-[#141B4D]/70">
                     <div className="flex items-center gap-1.5 sm:gap-2 text-center lg:text-left">

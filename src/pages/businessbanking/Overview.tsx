@@ -33,7 +33,7 @@ const Overview = () => {
   };
   return (
 
-    <div className="h-screen w-full flex flex-col sm:pb-16 md:pb-20  transition-all duration-300">
+    <div className="min-h-screen w-full flex flex-col sm:pb-16 md:pb-20 bg-white transition-all duration-300">
 
 
       {/* ---------------- Hero ---------------- */}
@@ -41,7 +41,7 @@ const Overview = () => {
         <h1
           className="text-xl sm:text-2xl md:text-2xl lg:text-4xl font-semibold text-primary leading-tight max-w-3xl mx-auto mt-10 sm:mt-3 md:mt-4 text-center"
         >
-          Banking built for Nigerian <br /> Businesses
+          Banking built for Nigerian Businesses
         </h1>
         <p className="mt-5 sm:mt-4 text-primary max-w-3xl mx-auto text-sm sm:text-base leading-relaxed font-normal">
           From sole proprietors to established corporates — accounts, loans,
@@ -58,7 +58,7 @@ const Overview = () => {
             className="absolute left-1/2 top-1/2 -z-10 h-24 w-[90%] -translate-x-1/2 -translate-y-1/2 blur-3xl"
             style={{
               background:
-                "radial-gradient(ellipse at center, rgba(39, 0, 67, 0.14) 0%, rgba(69, 0, 88, 0.84) 30%, transparent 35%)",
+                "radial-gradient(ellipse at center, rgba(39, 0, 67, 0.14) 0%, rgba(69, 0, 88, 0.84) 30%, transparent 55%)",
             }}
           />
 
@@ -81,15 +81,15 @@ const Overview = () => {
       </div>
 
       {/* ---------------- Dashboard  ---------------- */}
-      <div className={`relative  bottom-1 mx-auto h-[250px] sm:h-[350px] w-full max-w-5xl rounded-lg sm:rounded-xl md:rounded-2xl  sm:p-1.5 px-4 sm:px-6 md:px-10 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        <img src="/dashboard.png" alt="" className="w-full h-[200px] sm:h-[290px] bottom-40" />
+        <div className={`relative  bottom-10 mx-auto h-[250px] sm:h-[250px] lg:h-[340px] w-full max-w-5xl rounded-lg sm:rounded-xl md:rounded-2xl  sm:p-1.5 px-4 sm:px-6 md:px-10 overflow-hidden transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <img src="/dashboard.png" alt="" className="w-full h-fit sm:h-[475px] object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#ffffff] via-[#ffffff]/30 to-transparent" />
       </div>
 
 
 
       {/* ---------------- Footer ---------------- */}
-      <div className={`border-t border-gray-100 bg-[#EDEDF5]  mt-0  z-50 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`border-t border-gray-100 bg-[#EDEDF5] mt-auto z-50 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-1 sm:py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between md:items-center md:justify-between items-center justify-between gap-4 sm:gap-6 text-[10px] sm:text-[11px] text-gray-500">
           <div className="flex items-start sm:items-center gap-2">
             <ShieldCheck size={12} className="text-gray-400 shrink-0 mt-0.5 sm:mt-0" />

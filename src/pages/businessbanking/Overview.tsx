@@ -112,7 +112,7 @@ const Overview = () => {
       {/* ---------------- Dashboard  ---------------- */}
         <div className={`relative  bottom-10 mx-auto h-[250px] sm:h-[250px] lg:h-[340px] w-full max-w-5xl rounded-lg sm:rounded-xl md:rounded-2xl  sm:p-1.5 px-4 sm:px-6 md:px-10 overflow-hidden transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <img src={dashboardImg} alt="Dashboard" loading="eager" className="w-full h-fit sm:h-[475px] object-cover object-center" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#ffffff] via-[#ffffff]/30 to-transparent" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-[#ffffff] via-[#ffffff]/30 to-transparent" /> */}
       </div>
 
 

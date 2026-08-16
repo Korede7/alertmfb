@@ -1,31 +1,60 @@
 import { ArrowRight, ShieldCheck, } from "lucide-react";
 import { useState, useEffect } from "react";
+import dashboardImg from "../../assets/dashboard.png";
+
 
 const NAVY = "#0B0844";
 
+const navItems = [
+  { id: "business-reports", label: "Business Reports" },
+  { id: "bulk-transfers", label: "Bulk Transfers" },
+  { id: "pos-payment", label: "POS & Payment Solutions" },
+  { id: "cards", label: "Cards" },
+  { id: "business-loans", label: "Business Loans" },
+  { id: "user-management", label: "User Management" },
+];
 
 const Overview = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [activeNavItem, setActiveNavItem] = useState<string | null>(null);
+  const [activeNavItem, setActiveNavItem] = useState<string | null>("business-reports");
 
   useEffect(() => {
     setIsLoaded(true);
-    setActiveNavItem("business-reports"); // Set default active item
   }, []);
 
-  const navItems = [
-    { id: "business-reports", label: "Business Reports" },
-    { id: "bulk-transfers", label: "Bulk Transfers" },
-    { id: "pos-payment", label: "POS & Payment Solutions" },
-    { id: "cards", label: "Cards" },
-    { id: "business-loans", label: "Business Loans" },
-    { id: "user-management", label: "User Management" },
-  ];
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleEntry) {
+          setActiveNavItem(visibleEntry.target.id);
+        }
+      },
+      {
+        root: null,
+        threshold: [0.2, 0.35, 0.5, 0.7],
+        rootMargin: "-20% 0px -40% 0px",
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const handleNavClick = (id: string) => {
     setActiveNavItem(id);
-    console.log("Clicked navigation item:", id);
-    // Scroll to the section with matching ID
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -58,7 +87,7 @@ const Overview = () => {
             className="absolute left-1/2 top-1/2 -z-10 h-24 w-[90%] -translate-x-1/2 -translate-y-1/2 blur-3xl"
             style={{
               background:
-                "radial-gradient(ellipse at center, rgba(39, 0, 67, 0.14) 0%, rgba(69, 0, 88, 0.84) 30%, transparent 55%)",
+                "radial-gradient(ellipse at center, rgba(0, 7, 67, 0.14) 0%, rgba(21, 0, 88, 0.67) 30%, transparent 55%)",
             }}
           />
 
@@ -82,7 +111,7 @@ const Overview = () => {
 
       {/* ---------------- Dashboard  ---------------- */}
         <div className={`relative  bottom-10 mx-auto h-[250px] sm:h-[250px] lg:h-[340px] w-full max-w-5xl rounded-lg sm:rounded-xl md:rounded-2xl  sm:p-1.5 px-4 sm:px-6 md:px-10 overflow-hidden transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <img src="/dashboard.png" alt="" className="w-full h-fit sm:h-[475px] object-cover object-center" />
+          <img src={dashboardImg} alt="Dashboard" loading="eager" className="w-full h-fit sm:h-[475px] object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#ffffff] via-[#ffffff]/30 to-transparent" />
       </div>
 
@@ -108,25 +137,29 @@ const Overview = () => {
 
       {/* Fixed Navigation bar */}
       <div
-        className={`backdrop-blur-md bg-white/10  fixed bottom-15 left-1/2 -translate-x-1/2 flex items-center gap-3 sm:gap-4 md:gap-6 px-4 sm:px-6 py-3 sm:py-4 text-[11px] sm:text-xs font-medium text-gray-600 shadow-lg rounded-md sm:rounded-lg max-w-[90vw] sm:max-w-xl md:max-w-4xl lg:max-w-7xl whitespace-nowrap overflow-x-auto transition-all duration-1000 delay-500 z-50 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        className={`backdrop-blur-sm bg-white/10 fixed bottom-15 left-1/2 -translate-x-1/2 flex items-center gap-3 sm:gap-4 md:gap-6 px-4 sm:px-6 py-3 sm:py-4 text-[11px] sm:text-xs font-medium text-gray-600 shadow-lg rounded-md sm:rounded-lg max-w-[90vw] sm:max-w-xl md:max-w-4xl lg:max-w-7xl whitespace-nowrap overflow-x-auto transition-all duration-1000 delay-500 z-50 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         style={{ backgroundColor: "#ffffff86" }}
       >
-        {navItems.map((item) => (
-          <span
-            key={item.id}
-            onClick={() => handleNavClick(item.id)}
-            className={`px-4 py-2 rounded-lg cursor-pointer transition-all duration-300 flex-shrink-0 ${activeNavItem === item.id
-              ? "text-white"
-              : "text-gray-600 hover:text-gray-900"
-              }`}
-            style={activeNavItem === item.id ? { backgroundColor: NAVY } : {}}
-          >
-            {item.label}
-          </span>
-        ))}
-      </div>
+        {navItems.map((item) => {
+          const isActive = activeNavItem === item.id;
 
-      <div className="" />
+          return (
+            <span
+              key={item.id}
+              onClick={() => handleNavClick(item.id)}
+              className={`relative px-4 py-2 rounded-lg cursor-pointer transition-all duration-300 ease-out flex-shrink-0 ${isActive ? "text-white" : "text-gray-600 hover:text-gray-900"}`}
+              style={{
+                backgroundColor: isActive ? NAVY : "transparent",
+                boxShadow: isActive ? "0 8px 20px rgba(11, 8, 68, 0.2)" : "none",
+                transform: isActive ? "translateY(-1px) scale(1.02)" : "translateY(0) scale(1)",
+                transition: "all 0.3s ease, transform 0.25s ease, background-color 0.3s ease, box-shadow 0.3s ease",
+              }}
+            >
+              {item.label}
+            </span>
+          );
+        })}
+      </div>
     </div>
 
 

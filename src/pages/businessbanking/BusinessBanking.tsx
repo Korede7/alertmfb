@@ -12,24 +12,24 @@ const BusinessBanking = () => {
   return (
     <div className="bg-white min-h-screen">
       <Overview />
-      <div id="business-report" className="scroll-mt-24">
+      <div id="business-reports" className="scroll-mt-24">
         <BusinessReport />
       </div>
       <div id="bulk-transfers" className="scroll-mt-24">
-        <BulkTransfers/>
+        <BulkTransfers />
       </div>
       <div id="pos-payment" className="scroll-mt-24">
-        <PointOfSales/>
+        <PointOfSales />
+      </div>
+      <div id="cards" className="scroll-mt-24">
+        <Cards />
       </div>
       <div id="business-loans" className="scroll-mt-24">
-        <BusinessLoans/>
+        <BusinessLoans />
       </div>
       <div id="user-management" className="scroll-mt-24">
-        <UserManagement/>
+        <UserManagement />
       </div>
-     <div id="cards" className="scroll-mt-24">
-       <Cards />
-     </div>
       <FindABranch />
       <FAQ />
     </div>

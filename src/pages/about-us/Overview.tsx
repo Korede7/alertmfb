@@ -83,7 +83,7 @@ const Overview = () => {
     };
 
     return (
-        <section className="min-h-screen bg-white overflow-hidden pt-20 sm:pt-16 md:pt-40 lg:pt-20 pb-12 sm:pb-16 transition-all duration-300">
+        <section className="min-h-screen bg-white overflow-hidden pt-20 sm:pt-16 md:pt-40 lg:pt-20 transition-all duration-300">
             {/* HERO */}
             <div className="relative min-h-[515px] lg:min-h-[590px]">
                 {/* Main Content */}
@@ -150,7 +150,7 @@ const Overview = () => {
 
                         {/* RIGHT IMAGE AREA */}
                         <motion.div
-                            className="relative min-h-[300px] sm:min-h-[400px] lg:min-h-[515px] overflow-visible mt-8 lg:mt-0"
+                            className="relative min-h-[280px] sm:min-h-[400px] lg:min-h-[515px] overflow-visible mt-8 lg:mt-0"
                             variants={fadeInRight}
                         >
                             {/* BLUE BACKGROUND */}
@@ -189,7 +189,7 @@ const Overview = () => {
 
                             {/* FLOATING CARD */}
                             <motion.div
-                                className="absolute z-30 top-[140px] sm:top-[180px] lg:top-[240px] right-[40px] sm:right-[80px] lg:right-[120px] w-[100px] sm:w-[150px] lg:w-[170px] h-[100px] sm:h-[130px] lg:h-[155px] bg-white/30 rounded-lg p-1 sm:p-1.5 animate-float-delayed"
+                                className="absolute z-30 top-[140px] sm:top-[180px] lg:top-[240px] right-[100px] sm:right-[80px] lg:right-[120px] w-[100px] sm:w-[150px] lg:w-[170px] h-[100px] sm:h-[130px] lg:h-[155px] bg-white/30 rounded-lg p-1 sm:p-1.5 animate-float-delayed"
                                 variants={floatingCard}
                                 animate={{
                                     y: [0, -8, 0],
@@ -251,13 +251,13 @@ const Overview = () => {
 
             {/* FOOTER STRIP */}
             <motion.div
-                className="h-auto sm:h-[22px] flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 lg:px-10 text-[14px] sm:text-[11px] lg:text-[12px] text-primary py-2 sm:py-0 gap-1 sm:gap-0 bg-gray"
+                className="h-auto sm:h-[22px] flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 lg:px-10 text-[14px] sm:text-[11px] lg:text-[12px] text-primary py-2 sm:py-0 gap-1 sm:gap-0 bg-gray pt-13"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1 }}
             >
                 <motion.p
-                    className="flex items-center gap-1 text-center sm:text-left"
+                    className="flex items-center gap-1 text-center sm:text-left text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px]"
                     whileHover={{ scale: 1.01 }}
                 >
                     <ShieldCheck size={12} className="sm:w-[15px] sm:h-[15px]" />

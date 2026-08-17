@@ -74,14 +74,14 @@ const Stats = () => {
                     }
                 }
             }}
-            className="relative h-[160px] overflow-hidden border-b-2 border-sky-400 bg-gradient-to-br from-[#0B0844] to-[#473E82]"
+            className="relative h-[160px] overflow-hidden border-b-2  bg-gradient-to-br from-[#0B0844] to-[#473E82]"
         >
             {/* Animated background particles */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 {[...Array(8)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute rounded-full bg-white/5"
+                        className="absolute rounded-full bg-white/10"
                         style={{
                             width: Math.random() * 60 + 20,
                             height: Math.random() * 60 + 20,
@@ -105,15 +105,15 @@ const Stats = () => {
             </div>
 
             {/* Logo overlay  */}
-            <div className="pointer-events-none absolute -inset-20 pr-50 flex items-center overflow-hidden opacity-10">
+            <div className="pointer-events-none absolute -inset-20 pr-20 flex items-center overflow-hidden opacity-14">
                 <img 
                     src="/logo0.png" 
                     alt="Logo" 
-                    className="h-[180%] w-[200%] object-contain object-left"
+                    className="h-[180%] w-[180%] object-contain object-left"
                 />
             </div>
 
-            <div className="relative mx-auto grid h-full max-w-4xl grid-cols-2 items-center gap-y-6 px-5 sm:grid-cols-4">
+            <div className="relative mx-auto grid h-full max-w-6xl grid-cols-2 items-center gap-y-6 px-5 sm:grid-cols-4 pl-20 sm:pl-40">
                 {stats.map((stat, index) => (
                     <StatItem key={index} stat={stat} isInView={isInView} index={index} />
                 ))}

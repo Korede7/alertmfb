@@ -3,6 +3,9 @@ import OurPurpose from "./OurPurpose"
 import OurStory from "./OurStory"
 import Overview from "./Overview"
 import Awards from "./Awards"
+import Careers from "./Careers"
+import FindABranch from "../../components/FindABranch"
+import FAQ from "../../components/FAQ"
 
 const AboutUs = () => {
   return (
@@ -12,6 +15,9 @@ const AboutUs = () => {
         <OurPurpose/>
         <CoperateResponsibility/>
         <Awards/>
+        <Careers/>
+        <FindABranch/>
+        <FAQ/>
       
     </div>
   )

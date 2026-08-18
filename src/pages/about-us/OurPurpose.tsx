@@ -129,13 +129,13 @@ const OurPurpose = () => {
                 >
                     <motion.p
                         variants={childFadeUp}
-                        className="text-sm font-medium tracking-[0.4em] mb-3 text-secondary"
+                        className="text-sm font-medium tracking-[0.4em] mb-3 text-secondary mb-4"
                     >
                         OUR PURPOSE
                     </motion.p>
                     <motion.h1
                         variants={childFadeUp}
-                        className="text-lg sm:text-5xl leading-4 font-semibold mb-3 text-primary"
+                        className="text-lg sm:text-5xl leading-4 font-semibold mb-3 text-primary mb-5"
                     >
                         Mission. Vision. Values.
                     </motion.h1>

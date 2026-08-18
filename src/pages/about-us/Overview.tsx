@@ -101,7 +101,7 @@ const Overview = () => {
                         >
                             <div>
                                 <motion.h1
-                                    className="text-primary font-semibold tracking-[-0.045em] leading-[0.93] text-3xl xs:text-4xl sm:text-5xl lg:text-[52px] pt-8 sm:pt-15"
+                                    className="text-primary font-semibold tracking-[-0.045em] leading-[0.93] text-3xl xs:text-4xl sm:text-5xl lg:text-[52px] pt-8 sm:pt-10 lg:pt-0"
                                     variants={fadeInUp}
                                 >
                                     Empowering <br /> Nigerians <br /> One account at <br />
@@ -175,7 +175,7 @@ const Overview = () => {
 
                             {/* PERSON / ABOUT IMAGE */}
                             <motion.div
-                                className="absolute z-20 -bottom-10 sm:-bottom-14 lg:-bottom-18 left-[-20px] sm:left-[-30px] lg:left-[-45px] w-[280px] sm:w-[380px] lg:w-[500px] h-[350px] sm:h-[480px] lg:h-[620px] overflow-hidden pointer-events-none"
+                                className="absolute z-20 -bottom-10 sm:-bottom-5 lg:-bottom-18 left-[5px]  sm:left-[250px] lg:left-[-45px] w-[280px] sm:w-[380px] lg:w-[500px] h-[350px] sm:h-[480px] lg:h-[620px] overflow-hidden pointer-events-none"
                                 variants={imageReveal}
                             >
                                 <motion.img

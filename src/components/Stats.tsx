@@ -113,7 +113,7 @@ const Stats = () => {
                 />
             </div>
 
-            <div className="relative mx-auto grid h-full max-w-6xl grid-cols-2 items-center gap-y-6 px-5 sm:grid-cols-4 pl-20 sm:pl-40">
+            <div className="relative mx-auto grid h-full max-w-6xl grid-cols-2 items-center gap-y-6 px-5 sm:grid-cols-4 pl-20 sm:pl-15 lg:pl-35">
                 {stats.map((stat, index) => (
                     <StatItem key={index} stat={stat} isInView={isInView} index={index} />
                 ))}
@@ -190,7 +190,7 @@ const StatItem: React.FC<StatItemProps> = ({ stat, isInView, index }) => {
                 transition={{ type: "spring", stiffness: 300 }}
             >
                 <motion.span 
-                    className={`h-2.5 w-2.5 shrink-0 ${stat.dotColor} rounded-full`}
+                    className={`h-2.5 w-2.5 shrink-0 ${stat.dotColor}`}
                     animate={{
                         scale: isItemInView || isInView ? [0, 1.5, 1] : 0,
                         opacity: isItemInView || isInView ? 1 : 0,

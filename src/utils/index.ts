@@ -185,3 +185,55 @@ export const helpAndSupportMenu = [
     path: ROUTES.HELP.DOWNLOAD_CENTER,
   },
 ];
+
+
+export const cards = [
+    {
+        title: "Bringing Better Vision & Health Support",
+        paragraph:
+            "Alert MFB partners with local health providers to bring free eye screenings, glasses and basic health checks to communities that need them most.",
+        caption:
+            "Beneficiaries who required visual support were also provided with free eyeglasses, enabling them to see more clearly and carry out their daily activities with greater confidence and ease...",
+        bgImage: "/doctor.jpg",
+        modalTitle: "Bringing Better Vision & Health Support for Over 2,000 People",
+        modalContent: [
+            "Access to quality healthcare is essential for thriving communities. Recognizing this need, Alert MFB partnered with local health providers to deliver free eye screenings, glasses, and basic health checks to communities that need them most.",
+            "Today, more than 2,000 beneficiaries have received free eye tests and glasses through the initiative, helping to improve daily living conditions and reduce the challenges associated with poor vision and limited healthcare access.",
+            "Beyond providing vision support, the initiative represents an investment in community health, dignity and sustainable development.",
+            "For Alert MFB, creating impact means looking beyond financial solutions and supporting projects that address important everyday needs.",
+            "Through initiatives such as this, we continue to demonstrate our commitment to building stronger communities and contributing positively to the lives of the people around us."
+        ], 
+    },
+    {
+        title: "Expanding Access to Clean Water",
+        paragraph:
+            "We support borehole and water access projects that bring clean, safe drinking water closer to home, reducing waterborne illness and easing daily life.",
+        caption:
+            "Beyond providing water, the initiative represents an investment in community health, dignity and sustainable development....",
+        bgImage: "/africanWoman.jpg",
+        modalTitle: "Expanding Access to Clean Water for Over 2,000 People",
+        modalContent: [
+            "Access to clean water is essential to healthy and thriving communities. Recognizing this need, Alert MFB delivered a borehole project designed to provide a reliable source of clean water to members of the community.",
+            "Today, more than 2,000 people have access to clean water through the project, helping to improve daily living conditions and reduce the challenges associated with sourcing safe water.",
+            "Beyond providing water, the initiative represents an investment in community health, dignity and sustainable development.",
+            "For Alert MFB, creating impact means looking beyond financial solutions and supporting projects that address important everyday needs.",
+            "Through initiatives such as this, we continue to demonstrate our commitment to building stronger communities and contributing positively to the lives of the people around us."
+        ], 
+    },
+    {
+        title: "Alert MFB Scholarship Programmes",
+        paragraph:
+            "Alert MFB is helping deserving individuals pursue their education without the financial burden that can sometimes stand in the way of their aspirations.",
+        caption:
+            "Currently, five beneficiaries are receiving free education through the scholarship programme, giving them the opportunity to focus on learning, personal development and building a stronger foundation for their future...",
+        bgImage: "/children.jpg",
+        modalTitle: "Empowering Education Through Alert MFB Scholarship Programmes",
+        modalContent: [
+            "Education is the foundation for a brighter future. Alert MFB's Scholarship Programme has been designed to support deserving individuals in pursuing their educational dreams without the financial burden that often stands in the way.",
+            "Currently, five beneficiaries are receiving free education through the programme, giving them the opportunity to focus on learning, personal development and building a stronger foundation for their future.",
+            "The scholarship covers tuition, learning materials, and other educational essentials, ensuring that students can fully concentrate on their academic growth.",
+            "For Alert MFB, creating impact means investing in the next generation and providing opportunities that can transform lives and communities.",
+            "Through initiatives such as this, we continue to demonstrate our commitment to building stronger communities and contributing positively to the lives of the people around us."
+        ], 
+    },
+];

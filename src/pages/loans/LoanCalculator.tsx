@@ -158,9 +158,9 @@ const RateGraphic: React.FC<{ animationProgress: number }> = ({ animationProgres
   </div>
 );
 
-/* ------------------------------------------------------------------ */
-/*  Image placeholder — swap the <img src> below with your own photo  */
-/* ------------------------------------------------------------------ */
+
+/*  Image */
+
 
 const PhotoPlaceholder: React.FC = () => (
   <div className="relative flex h-[450px] w-full items-end overflow-hidden rounded-3xl bg-[#dcdcec]">

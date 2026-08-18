@@ -1,6 +1,8 @@
+import CoperateResponsibility from "./CoperateResponsibility"
 import OurPurpose from "./OurPurpose"
 import OurStory from "./OurStory"
 import Overview from "./Overview"
+import Awards from "./Awards"
 
 const AboutUs = () => {
   return (
@@ -8,6 +10,8 @@ const AboutUs = () => {
         <Overview/>
         <OurStory/>
         <OurPurpose/>
+        <CoperateResponsibility/>
+        <Awards/>
       
     </div>
   )

@@ -144,26 +144,58 @@ const Footer = () => {
 
                     {/* Decorative Cards */}
                     <motion.div
-                        animate={{ y: [0, -8, 0] }}
-                        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                        animate={{
+                            y: [0, -18, 0, 12, 0],
+                            x: [0, 8, -5, 4, 0],
+                            rotate: [0, 2, -1, 1, 0],
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 6,
+                            ease: "easeInOut",
+                        }}
                         className="absolute left-16 bottom-0 h-30 w-30 rounded-t-xl bg-white/5 backdrop-blur-sm"
                     />
 
                     <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+                        animate={{
+                            y: [0, 15, -5, 18, 0],
+                            x: [0, -10, 6, -4, 0],
+                            rotate: [0, -2, 1, -1, 0],
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 7,
+                            ease: "easeInOut",
+                        }}
                         className="absolute left-[28%] top-6 h-30 w-30 rounded-xl bg-white/5 backdrop-blur-sm"
                     />
 
                     <motion.div
-                        animate={{ y: [0, -10, 0] }}
-                        transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
+                        animate={{
+                            y: [0, -12, 8, -18, 0],
+                            x: [0, 7, -8, 5, 0],
+                            rotate: [0, 1.5, -2, 1, 0],
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 6.5,
+                            ease: "easeInOut",
+                        }}
                         className="absolute right-[28%] top-6 h-30 w-30 rounded-xl bg-white/5 backdrop-blur-sm"
                     />
 
                     <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ repeat: Infinity, duration: 5.5, ease: "easeInOut" }}
+                        animate={{
+                            y: [0, 18, 5, -10, 0],
+                            x: [0, -7, 8, -5, 0],
+                            rotate: [0, -1.5, 2, -1, 0],
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 7.5,
+                            ease: "easeInOut",
+                        }}
                         className="absolute right-16 bottom-0 h-30 w-30 rounded-t-xl bg-white/5 backdrop-blur-sm"
                     />
 

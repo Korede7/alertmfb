@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion, useAnimation, useInView, type Variants, AnimatePresence } from "framer-motion";
 import { cards } from "../../utils";
 
@@ -7,11 +7,11 @@ import { cards } from "../../utils";
 // Scroll animation variants with proper typing
 const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 60 },
-    visible: { 
-        opacity: 1, 
+    visible: {
+        opacity: 1,
         y: 0,
-        transition: { 
-            duration: 0.8, 
+        transition: {
+            duration: 0.8,
             ease: [0.22, 1, 0.36, 1]
         }
     }
@@ -19,11 +19,11 @@ const fadeInUp: Variants = {
 
 const fadeInLeft: Variants = {
     hidden: { opacity: 0, x: -60 },
-    visible: { 
-        opacity: 1, 
+    visible: {
+        opacity: 1,
         x: 0,
-        transition: { 
-            duration: 0.8, 
+        transition: {
+            duration: 0.8,
             ease: [0.22, 1, 0.36, 1]
         }
     }
@@ -31,11 +31,11 @@ const fadeInLeft: Variants = {
 
 const fadeInRight: Variants = {
     hidden: { opacity: 0, x: 60 },
-    visible: { 
-        opacity: 1, 
+    visible: {
+        opacity: 1,
         x: 0,
-        transition: { 
-            duration: 0.8, 
+        transition: {
+            duration: 0.8,
             ease: [0.22, 1, 0.36, 1]
         }
     }
@@ -54,11 +54,11 @@ const staggerContainer: Variants = {
 
 const cardExpandVariants: Variants = {
     hidden: { scale: 0.95, opacity: 0 },
-    visible: { 
-        scale: 1, 
+    visible: {
+        scale: 1,
         opacity: 1,
-        transition: { 
-            duration: 0.7, 
+        transition: {
+            duration: 0.7,
             ease: [0.22, 1, 0.36, 1]
         }
     }
@@ -66,21 +66,21 @@ const cardExpandVariants: Variants = {
 
 const modalVariants: Variants = {
     hidden: { opacity: 0, scale: 0.9, y: 20 },
-    visible: { 
-        opacity: 1, 
-        scale: 1, 
+    visible: {
+        opacity: 1,
+        scale: 1,
         y: 0,
-        transition: { 
-            duration: 0.4, 
+        transition: {
+            duration: 0.4,
             ease: [0.22, 1, 0.36, 1]
         }
     },
-    exit: { 
-        opacity: 0, 
-        scale: 0.9, 
+    exit: {
+        opacity: 0,
+        scale: 0.9,
         y: 20,
-        transition: { 
-            duration: 0.3, 
+        transition: {
+            duration: 0.3,
             ease: [0.22, 1, 0.36, 1]
         }
     }
@@ -93,8 +93,8 @@ const CoperateResponsibility = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const controls = useAnimation();
     const ref = useRef(null);
-    const isInView = useInView(ref, { 
-        once: true, 
+    const isInView = useInView(ref, {
+        once: true,
         amount: 0.1,
         margin: "-50px"
     });
@@ -152,7 +152,7 @@ const CoperateResponsibility = () => {
 
     return (
         <>
-            <motion.div 
+            <motion.div
                 ref={ref}
                 initial="hidden"
                 animate={controls}
@@ -161,7 +161,7 @@ const CoperateResponsibility = () => {
                 <div className="max-w-5xl mx-auto">
 
                     {/* Eyebrow + Heading + Copy */}
-                    <motion.div 
+                    <motion.div
                         variants={staggerContainer}
                         className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-start mb-10 sm:mb-12"
                     >
@@ -185,7 +185,7 @@ const CoperateResponsibility = () => {
                             </motion.h1>
                         </motion.div>
 
-                        <motion.div 
+                        <motion.div
                             variants={fadeInRight}
                             className="flex flex-col items-start md:items-end text-left md:text-right min-w-0"
                         >
@@ -208,7 +208,7 @@ const CoperateResponsibility = () => {
                             >
                                 Read our CSR Impact Reports
 
-                                <motion.span 
+                                <motion.span
                                     whileHover={{ x: 4 }}
                                     transition={{ duration: 0.2 }}
                                     className="flex items-center justify-center rounded-full w-7 h-7 sm:w-8 sm:h-8 bg-white shrink-0"
@@ -236,7 +236,7 @@ const CoperateResponsibility = () => {
                                 <motion.div
                                     key={card.title}
                                     variants={cardExpandVariants}
-                                    whileHover={!isMobile && !isExpanded ? { 
+                                    whileHover={!isMobile && !isExpanded ? {
                                         scale: 1.02,
                                         transition: { duration: 0.3 }
                                     } : {}}
@@ -257,14 +257,14 @@ const CoperateResponsibility = () => {
                                     {isExpanded ? (
                                         <>
                                             {/* Expanded content (shared mobile/desktop) */}
-                                            <motion.div 
+                                            <motion.div
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 transition={{ duration: 0.5, delay: 0.1 }}
                                                 className="relative z-10 h-full flex flex-col min-h-0"
                                             >
                                                 {index !== 2 && (
-                                                    <motion.div 
+                                                    <motion.div
                                                         initial={{ y: 20, opacity: 0 }}
                                                         animate={{ y: 0, opacity: 1 }}
                                                         transition={{ duration: 0.5, delay: 0.2 }}
@@ -281,19 +281,22 @@ const CoperateResponsibility = () => {
                                                 )}
 
                                                 {index === 2 && (
-                                                    <motion.div 
+                                                    <motion.div
                                                         initial={{ y: 20, opacity: 0 }}
                                                         animate={{ y: 0, opacity: 1 }}
                                                         transition={{ duration: 0.5, delay: 0.2 }}
                                                         className="px-5 sm:px-6 md:px-8 pt-5 sm:pt-6 md:pt-8 pb-3 sm:pb-4"
                                                     >
+                                                         <h3 className="text-white font-bold text-xl sm:text-2xl mb-2 sm:mb-3 leading-tight">
+                                                            {card.title}
+                                                        </h3>
                                                         <p className="text-white/80 text-xs sm:text-sm leading-relaxed max-w-md">
                                                             {card.paragraph}
                                                         </p>
                                                     </motion.div>
                                                 )}
 
-                                                <motion.div 
+                                                <motion.div
                                                     initial={{ y: 30, opacity: 0 }}
                                                     animate={{ y: 0, opacity: 1 }}
                                                     transition={{ duration: 0.6, delay: 0.3 }}
@@ -301,7 +304,7 @@ const CoperateResponsibility = () => {
                                                 >
                                                     <div className="absolute inset-0" />
 
-                                                    <motion.div 
+                                                    <motion.div
                                                         initial={{ y: 20, opacity: 0 }}
                                                         animate={{ y: 0, opacity: 1 }}
                                                         transition={{ duration: 0.5, delay: 0.4 }}
@@ -330,7 +333,7 @@ const CoperateResponsibility = () => {
                                     ) : isMobile ? (
                                         <>
                                             {/* Collapsed - mobile: horizontal bar */}
-                                            <motion.div 
+                                            <motion.div
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 transition={{ duration: 0.3 }}
@@ -339,7 +342,7 @@ const CoperateResponsibility = () => {
                                                 <h3 className="text-white font-bold text-sm sm:text-base leading-snug pr-3">
                                                     {card.title}
                                                 </h3>
-                                                <motion.span 
+                                                <motion.span
                                                     whileHover={{ x: 4 }}
                                                     transition={{ duration: 0.2 }}
                                                     className="flex items-center justify-center rounded-full w-8 h-8 bg-white/90 shrink-0"
@@ -351,7 +354,7 @@ const CoperateResponsibility = () => {
                                     ) : (
                                         <>
                                             {/* Collapsed - desktop: vertical rotated text */}
-                                            <motion.div 
+                                            <motion.div
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 transition={{ duration: 0.3 }}
@@ -386,7 +389,7 @@ const CoperateResponsibility = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm"
+                        className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-[#0B084466]/50 backdrop-blur-sm"
                         onClick={closeModal}
                     >
                         <motion.div
@@ -394,63 +397,68 @@ const CoperateResponsibility = () => {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="relative bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+                            className="relative bg-white rounded-3xl max-w-3xl w-full h-[620px] sm:h-[650px] md:h-[620px] overflow-y-auto scrollbar-hide"
                             onClick={(e) => e.stopPropagation()}
                         >
-
                             {/* Modal Content */}
-                            <div className="p-6 sm:p-8 md:p-10">
-                                 <motion.p
-                                variants={fadeInUp}
-                                className="text-[9px] sm:text-xs font-bold tracking-[0.25em] sm:tracking-[0.4em] mb-3 sm:mb-4 text-secondary text-center"
-                            >
-                                CORPORATE RESPONSIBILITY
-                            </motion.p>
+                            <div className="p-6 sm:p-8 md:p-10 h-full flex flex-col">
+                                <motion.p
+                                    variants={fadeInUp}
+                                    className="text-[9px] sm:text-xs font-bold tracking-[0.25em] sm:tracking-[0.4em] mb-3 sm:mb-4 text-secondary text-center shrink-0"
+                                >
+                                    CORPORATE RESPONSIBILITY
+                                </motion.p>
+
                                 {/* Title and Image side by side */}
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 shrink-0">
                                     {/* Title on the left */}
                                     <div className="flex items-center">
                                         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-primary leading-tight">
                                             {cards[selectedCard].modalTitle}
                                         </h2>
                                     </div>
-                                    
+
                                     {/* Image on the right */}
-                                    <div 
-                                        className="w-full h-40 sm:h-48 md:h-56 rounded-2xl bg-cover bg-center"
+                                    <div
+                                        className="w-full h-40 sm:h-48 md:h-46 rounded-2xl bg-cover bg-center"
                                         style={{
-                                            backgroundImage: `url(${cards[selectedCard].bgImage})`,
+                                            backgroundImage: `url(${cards[selectedCard].modalImage})`,
                                         }}
                                     />
                                 </div>
 
                                 {/* Content paragraphs */}
-                                <div className="space-y-4">
-                                    {cards[selectedCard].modalContent.map((paragraph, idx) => (
-                                        <p key={idx} className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                                            {paragraph}
-                                        </p>
-                                    ))}
+                                <div className="flex-1 min-h-0 overflow-y-auto pr-2 scrollbar-hide">
+                                    <div className="space-y-4">
+                                        {cards[selectedCard].modalContent.map((paragraph, idx) => (
+                                            <p
+                                                key={idx}
+                                                className="text-gray-700 text-sm sm:text-base leading-relaxed"
+                                            >
+                                                {paragraph}
+                                            </p>
+                                        ))}
+                                    </div>
                                 </div>
 
                                 {/* Contact & Support Us button */}
-                               <motion.button
-                                variants={fadeInUp}
-                                whileHover={{ scale: 1.03 }}
-                                whileTap={{ scale: 0.97 }}
-                                transition={{ duration: 0.2 }}
-                                className="flex items-center gap-2 sm:gap-3 pl-4 sm:pl-6 pr-2 py-2 rounded-full text-white text-xs sm:text-sm font-medium bg-primary whitespace-nowrap mt-5"
-                            >
-                                Contact and Support Us
-
-                                <motion.span 
-                                    whileHover={{ x: 4 }}
+                                <motion.button
+                                    variants={fadeInUp}
+                                    whileHover={{ scale: 1.03 }}
+                                    whileTap={{ scale: 0.97 }}
                                     transition={{ duration: 0.2 }}
-                                    className="flex items-center justify-center rounded-full w-7 h-7 sm:w-8 sm:h-8 bg-white shrink-0"
+                                    className="flex items-center gap-2 sm:gap-3 pl-4 sm:pl-6 pr-2 py-2 rounded-full text-white text-xs sm:text-sm font-medium bg-primary whitespace-nowrap mt-5 shrink-0 self-start"
                                 >
-                                    <ArrowRight size={15} className="text-primary" />
-                                </motion.span>
-                            </motion.button>
+                                    Contact and Support Us
+
+                                    <motion.span
+                                        whileHover={{ x: 4 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="flex items-center justify-center rounded-full w-7 h-7 sm:w-8 sm:h-8 bg-white shrink-0"
+                                    >
+                                        <ArrowRight size={15} className="text-primary" />
+                                    </motion.span>
+                                </motion.button>
                             </div>
                         </motion.div>
                     </motion.div>

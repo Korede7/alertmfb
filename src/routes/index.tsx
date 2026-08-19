@@ -1,6 +1,7 @@
 import { ROUTES } from "../constants/routes";
 import HomeLayout from "../layouts/HomeLayout";
 import AboutUs from "../pages/about-us/AboutUs";
+import CareerPage from "../pages/about-us/CareerPage";
 import BusinessBanking from "../pages/businessbanking/BusinessBanking";
 import Home from "../pages/Home";
 import Loans from "../pages/loans/Loans";
@@ -30,6 +31,14 @@ export const routes = [
       {
         path : ROUTES.ABOUT_US.OUR_STORY,
         element : <AboutUs/>
+      },
+      {
+        path : ROUTES.ABOUT_US.OUR_STORY,
+        element : <AboutUs/>
+      },
+      {
+        path : ROUTES.ABOUT_US.CAREERS,
+        element : <CareerPage/>
       }
     ],
   },

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import AvailableRoles from "../../components/AvailableRoles";
-// import JoinUs from "./JoinUs";
+import JoinUs from "./JoinUs";
 
 const careers = [
   {
@@ -192,7 +192,7 @@ const CareerPage = () => {
         </motion.div>
       </div>
       <AvailableRoles/>
-      {/* <JoinUs/> */}
+      <JoinUs/>
     </section>
   );
 };

@@ -300,19 +300,7 @@ const OurPurpose = () => {
                         boxShadow: "0 8px 40px rgba(0,0,0,0.1)",
                         transition: { duration: 0.3 },
                     }}
-                    className="
-        flex flex-col sm:flex-row
-        items-stretch sm:items-center
-        justify-between
-        gap-5 sm:gap-6
-        rounded-2xl
-        p-5 sm:p-5 md:p-6
-        bg-white
-        shadow-[0_2px_20px_rgba(0,0,0,0.06)]
-        w-full
-        max-w-3xl
-        mx-auto
-    "
+                    className=" flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-5 sm:gap-6 rounded-2xl p-5 sm:p-5 md:p-6 bg-white shadow-[0_2px_20px_rgba(0,0,0,0.06)] w-full max-w-3xl mx-auto "
                 >
                     <motion.div
                         variants={childFadeUp}

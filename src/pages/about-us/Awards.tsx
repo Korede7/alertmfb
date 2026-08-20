@@ -3,22 +3,22 @@ import { motion, useAnimation, useInView, type Variants } from "framer-motion";
 
 const awards = [
     {
-        date: "January 25th, 2026",
-        title: "BEST MFB IN WEST AFRICA",
-        subtitle: "Ndifreke Awards 2026",
+        date: "October 9th, 2025",
+        title: "AWARD OF APPRECIATION",
+        subtitle: "International Customer Service Week 2025",
         image: "/award1.jpg",
     },
     {
-        date: "January 25th, 2026",
-        title: "MOST DISCIPLINED BANK",
-        subtitle: "Global Insurance Awards 2024",
-        image: "/getstarted.jpg",
+        date: "May 16th, 2025",
+        title: "MFB WITH THE HIGHEST IMPACT ON MSMEs ACCESSING CREDIT",
+        subtitle: "Development Bank of Nigeria (DBN) Microfinance & MSME Awards 2025",
+        image: "/award2.jpg",
     },
     {
-        date: "January 25th, 2024",
-        title: "BANK WITH HIGHEST LOAN DISBURSED",
-        subtitle: "Network Funding Awards 2024",
-        image: "/getstarted2.jpg",
+        date: "June 5th, 2026",
+        title: "MOST IMPACTFUL MFB ON MSME DEVELOPMENT IN NIGERIA",
+        subtitle: "Development Bank of Nigeria (DBN) Microfinance & MSME Awards 2025",
+        image: "/award3.jpg",
     },
 ];
 
@@ -149,12 +149,12 @@ const Awards = () => {
                 {/* Awards list + Image */}
                 <motion.div 
                     variants={staggerContainer}
-                    className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-start"
+                    className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-2 md:gap-5 items-start"
                 >
                     {/* Left: awards list */}
                     <motion.div 
                         variants={fadeInLeft}
-                        className="min-w-0"
+                        className="min-w-0 max-w-full md:max-w-[400px] lg:max-w-[500px] w-full"
                     >
                         {awards.map((award, index) => {
                             const isActive = index === activeIndex;
@@ -236,7 +236,7 @@ const Awards = () => {
                                 rotate: 1,
                                 transition: { duration: 0.3 }
                             }}
-                            className="rounded-2xl overflow-hidden aspect-[3/4] w-full bg-slate-900 relative shadow-2xl"
+                            className=" overflow-hidden aspect-[3/4] w-full relative shadow-2xl"
                         >
                             {awards.map((award, index) => (
                                 <motion.img

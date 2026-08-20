@@ -215,21 +215,28 @@ const OurStory = () => {
           </div>
         </div>
       </section>
-     <div className="w-full border-b-2 border-cyan-400 bg-gradient-to-r from-[#0B0844] to-[#473E82] px-4 py-8 sm:px-6 sm:py-10 md:px-8 md:py-12">
-  <div className="mx-auto flex w-full max-w-7xl items-center justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20">
-    <span className="whitespace-nowrap text-lg font-medium tracking-tight text-white sm:text-xl md:text-2xl">
-      Google
-    </span>
+      {/* labels */}
+      <div className="w-full overflow-hidden py-8 sm:py-10 md:py-12">
+        <div className="flex w-max animate-marquee">
+          {/* First set */}
+          <div className="flex items-center gap-8 px-4 sm:gap-12 sm:px-6 md:gap-16 md:px-8 lg:gap-20">
+            <img src="/label1.jpg" className="h-16 w-auto shrink-0" alt="" />
+            <img src="/label2.jpg" className="h-16 w-auto shrink-0" alt="" />
+            <img src="/label3.jpg" className="h-16 w-auto shrink-0" alt="" />
+            <img src="/label4.jpg" className="h-16 w-auto shrink-0" alt="" />
+            <img src="/label5.jpg" className="h-16 w-auto shrink-0" alt="" />
+          </div>
 
-    <span className="whitespace-nowrap text-2xl font-bold tracking-tight text-white sm:text-3xl">
-      amazon
-    </span>
-
-    <span className="whitespace-nowrap text-lg font-semibold text-white sm:text-xl md:text-2xl">
-      ◉ GoDaddy
-    </span>
-  </div>
-</div>
+          {/* Duplicate set for seamless infinite scrolling */}
+          <div className="flex items-center gap-8 px-4 sm:gap-12 sm:px-6 md:gap-16 md:px-8 lg:gap-20">
+            <img src="/label1.jpg" className="h-16 w-auto shrink-0" alt="" />
+            <img src="/label2.jpg" className="h-16 w-auto shrink-0" alt="" />
+            <img src="/label3.jpg" className="h-16 w-auto shrink-0" alt="" />
+            <img src="/label4.jpg" className="h-16 w-auto shrink-0" alt="" />
+            <img src="/label5.jpg" className="h-16 w-auto shrink-0" alt="" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef } from "react";
 
-type LoanKey = "personal" | "salary" | "sme" | "asset" | "business";
+type LoanKey = "personal" | "salary" | "sme" | "asset" | "business" | "customer" | "solarLoan";
 
 type LoanContent = {
     key: LoanKey;
@@ -49,6 +49,36 @@ const loanContent: Record<LoanKey, LoanContent> = {
         ],
         audience: ["Salaried Employees", "Self Employed Individuals"],
         imageSrc: "/frame1.jpg",
+        imageAlt: "Personal Loans",
+    },
+     customer: {
+        key: "customer",
+        label: "Customer Credit",
+        title: "Customer Credit",
+        subtitle: "Fast, flexible credit for life's everyday moments.",
+        description:
+            "For individuals who need quick access to funds for personal expenses such as gadgets, bills, emergencies or planned purchases. Customer Credit Loans from  ₦500,000 to ₦50,000,000.",
+        ctaLabel: "Apply for a Customer Credit",
+        stats: [
+            { label: "Amount", value: "₦50,000 – ₦50,000,000" },
+            { label: "Tenor", value: "6 - 60 Months" },
+            { label: "Rate", value: "From 15% p.a" },
+            { label: "Decision", value: "24 - 48 Hours" },
+        ],
+        whyItWorks: [
+            "No collateral required for amounts up to ₦500,000",
+            "BVN-verified, no branch visit needed to start",
+            "Equal monthly instalments so you can plan around it",
+            "Repay early with no penalty — just tell us",
+        ],
+        documents: [
+            "Valid government ID (NIN, Voter's Card, Passport or Driver's Licence)",
+            "3-6 months bank statement",
+            "Employer letter (for salaried applicants)",
+            "Proof of address (utility bill not older than 3 months)",
+        ],
+        audience: ["AlertMFB Customers", "Retail Customers"],
+        imageSrc: "/frame2.jpg",
         imageAlt: "Personal Loans",
     },
     salary: {
@@ -134,7 +164,7 @@ const loanContent: Record<LoanKey, LoanContent> = {
             "Down payment confirmation",
         ],
         audience: ["Businesses & Individualsacquiring assets"],
-        imageSrc: "/man.png",
+        imageSrc: "/frame3.jpg",
         imageAlt: "Asset Finance",
     },
     business: {
@@ -163,7 +193,36 @@ const loanContent: Record<LoanKey, LoanContent> = {
             "Board resolution (for LLCs)",
         ],
         audience: ["Established businesseswith 12+ months of trading history"],
-        imageSrc: "/pics1.jpg",
+        imageSrc: "/frame4.jpg",
+        imageAlt: "Business Loans",
+    },
+     solarLoan: {
+        key: "solarLoan",
+        label: "Solar Loans",
+        title: "Solar Loan (Buy Now, Pay Later)",
+        subtitle: "Power your home or business, on your own terms.",
+        description:
+            "For homeowners and businesses ready to switch to reliable, cost-saving solar power — covering panels, inverters and installation — Solar Loans from ₦5,000,000 to ₦500,000,000.",
+        ctaLabel: "Apply for a Solar Loan",
+        stats: [
+            { label: "Amount", value: "₦5,000,000 – ₦500,000,000" },
+            { label: "Tenor", value: "12 - 60 Months" },
+            { label: "Rate", value: "From 21% p.a" },
+            { label: "Decision", value: "3 - 7 working days" },
+        ],
+        whyItWorks: [
+            "Dedicated credit officer from application to disbursement",
+            "Can be structured as term loan, revolving credit, or overdraft facility",
+            "Collateral may be required above certain thresholds",
+        ],
+        documents: [
+            "CAC Certificate & MEMART",
+            "12 months business bank statement",
+            "Audited financials (for amounts above ₦10M)",
+            "Board resolution (for LLCs)",
+        ],
+        audience: ["Home Owners", "Businesses"],
+        imageSrc: "/frame5.jpg",
         imageAlt: "Business Loans",
     },
 };
@@ -193,10 +252,12 @@ const LoanProducts = () => {
 
     const navItems: Array<{ key: LoanKey; label: string }> = [
         { key: "personal", label: "Personal Loans" },
+        { key: "customer", label: "Customer Credit" },
         { key: "salary", label: "Salary Advance" },
         { key: "sme", label: "SME Loans" },
         { key: "asset", label: "Asset Finance" },
         { key: "business", label: "Business Loans" },
+         { key: "solarLoan", label: "Solar Loans (BNPL)" },
     ];
 
     const activeContent = loanContent[activeLoan];

@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import AvailableRoles from "../../components/AvailableRoles";
 import JoinUs from "./JoinUs";
+import FindABranch from "../../components/FindABranch";
+import FAQ from "../../components/FAQ";
 
 const careers = [
   {
@@ -193,6 +195,8 @@ const CareerPage = () => {
       </div>
       <AvailableRoles/>
       <JoinUs/>
+      <FindABranch/>
+      <FAQ/>
     </section>
   );
 };

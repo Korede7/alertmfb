@@ -49,7 +49,7 @@ const JoinUs = () => {
         {/* Process card */}
         <div className="mt-6 rounded-3xl  bg-white shadow-lg p-5 sm:p-6">
           {/* Steps */}
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grids-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:grid-cols-4">
             {steps.map((step, i) => (
               <div
                 key={i}
@@ -112,9 +112,8 @@ const JoinUs = () => {
           </div>
 
           {/* Right: decorative gradient panel */}
-          <div className="relative min-h-[220px] overflow-hidden rounded-2xl bg-gradient-to-br from-[#FCE7B8] via-[#F7D488] to-[#F3C568] sm:min-h-0">
-            <div className="absolute -right-6 -top-6 h-40 w-40 rotate-12 rounded-[40px] bg-white/25 blur-sm" />
-            <div className="absolute bottom-0 right-8 h-48 w-24 rotate-[18deg] rounded-[40px] bg-white/20" />
+          <div className="relative min-h-[220px] overflow-hidden rounded-2xl  sm:min-h-0">
+           <img src="/pics1.jpg" alt="" />
           </div>
         </div>
 

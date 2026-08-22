@@ -240,3 +240,161 @@ export const cards = [
     ],
   },
 ];
+
+export const teamMembers = [
+    {
+        name: "Abraham Adeniyi",
+        role: "Head, Internal Control & Compliance",
+        image: "/abraham.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Abraham",
+    },
+    {
+        name: "Sarumi Rahman",
+        role: "Head, Business Development",
+        image: "/sarumi.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Rahman",
+    },
+    {
+        name: "Sixtus Oluigbo",
+        role: "Alert Group, Head Credit & Risk",
+        image: "/sixtus.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Sixtus",
+    },
+    {
+        name: "Omole Gabriel",
+        role: "Chief Operating Officer",
+        image: "/omole.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Gabriel",
+    },
+    {
+        name: "Damilare Alabi",
+        role: "Chief Technology Officer",
+        image: "/damilare.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Damilare",
+    },
+    {
+        name: "Emmanuel Ekpe",
+        role: "Chief Finance Officer",
+        image: "/emmanuel.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Emmanuel",
+    },
+    {
+        name: "Joy Ikelegbe",
+        role: "Head, Human Resources",
+        image: "/joy.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Joy",
+    },
+    {
+        name: "Ayomide Agbi",
+        role: "Group Head Legal",
+        image: "/ayomide.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Ayomide",
+    },
+    {
+        name: "Elizabeth Adeniyi",
+        role: "Head of Operations",
+        image: "/elizabeth.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Elizabeth",
+    },
+    {
+        name: "Rotimi Ajibade",
+        role: "Group Head, Internal Audit",
+        image: "/rotimi.jpg",
+        description:
+            "Strengthening controls, governance and operational effectiveness.",
+        btn: "Meet Rotimi",
+    },
+];
+
+export const boards = [
+    {
+        name: "Dr. Olanrewaju Kazeem",
+        role: "President, Alert Group",
+        image: "/doctor1.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Dr. Olanrewaju",
+    },
+    {
+        name: "Mr. Raji Saheed",
+        role: "CEO, Alert MFB",
+        image: "/raji.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Mr. Raji",
+    },
+    {
+        name: "Ben Zwinkels",
+        role: "Board Vice Chairman",
+        image: "/ben.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Ben",
+    },
+    {
+        name: "Otitolaiye Olajide",
+        role: "Member",
+        image: "/olajide.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Olajide",
+    },
+    {
+        name: "Bayo Donald",
+        role: "Member",
+        image: "/bayo.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Bayo",
+    },
+    {
+        name: "Okoko Priscilla",
+        role: "Member",
+        image: "/precilia.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Priscilla",
+    },
+    {
+        name: "Akindileni Fredrick",
+        role: "Member",
+        image: "/fredrick.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Fredrick",
+    },
+    {
+        name: "Oduola Aikomo",
+        role: "Member",
+        image: "/oduola.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Oduola",
+    },
+    {
+        name: "Ajayi Godfrey",
+        role: "Member",
+        image: "/godfrey.jpg",
+        description:
+            "Our job is to make banking feel human again — clear about costs, fast when it counts, and genuinely useful for the people who have been told they’re not the right customer.",
+        btn: "Meet Godfrey",
+    },
+];

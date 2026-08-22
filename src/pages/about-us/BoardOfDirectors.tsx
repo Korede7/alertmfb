@@ -1,8 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { teamMembers } from "../utils";
+import { boards } from "../../utils";
 
-const ManagementTeam = () => {
+const BoardOfDirectors = () => {
     const containerVariants = {
         hidden: {},
         visible: {
@@ -59,10 +59,7 @@ const ManagementTeam = () => {
     };
 
     return (
-        <section className="mt-16 min-h-screen overflow-hidden  px-4 py-10 sm:px-6 sm:py-14"   style={{
-          background:
-            "radial-gradient(70% 50% at 100% 10%, rgba(143, 112, 200, 0.93) 0%, rgba(217, 196, 255, 0.1) 55%)",
-        }}>
+        <section className="mt-16 min-h-screen overflow-hidden bg-white  px-4 py-10 sm:px-6 sm:py-14">
 
             {/* Header */}
             <motion.div
@@ -76,9 +73,22 @@ const ManagementTeam = () => {
                 }}
             >
                 <p className="pb-6 text-[9px] font-medium tracking-[0.4em] text-secondary sm:pb-8 sm:text-[10px] sm:tracking-[0.6em]">
-                    MANAGEMENT TEAM
+                    BOARD OF DIRECTORS
                 </p>
             </motion.div>
+
+            {/* Heading */}
+            <h1 className="mx-auto max-w-[760px] text-center text-lg font-semibold leading-[1.05] tracking-[-0.04em] text-primary sm:text-3xl md:text-[38px] lg:text-[32px]">
+                Governance that holds us accountable
+            </h1>
+
+            {/* Description */}
+            <motion.p
+                className="mx-auto mt-4 mb-10 max-w-[500px] text-center text-[13px] leading-relaxed text-primary"
+            >
+                Our Board brings independence, experience, and a mandate to represent the interests of our
+                customers and stakeholders.
+            </motion.p>
 
             {/* Team Grid */}
             <motion.div
@@ -91,7 +101,7 @@ const ManagementTeam = () => {
                     amount: 0.15,
                 }}
             >
-                {teamMembers.map((member, index) => (
+                {boards.map((member, index) => (
                     <motion.div
                         key={index}
                         variants={cardVariants}
@@ -142,7 +152,7 @@ const ManagementTeam = () => {
                                     stiffness: 400,
                                     damping: 20,
                                 }}
-                                className="flex w-fit items-center gap-1 rounded-full bg-secondary px-2 py-1 text-[8px] font-medium text-white sm:gap-1.5 sm:px-2.5 sm:py-1.5 sm:text-[9px]"
+                                className="flex w-fit items-center gap-1 rounded-full bg-secondary px-2 py-1 text-[8px] font-light text-white sm:gap-1.5 sm:px-2.5 sm:py-1.5 sm:text-[9px]"
                             >
                                 {member.btn}
 
@@ -154,112 +164,8 @@ const ManagementTeam = () => {
                     </motion.div>
                 ))}
             </motion.div>
-
-           
-            {/* Bottom CTA */}
-            <motion.div
-                className="mx-auto mt-8 flex h-auto min-h-[320px] w-full max-w-4xl flex-col overflow-hidden rounded-xl bg-white shadow-[0_4px_20px_rgba(11,8,68,0.08)] sm:mt-10 sm:h-[250px] sm:min-h-0 sm:flex-row"
-                initial={{
-                    opacity: 0,
-                    y: 60,
-                    scale: 0.98,
-                }}
-                whileInView={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                }}
-                viewport={{
-                    once: true,
-                    amount: 0.2,
-                }}
-                transition={{
-                    duration: 0.9,
-                    ease: [0.22, 1, 0.36, 1],
-                }}
-            >
-                {/* CTA Text */}
-                <motion.div
-                    className="flex w-full flex-col justify-center px-5 py-6 sm:w-[58%] sm:px-8 sm:py-0"
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{
-                        duration: 0.7,
-                        delay: 0.15,
-                        ease: [0.22, 1, 0.36, 1],
-                    }}
-                >
-                    <h3 className="text-base font-semibold text-[#0B0844] sm:text-lg">
-                        Think you belong on this team?
-                    </h3>
-
-                    <p className="mt-2 text-[10px] leading-relaxed text-gray-500 sm:text-xs">
-                        Join our growing team and help us build
-                        <br className="hidden sm:block" />
-                        the future of financial services.
-                    </p>
-
-                    <motion.button
-                        whileHover={{
-                            scale: 1.05,
-                            x: 2,
-                        }}
-                        whileTap={{
-                            scale: 0.96,
-                        }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 400,
-                            damping: 20,
-                        }}
-                        className="mt-4 flex w-fit items-center gap-1.5 rounded-full bg-[#D98A0E] px-3 py-1.5 text-[9px] font-medium text-white sm:mt-4 sm:px-3.5 sm:text-[10px]"
-                    >
-                        View Open Roles
-
-                        <span className="flex h-4 w-4 items-center justify-center rounded-full bg-white text-[#D98A0E] sm:h-5 sm:w-5">
-                            <ArrowRight className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
-                        </span>
-                    </motion.button>
-                </motion.div>
-
-                {/* CTA Graphic */}
-                <motion.div
-                    className="relative h-[280px] w-full overflow-hidden bg-white p-2.5 sm:h-full sm:w-[42%] sm:p-3"
-                    initial={{
-                        opacity: 0,
-                        x: 40,
-                    }}
-                    whileInView={{
-                        opacity: 1,
-                        x: 0,
-                    }}
-                    viewport={{
-                        once: true,
-                        amount: 0.3,
-                    }}
-                    transition={{
-                        duration: 0.9,
-                        delay: 0.25,
-                        ease: [0.22, 1, 0.36, 1],
-                    }}
-                >
-                    <motion.img
-                        src="/card.jpg"
-                        alt=""
-                        className="h-full w-full rounded-lg object-cover"
-                        initial={{ scale: 1.08 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{
-                            duration: 1.1,
-                            ease: [0.22, 1, 0.36, 1],
-                        }}
-                    />
-                </motion.div>
-            </motion.div>
         </section>
     );
 };
 
-export default ManagementTeam;
+export default BoardOfDirectors;

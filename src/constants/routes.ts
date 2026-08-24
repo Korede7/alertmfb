@@ -36,6 +36,7 @@ export const ROUTES = {
         MANAGEMENT_TEAM: "/about-us/management-team",
         BOARD_OF_DIRECTORS: "/about-us/board-of-directors",
         NEWS_BLOG: "/about-us/news-blog",
+        BLOG_POST: "/about-us/blog/:slug",
         AWARDS_RECOGNITION: "/about-us/awards-recognition",
         CSR: "/about-us/csr",
         CAREERS: "/about-us/careers",

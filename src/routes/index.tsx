@@ -1,6 +1,7 @@
 import { ROUTES } from "../constants/routes";
 import HomeLayout from "../layouts/HomeLayout";
 import AboutUs from "../pages/about-us/AboutUs";
+import BlogPost from "../pages/about-us/BlogPost";
 import CareerPage from "../pages/about-us/CareerPage";
 import Managements from "../pages/about-us/Managements";
 import NewsAndBlogs from "../pages/about-us/NewsAndBlogs";
@@ -45,6 +46,10 @@ export const routes = [
       {
         path : ROUTES.ABOUT_US.NEWS_BLOG,
         element : <NewsAndBlogs/>
+      },
+      {
+        path : ROUTES.ABOUT_US.BLOG_POST,
+        element : <BlogPost/>
       }
 
     ],

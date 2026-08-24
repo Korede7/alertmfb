@@ -1,4 +1,5 @@
 import { Search } from "lucide-react";
+import BlogCard from "../../components/BlogCard";
 
 const categories = [
     "All",
@@ -55,7 +56,7 @@ const Blog = () => {
                         {/* Input */}
                         <div className="flex h-11 min-w-0 flex-1 items-center gap-2 rounded-md bg-white px-3">
                             <Search
-                                className="h-3 w-3 shrink-0 text-slate-400"
+                                className="h-4 w-4 shrink-0 text-primary"
                                 strokeWidth={2}
                             />
 
@@ -74,8 +75,9 @@ const Blog = () => {
                 </div>
 
                 {/* Filter pills */}
-                <div className="mt-18 flex justify-center mb-18">
-                    <div className="inline-flex max-w-6xl flex-wrap items-center justify-center gap-1.5 rounded-md bg-gray p-2 shadow-[0_2px_8px_rgba(21,15,60,0.05)]">
+                <div className="mt-18 mb-18 flex justify-center">
+                    {/* Desktop - lg and above */}
+                    <div className="hidden max-w-6xl flex-wrap items-center justify-center gap-1.5 rounded-md bg-white p-2 shadow-[0_2px_8px_rgba(21,15,60,0.05)] lg:flex">
                         {categories.map((cat, i) => (
                             <button
                                 key={`${cat}-${i}`}
@@ -89,47 +91,36 @@ const Blog = () => {
                             </button>
                         ))}
                     </div>
+
+                    {/* Mobile + Tablet */}
+                    <div className="w-full overflow-x-auto px-4 lg:hidden">
+                        <div className="flex min-w-max gap-2 rounded-md bg-white p-2 shadow-[0_2px_8px_rgba(21,15,60,0.05)]">
+                            {categories.map((cat, i) => (
+                                <button
+                                    key={`${cat}-${i}`}
+                                    className={
+                                        i === 0
+                                            ? "whitespace-nowrap rounded-full bg-primary px-4 py-2 text-xs font-light text-white"
+                                            : "whitespace-nowrap rounded-full border border-gray-200 px-4 py-2 text-xs font-light text-primary transition-all duration-200 hover:bg-gray-50"
+                                    }
+                                >
+                                    {cat}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
                 {/* Story grid */}
                 <div className="mt-8 grid grid-cols-1 gap-x-5 gap-y-20 sm:grid-cols-2 lg:grid-cols-3">
                     {stories.map((story) => (
-                        <article
+                        <BlogCard
                             key={story.id}
-                            className="group cursor-pointer"
-                        >
-                            {/* Image */}
-                            <div
-                                className="relative flex h-[200px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 group-hover:-translate-y-1 sm:h-[220px] mb-5"
-                                style={{
-                                    background:
-                                        "linear-gradient(135deg, #29235E 0%, #494382 75%, #7771A4 100%)",
-                                }}
-                            >
-                                <img src="/group2.jpg" alt="" />
-                            </div>
-
-                            {/* Meta */}
-                            <div className="mt-4.5 flex items-center justify-between gap-2">
-                                <span className="text-xs font-medium text-secondary">
-                                    {story.tag}
-                                </span>
-
-                                <span className="text-[10px] text-gray-400">
-                                    {story.date}
-                                </span>
-                            </div>
-
-                            {/* Title */}
-                            <h3 className="mt-3.5 max-w-[240px] text-sm font-semibold leading-[1.5] text-primary transition-colors duration-200 group-hover:text-[#3A3170] group-hover:underline">
-                                {story.title}
-                            </h3>
-
-                            {/* Author */}
-                            <p className="mt-3 text-xs text-gray-400">
-                                by {story.author}
-                            </p>
-                        </article>
+                            tag={story.tag}
+                            date={story.date}
+                            title={story.title}
+                            author={story.author}
+                        />
                     ))}
                 </div>
             </div>

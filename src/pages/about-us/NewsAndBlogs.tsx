@@ -207,7 +207,7 @@ const NewsAndBlogs = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="flex items-center justify-center gap-2 text-center text-[9px] leading-4 text-primary/80 sm:text-[10px]">
+        <p className="flex items-center justify-center gap-2 text-center text-[9px] leading-4 text-primary sm:text-[10px]">
           <ShieldCheck className="h-3 w-3 shrink-0 text-primary/70" />
 
           <span>

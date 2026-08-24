@@ -46,7 +46,7 @@ const CareerPage = () => {
   return (
     <section className="w-full overflow-hidden bg-white py-12 sm:py-16 md:py-20">
       {/* Header */}
-      <div className="mx-auto flex max-w-4xl flex-col items-center px-5 text-center pt-20">
+      <div className="mx-auto flex max-w-4xl flex-col items-center px-5 text-center pt-13 sm:pt-10">
         {/* Eyebrow */}
         <span className="mb-4 text-[9px] font-semibold tracking-[0.55em] text-secondary sm:text-[10px]">
           CAREERS

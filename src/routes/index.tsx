@@ -3,6 +3,7 @@ import HomeLayout from "../layouts/HomeLayout";
 import AboutUs from "../pages/about-us/AboutUs";
 import CareerPage from "../pages/about-us/CareerPage";
 import Managements from "../pages/about-us/Managements";
+import NewsAndBlogs from "../pages/about-us/NewsAndBlogs";
 import BusinessBanking from "../pages/businessbanking/BusinessBanking";
 import Home from "../pages/Home";
 import Loans from "../pages/loans/Loans";
@@ -40,7 +41,12 @@ export const routes = [
       {
         path : ROUTES.ABOUT_US.MANAGEMENT_TEAM,
         element : <Managements/>
+      },
+      {
+        path : ROUTES.ABOUT_US.NEWS_BLOG,
+        element : <NewsAndBlogs/>
       }
+
     ],
   },
 ];

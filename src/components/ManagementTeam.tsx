@@ -142,7 +142,7 @@ const ManagementTeam = () => {
                                     stiffness: 400,
                                     damping: 20,
                                 }}
-                                className="flex w-fit items-center gap-1 rounded-full bg-secondary px-2 py-1 text-[8px] font-medium text-white sm:gap-1.5 sm:px-2.5 sm:py-1.5 sm:text-[9px]"
+                                className="flex w-fit items-center gap-1 rounded-full bg-secondary px-2 py-1 text-[11px] font-medium text-white sm:gap-1.5 sm:px-2.5 sm:py-1.5 sm:text-[12px]"
                             >
                                 {member.btn}
 

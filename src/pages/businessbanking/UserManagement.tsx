@@ -116,7 +116,7 @@ const UserManagement = () => {
         </div>
 
         {/* ---- Feature grid ---- */}
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
           {features.map((feature) => (
             <div
               key={feature.title}

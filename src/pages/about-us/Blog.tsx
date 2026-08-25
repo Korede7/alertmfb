@@ -112,7 +112,7 @@ const Blog = () => {
                 </div>
 
                 {/* Story grid */}
-                <div className="mt-8 grid grid-cols-1 gap-x-5 gap-y-20 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-8 grid grid-cols-1 gap-x-5 gap-y-8 sm:gap-y-20 sm:grid-cols-2 lg:grid-cols-3">
                     {stories.map((story) => (
                         <BlogCard
                             key={story.id}

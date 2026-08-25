@@ -26,10 +26,10 @@ const BlogCard = ({
     return (
         <Link
             to={postPath}
-            className="group block cursor-pointer"
+            className="group block cursor-pointer border border-gray-200 p-3 rounded-2xl shadow-md"
         >
             {/* Image */}
-            <div className="relative mb-5 flex h-[200px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 group-hover:-translate-y-1 sm:h-[220px]">
+            <div className="relative mb-5 flex h-[300px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 group-hover:-translate-y-1 sm:h-[220px]">
                 <img
                     src={image}
                     alt={title}

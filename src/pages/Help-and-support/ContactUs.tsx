@@ -1,5 +1,99 @@
 import { useState } from "react";
 import { Upload, Phone, MessageCircle, Mail, MapPin, Users } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+
+// Animation variants with proper typing
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15,
+      duration: 0.6,
+    },
+  },
+};
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 20,
+      duration: 0.5,
+    },
+  },
+};
+
+const fadeIn: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+const scaleIn: Variants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 20,
+      duration: 0.6,
+    },
+  },
+};
+
+const slideInLeft: Variants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 20,
+      duration: 0.5,
+    },
+  },
+};
+
+const slideInRight: Variants = {
+  hidden: { opacity: 0, x: 30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 20,
+      duration: 0.5,
+    },
+  },
+};
 
 const ContactUs = () => {
     const [fileName, setFileName] = useState<string | null>(null);
@@ -11,33 +105,59 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="w-full bg-white px-4 py-10 md:px-8 lg:px-12">
+        <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="w-full bg-white px-4 py-10 md:px-8 lg:px-12"
+        >
             <div className="mx-auto max-w-4xl">
                 {/* Header */}
-                <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-start pt-30">
+                <motion.div 
+                    variants={fadeInUp}
+                    className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-start pt-30"
+                >
                     <div>
-                        <p className="mb-2 text-[10px] font-semibold tracking-[0.55em] text-secondary">
+                        <motion.p 
+                            variants={fadeIn}
+                            className="mb-2 text-[10px] font-semibold tracking-[0.55em] text-secondary"
+                        >
                             CONTACT
-                        </p>
-                        <h1 className="text-2xl font-semibold leading-tight text-primary md:text-4xl">
+                        </motion.p>
+                        <motion.h1 
+                            variants={slideInLeft}
+                            className="text-2xl font-semibold leading-tight text-primary md:text-4xl"
+                        >
                             We&apos;re here,
                             <br />
                             Let&apos;s Talk.
-                        </h1>
+                        </motion.h1>
                     </div>
-                    <p className="max-w-[250px] text-[11px] leading-relaxed text-primary md:pt-1 md:text-right">
+                    <motion.p 
+                        variants={slideInRight}
+                        className="max-w-[250px] text-[11px] leading-relaxed text-primary md:pt-1 md:text-right"
+                    >
                         Whatever you need — a question, a complaint, a callback request,
                         or just directions to a branch — there is a fast route to the
                         right person below.
-                    </p>
-                </div>
+                    </motion.p>
+                </motion.div>
 
                 {/* Form + image */}
-                <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_180px] max-w-4xl">
+                <motion.div 
+                    variants={scaleIn}
+                    className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_180px] max-w-4xl"
+                >
                     {/* Form */}
-                    <form className="space-y-3">
-                        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                            <div >
+                    <motion.form 
+                        variants={containerVariants}
+                        className="space-y-3"
+                    >
+                        <motion.div 
+                            variants={containerVariants}
+                            className="grid grid-cols-1 gap-3 sm:grid-cols-2"
+                        >
+                            <motion.div variants={itemVariants}>
                                 <label className="mb-3 block text-xs font-medium text-primary">
                                     Name
                                 </label>
@@ -46,8 +166,8 @@ const ContactUs = () => {
                                     placeholder="Your full name"
                                     className="w-full rounded-md bg-[#F9F9FD] px-3 py-3 text-xs text-primary placeholder:text-primary focus:border-[#151544] focus:outline-none focus:ring-1 focus:ring-[#151544]"
                                 />
-                            </div>
-                            <div>
+                            </motion.div>
+                            <motion.div variants={itemVariants}>
                                 <label className="mb-3 block text-xs font-medium text-primary">
                                     Email Address
                                 </label>
@@ -56,11 +176,14 @@ const ContactUs = () => {
                                     placeholder="johndoe@email.com"
                                     className="w-full rounded-md  bg-[#F9F9FD] px-3 py-3 text-xs text-primary placeholder:text-primary focus:border-[#151544] focus:outline-none focus:ring-1 focus:ring-[#151544]"
                                 />
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
 
-                        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                            <div>
+                        <motion.div 
+                            variants={containerVariants}
+                            className="grid grid-cols-1 gap-3 sm:grid-cols-2"
+                        >
+                            <motion.div variants={itemVariants}>
                                 <label className="mb-3 block text-xs font-medium text-primary">
                                     Phone Number
                                 </label>
@@ -69,8 +192,8 @@ const ContactUs = () => {
                                     placeholder="+234 567 8901"
                                     className="w-full rounded-md bg-[#F9F9FD] px-3 py-3 text-xs text-primary placeholder:text-primary focus:border-[#151544] focus:outline-none focus:ring-1 focus:ring-[#151544]"
                                 />
-                            </div>
-                            <div>
+                            </motion.div>
+                            <motion.div variants={itemVariants}>
                                 <label className="mb-3 block text-xs font-medium text-primary">
                                     Topic
                                 </label>
@@ -86,10 +209,10 @@ const ContactUs = () => {
                                     <option value="callback">Callback request</option>
                                     <option value="branch">Branch directions</option>
                                 </select>
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
 
-                        <div>
+                        <motion.div variants={itemVariants}>
                             <label className="mb-3 block text-xs font-medium text-primary">
                                 Subject
                             </label>
@@ -98,9 +221,9 @@ const ContactUs = () => {
                                 placeholder="+234 567 8901"
                                 className="w-full rounded-md bg-[#F9F9FD] px-3 py-3 text-xs text-primary placeholder:text-primary focus:border-[#151544] focus:outline-none focus:ring-1 focus:ring-[#151544]"
                             />
-                        </div>
+                        </motion.div>
 
-                        <div>
+                        <motion.div variants={itemVariants}>
                             <label className="mb-3 block text-xs font-medium text-primary">
                                 Your Message
                             </label>
@@ -109,13 +232,17 @@ const ContactUs = () => {
                                 rows={3}
                                 className="w-full rounded-md  bg-[#F9F9FD] px-3 py-3 text-xs text-primary placeholder:text-primary focus:border-[#151544] focus:outline-none focus:ring-1 focus:ring-[#151544]"
                             />
-                        </div>
+                        </motion.div>
 
-                        <div>
+                        <motion.div variants={itemVariants}>
                             <label className="mb-3 block text-xs font-medium text-primary">
                                 Attachment (Optional, Max 5MB)
                             </label>
-                            <label className="flex cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed border-primary bg-white px-3 py-6 text-center hover:bg-slate-50">
+                            <motion.label 
+                                whileHover={{ scale: 1.01 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="flex cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed border-primary bg-white px-3 py-6 text-center hover:bg-slate-50"
+                            >
                                 <Upload className="mb-1.5 h-3.5 w-3.5 text-slate-400" />
                                 <span className="text-[11px] text-slate-400">
                                     {fileName ?? "PDF, JPG or PNG, max 5MB"}
@@ -126,119 +253,121 @@ const ContactUs = () => {
                                     className="hidden"
                                     onChange={handleFileChange}
                                 />
+                            </motion.label>
+                        </motion.div>
+
+                        <motion.div variants={itemVariants}>
+                            <label className="flex items-center gap-2 text-xs text-primary">
+                                <input
+                                    type="checkbox"
+                                    checked={agreed}
+                                    onChange={(e) => setAgreed(e.target.checked)}
+                                    className="h-3.5 w-3.5 rounded border-slate-300 text-primary focus:ring-[#151544]"
+                                />
+                                I am not a robot (security check)
                             </label>
-                        </div>
+                        </motion.div>
 
-                        <label className="flex items-center gap-2 text-xs text-primary">
-                            <input
-                                type="checkbox"
-                                checked={agreed}
-                                onChange={(e) => setAgreed(e.target.checked)}
-                                className="h-3.5 w-3.5 rounded border-slate-300 text-primary focus:ring-[#151544]"
-                            />
-                            I am not a robot (security check)
-                        </label>
-
-                        <button
+                        <motion.button
+                            variants={itemVariants}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
                             type="submit"
                             className="w-full rounded-full bg-primary py-3.5 text-sm font-light text-white transition hover:bg-[#0f0f34]"
                         >
                             Send Message
-                        </button>
-                    </form>
+                        </motion.button>
+                    </motion.form>
 
                     {/* Image panel */}
-                    <div className="relative hidden overflow-hidden rounded-xl lg:flex lg:items-end lg:justify-center        bg-gradient-to-b from-white via-[#e7e3f6] to-[#c9c2e8] w-[200px] sm:w-[250px] border border-gray-50">
-
+                    <motion.div 
+                        variants={scaleIn}
+                        transition={{ delay: 0.3 }}
+                        className="relative hidden overflow-hidden rounded-xl lg:flex lg:items-end lg:justify-center bg-gradient-to-b from-white via-[#e7e3f6] to-[#c9c2e8] w-[200px] sm:w-[250px] border border-gray-50"
+                    >
                         {/* Logo badge */}
-                        <div className="absolute inset-x-0 top-6 flex justify-center z-10">
-                            <div className="flex items-center rounded-full  bg-gray-100 backdrop-blur-md pr-2 sm:pr-3 lg:pr-4 p-0.5 border border-gray-100 w-28 sm:w-32 md:w-36 lg:w-40">
-                                    {/* Logo Circle */}
-                                    <div className="flex h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 items-center justify-center rounded-full">
-                                        <img
-                                            src="/logo2.jpg"
-                                            alt="Alert MFB"
-                                            className="h-5 w-5 sm:h-6 sm:w-6 lg:h7 lg:w-7 object-fit rounded-full"
-                                        />
-                                    </div>
-
-                                    {/* Text */}
-                                    <span className="ml-1.5 sm:ml-2 text-[10px] sm:text-xs lg:text-sm font-medium text-primary">
-                                        Alert MFB
-                                    </span>
+                        <motion.div 
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5, duration: 0.5 }}
+                            className="absolute inset-x-0 top-6 flex justify-center z-10"
+                        >
+                            <motion.div 
+                                whileHover={{ scale: 1.05 }}
+                                className="flex items-center rounded-full bg-gray-100 backdrop-blur-md pr-2 sm:pr-3 lg:pr-4 p-0.5 border border-gray-100 w-28 sm:w-32 md:w-36 lg:w-40"
+                            >
+                                {/* Logo Circle */}
+                                <div className="flex h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 items-center justify-center rounded-full">
+                                    <img
+                                        src="/logo2.jpg"
+                                        alt="Alert MFB"
+                                        className="h-5 w-5 sm:h-6 sm:w-6 lg:h7 lg:w-7 object-fit rounded-full"
+                                    />
                                 </div>
-                        </div>
 
-                        {/* Photo - Stretched to fill, no white space */}
-                        <img
+                                {/* Text */}
+                                <span className="ml-1.5 sm:ml-2 text-[10px] sm:text-xs lg:text-sm font-medium text-primary">
+                                    Alert MFB
+                                </span>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Photo */}
+                        <motion.img
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4, duration: 0.8, type: "spring", stiffness: 80 }}
                             src="/woman.png"
                             alt="Customer smiling while using phone to chat with support"
-                            className="h-full  object-cover object-center object-bottom mt-10 sm:pt-35"
+                            className="h-full object-cover object-center object-bottom mt-10 sm:pt-35"
                         />
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
                 {/* Footer contact options */}
-                <div className="mt-12 sm:mt-25 grid grid-cols-2 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    <FooterCard
-                        icon={<Phone className="h-3.5 w-3.5" />}
-                        title="Phone"
-                        primary="0800 - ALERT-MFB"
-                        secondary="Mon - Fri: 8am - 6pm  |  Sat: 9am - 5pm"
-                        cta="Call Now"
-                    />
-                    <FooterCard
-                        icon={<MessageCircle className="h-3.5 w-3.5" />}
-                        title="Live Chat"
-                        primary="Average Wait: 2 Mins"
-                        secondary="During Working Hours"
-                        cta="Start Chat"
-                    />
-                    <FooterCard
-                        icon={<Mail className="h-3.5 w-3.5" />}
-                        title="Email"
-                        primary="support@alertmfb.com.ng"
-                        secondary="We respond within 24 hours"
-                        cta="Send Email"
-                    />
-                    <FooterCard
-                        icon={<MapPin className="h-3.5 w-3.5" />}
-                        title="Visit a Branch"
-                        primary="40+ Locations Nationwide"
-                        secondary="Find the one nearest you"
-                        cta="Locate Branch"
-                    />
-                </div>
+                <motion.div 
+                    variants={containerVariants}
+                    className="mt-12 sm:mt-25 grid grid-cols-2 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+                >
+                    {[
+                        { icon: <Phone className="h-3.5 w-3.5" />, title: "Phone", primary: "0800 - ALERT-MFB", secondary: "Mon - Fri: 8am - 6pm  |  Sat: 9am - 5pm", cta: "Call Now" },
+                        { icon: <MessageCircle className="h-3.5 w-3.5" />, title: "Live Chat", primary: "Average Wait: 2 Mins", secondary: "During Working Hours", cta: "Start Chat" },
+                        { icon: <Mail className="h-3.5 w-3.5" />, title: "Email", primary: "support@alertmfb.com.ng", secondary: "We respond within 24 hours", cta: "Send Email" },
+                        { icon: <MapPin className="h-3.5 w-3.5" />, title: "Visit a Branch", primary: "40+ Locations Nationwide", secondary: "Find the one nearest you", cta: "Locate Branch" },
+                    ].map((card) => (
+                        <motion.div
+                            key={card.title}
+                            variants={itemVariants}
+                            whileHover={{ 
+                                y: -5,
+                                transition: { type: "spring", stiffness: 300, damping: 20 }
+                            }}
+                            className="flex flex-col items-center text-center"
+                        >
+                            <motion.div 
+                                whileHover={{ rotate: 10, scale: 1.1 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                                className="mb-2 flex h-8 w-8 items-center justify-center rounded-md bg-[#E7ECF4] text-primary"
+                            >
+                                {card.icon}
+                            </motion.div>
+                            <p className="mb-4 text-xs font-light text-primary">{card.title}</p>
+                            <p className="text-xs font-light text-primary mb-3">{card.primary}</p>
+                            <p className="mb-3.5 text-[10px] font-light text-gray-400">{card.secondary}</p>
+                            <motion.button 
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="flex items-center gap-1.5 rounded-full border border-primary px-3.5 py-1.5 text-[11px] font-medium text-primary transition hover:bg-slate-50"
+                            >
+                                <Users className="h-3 w-3" />
+                                {card.cta}
+                            </motion.button>
+                        </motion.div>
+                    ))}
+                </motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 };
-
-const FooterCard = ({
-    icon,
-    title,
-    primary,
-    secondary,
-    cta,
-}: {
-    icon: React.ReactNode;
-    title: string;
-    primary: string;
-    secondary: string;
-    cta: string;
-}) => (
-    <div className="flex flex-col items-center text-center">
-        <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-md bg-[#E7ECF4] text-primary">
-            {icon}
-        </div>
-        <p className="mb-4 text-xs font-light text-primary">{title}</p>
-        <p className="text-xs font-light text-primary mb-3">{primary}</p>
-        <p className="mb-3.5 text-[10px] font-light text-gray-400">{secondary}</p>
-        <button className="flex items-center gap-1.5 rounded-full border border-primary px-3.5 py-1.5 text-[11px] font-medium text-primary transition hover:bg-slate-50">
-            <Users className="h-3 w-3" />
-            {cta}
-        </button>
-    </div>
-);
 
 export default ContactUs;

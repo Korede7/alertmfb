@@ -7,6 +7,7 @@ import Managements from "../pages/about-us/Managements";
 import NewsAndBlogs from "../pages/about-us/NewsAndBlogs";
 import BusinessBanking from "../pages/businessbanking/BusinessBanking";
 import ContactUs from "../pages/Help-and-support/ContactUs";
+import HelpAndSupport from "../pages/Help-and-support/HelpAndSupport";
 import Home from "../pages/Home";
 import Loans from "../pages/loans/Loans";
 import PersonalBanking from "../pages/personalbanking/PersonalBanking";
@@ -55,6 +56,10 @@ export const routes = [
       {
         path : ROUTES.HELP.CONTACT_US,
         element : <ContactUs/>
+      },
+      {
+        path : ROUTES.HELP.REPORT_FRAUD,
+        element : <HelpAndSupport/>
       }
 
     ],

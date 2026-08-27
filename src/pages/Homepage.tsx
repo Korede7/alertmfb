@@ -151,10 +151,10 @@ const Homepage = () => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-blue-300">
+    <section className="relative min-h-screen w-full  overflow-hidden bg-blue-300">
 
       {/* Background Image Carousel*/}
-      <div className="absolute inset-0 h-full w-full  overflow-hidden p-4">
+      <div className="absolute inset-0 h-full w-full  overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.img
             key={activeImage.src}
@@ -163,7 +163,7 @@ const Homepage = () => {
             initial="enter"
             animate="center"
             exit="exit"
-            className="absolute inset-0 w-full h-[700px] object-fit bg-fit"
+            className="absolute inset-0 w-full h-full object-fit bg-fit"
             style={{
               objectPosition: "center center",
             }}
@@ -380,7 +380,7 @@ const Homepage = () => {
       </div>
 
       {/* Sticky Footer */}
-      <div className="absolute bottom-0 sm:mt-0 z-10 flex h-auto w-full flex-col gap-2 bg-gray px-4 py-2 text-[10px] text-primarybackdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">
+      <div className="absolute bottom-0 sm:mt-0 z-10 flex h-auto w-full flex-col gap-2 bg-gray px-4 py-2 text-[10px] text-primary backdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">
         <p className="text-center sm:text-left">
           © Alert Microfinance Bank Limited is licensed by the Central Bank of Nigeria (CBN). Deposits are insured by the NDIC.
         </p>

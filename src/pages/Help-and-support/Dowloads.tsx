@@ -88,7 +88,7 @@ const Downloads = () => {
   return (
     <section 
       ref={sectionRef}
-      className="w-full bg-[#F8F8FC] px-4 mt-30 sm:px-6 sm:py-16 md:py-20"
+      className="w-full bg-[#F8F8FC] px-4 mt-30 sm:px-6 sm:py-16 md:py-20 mb-15"
     >
       <div className="mx-auto w-full max-w-4xl">
         <div className="flex flex-col gap-[15px]">
@@ -127,7 +127,7 @@ const Downloads = () => {
                     strokeWidth={2.5}
                   />
 
-                  <span className="truncate text-[7px] font-light leading-none text-primary transition-colors duration-300 group-hover:text-primary/80 sm:text-[14px]">
+                  <span className="truncate text-[13px] font-light leading-none text-primary transition-colors duration-300 group-hover:text-primary/80 sm:text-[14px]">
                     {document.name}
                   </span>
                 </div>

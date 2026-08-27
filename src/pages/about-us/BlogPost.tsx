@@ -165,7 +165,7 @@ const BlogPost = () => {
                                 {post.category}
                             </motion.span>
 
-                            <div className="mt-4 flex items-center gap-2 text-[9px] font-light text-gray-400">
+                            <div className="mt-4 flex items-center gap-2 text-[10px] font-light text-gray-400">
                                 <span>{post.date}</span>
 
                                 <span className="h-1 w-1 rounded-full bg-gray-400" />
@@ -222,7 +222,7 @@ const BlogPost = () => {
                                 amount: 0.5,
                             }}
                         >
-                            <span>by {post.author}</span>
+                            <span className="text-xs">by {post.author}</span>
 
                             <span className="h-1 w-1 rounded-full bg-gray-400" />
 
@@ -238,7 +238,7 @@ const BlogPost = () => {
                                     }}
                                     whileTap={{ scale: 0.92 }}
                                 >
-                                    <BsTwitter size={9} />
+                                    <BsTwitter size={12} />
                                 </motion.a>
 
                                 <motion.a
@@ -251,7 +251,7 @@ const BlogPost = () => {
                                     }}
                                     whileTap={{ scale: 0.92 }}
                                 >
-                                    <BsInstagram size={9} />
+                                    <BsInstagram size={12} />
                                 </motion.a>
 
                                 <motion.a
@@ -264,7 +264,7 @@ const BlogPost = () => {
                                     }}
                                     whileTap={{ scale: 0.92 }}
                                 >
-                                    <FaFacebook size={9} />
+                                    <FaFacebook size={12} />
                                 </motion.a>
 
                                 <motion.a
@@ -277,7 +277,7 @@ const BlogPost = () => {
                                     }}
                                     whileTap={{ scale: 0.92 }}
                                 >
-                                    <LiaLinkedin size={9} />
+                                    <LiaLinkedin size={12} />
                                 </motion.a>
 
                             </div>
@@ -361,84 +361,6 @@ const BlogPost = () => {
                                 There is rice at home.
                             </motion.p>
 
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                Lol! So glad to have you here with us. Please
-                                introduce yourself to us.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-6">
-                                <strong className="font-medium">Uche:</strong>{" "}
-                                Hi everyone, I'm Uche, a Compliance Business
-                                Partner working in the Regulatory Compliance
-                                and Control team here at Moniepoint.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                What's your day like as a Compliance Business
-                                Partner?
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-4">
-                                <strong className="font-medium">Uche:</strong>{" "}
-                                My day usually kicks off with a double
-                                espresso, music playing in the background, and
-                                a quick scan of overnight alerts; checking new
-                                customer onboarding screenings to ensure
-                                nothing slips past, a task that continues
-                                throughout the day.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-4">
-                                Once that's done, I move on to Transaction
-                                Limit Requests received from customers and
-                                business relationship managers. For example,
-                                when a customer wants to increase their
-                                transaction or daily limit, we ask for
-                                credentials to move them to the next level,
-                                let's say moving from 500,000 to 10 million,
-                                20 million, or higher. The process involves
-                                reviewing the customer and confirming their
-                                details.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-4">
-                                The afternoon is mostly spent keeping up with
-                                onboarding alerts, attending to escalations
-                                from other Compliance teams, brainstorming
-                                with my team to resolve identified control
-                                gaps and refining compliance processes.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-6">
-                                I also serve as the primary Compliance contact
-                                for the business teams around the country,
-                                providing guidance and ensuring our operations
-                                stay aligned with regulatory expectations. And
-                                this is just a day when I don't have to go
-                                into FBI mode.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                How do you manage your time during the day?
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-6">
-                                <strong className="font-medium">Uche:</strong>{" "}
-                                I usually just list everything I need to get
-                                done in the day, and then assign them priority
-                                designations: low, medium, high, with high, of
-                                course, being the most crucial, and then work
-                                my way down the line.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                How long have you been at Moniepoint, and how
-                                has that been?
-                            </motion.p>
 
                             <motion.p variants={paragraphAnimation} className="mb-6">
                                 <strong className="font-medium">Uche:</strong>{" "}
@@ -462,32 +384,6 @@ const BlogPost = () => {
                                 <strong className="font-medium">Nifemi:</strong>{" "}
                                 Have you always wanted to do Compliance,
                                 though?
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-6">
-                                <strong className="font-medium">Uche:</strong>{" "}
-                                Hmmm, I think Compliance found me. So, I
-                                studied law and worked as a litigator for about
-                                seven years, after which I guess I was on the
-                                lookout for a new challenge, and compliance
-                                encompassed a lot of the elements I was already
-                                familiar with, but from a new perspective.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                People say compliance can be boring because of
-                                the structure that comes with it. What do you
-                                do that makes the experience different for you?
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Uche:</strong>{" "}
-                                So, I guess anything can be boring depending on
-                                how you look at it. For instance, a lot of
-                                people find history boring, but I love history
-                                so much that it informs pretty much all my
-                                hobbies.
                             </motion.p>
 
                             <motion.p variants={paragraphAnimation}>

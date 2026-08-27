@@ -7,6 +7,7 @@ import Managements from "../pages/about-us/Managements";
 import NewsAndBlogs from "../pages/about-us/NewsAndBlogs";
 import BusinessBanking from "../pages/businessbanking/BusinessBanking";
 import ContactUs from "../pages/Help-and-support/ContactUs";
+import DownloadDocuments from "../pages/Help-and-support/DownloadDocuments";
 import HelpAndSupport from "../pages/Help-and-support/HelpAndSupport";
 import Home from "../pages/Home";
 import Loans from "../pages/loans/Loans";
@@ -60,6 +61,10 @@ export const routes = [
       {
         path : ROUTES.HELP.REPORT_FRAUD,
         element : <HelpAndSupport/>
+      },
+      {
+        path :ROUTES.HELP.DOWNLOAD_CENTER,
+        element : < DownloadDocuments/>
       }
 
     ],

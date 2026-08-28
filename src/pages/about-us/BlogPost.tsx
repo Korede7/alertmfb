@@ -1,25 +1,43 @@
-import {
-    ArrowLeft,
-} from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { BsInstagram, BsTwitter } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa6";
 import { LiaLinkedin } from "react-icons/lia";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { getBlogBySlug } from "../../services/blogService";
 
-const posts = {
-    "meet-the-dreammaker-korede-duyile": {
-        category: "People",
-        date: "July 02, 2026",
-        readTime: "5 mins read",
-        title:
-            "Meet the DreamMaker: Korede Duyile. The Product Designer Intern at Alert MFB",
-        author: "Peter Moses, Lagos",
-        image: "/group2.jpg",
-    },
+interface StrapiText {
+    type: string;
+    text: string;
+}
 
+interface StrapiBlock {
+    type: string;
+    children?: StrapiText[];
+}
 
-};
+interface StrapiImage {
+    id: number;
+    name: string;
+    alternativeText?: string;
+    url: string;
+    width?: number;
+    height?: number;
+}
+
+interface Blog {
+    id: number;
+    documentId?: string;
+    Title: string;
+    slug: string;
+    date: string;
+    readTime?: string;
+    autor: string;
+    category: string;
+    content: StrapiBlock[];
+    Image?: StrapiImage[];
+}
 
 const pageVariants = {
     hidden: {
@@ -89,11 +107,100 @@ const paragraphAnimation = {
 };
 
 const BlogPost = () => {
-    const { slug } = useParams();
+    const { slug } = useParams<{ slug: string }>();
 
-    const post =
-        posts[slug as keyof typeof posts] ||
-        posts["meet-the-dreammaker-korede-duyile"];
+    const [post, setPost] = useState<Blog | null>(null);
+    const [loading, setLoading] = useState(true);
+
+
+
+    useEffect(() => {
+        const fetchPost = async () => {
+            if (!slug) {
+                console.error("NO SLUG FOUND IN URL");
+                setLoading(false);
+                return;
+            }
+
+            try {
+                console.log("URL SLUG:", slug);
+
+                const data = await getBlogBySlug(slug);
+
+                console.log("BLOG DATA RECEIVED:", data);
+
+                if (!data) {
+                    console.error(
+                        "No blog found for slug:",
+                        slug
+                    );
+
+                    setPost(null);
+                    return;
+                }
+
+                setPost(data);
+
+            } catch (error) {
+                console.error(
+                    "Error fetching blog post:",
+                    error
+                );
+
+                setPost(null);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPost();
+    }, [slug]);
+
+
+
+    if (loading) {
+        return (
+            <div className="flex min-h-screen items-center justify-center bg-white">
+                <p className="text-sm font-light text-primary">
+                    Loading article...
+                </p>
+            </div>
+        );
+    }
+
+    if (!post) {
+        return (
+            <div className="flex min-h-screen flex-col items-center justify-center bg-white px-6 text-center">
+                <h1 className="text-xl font-semibold text-primary">
+                    Article not found
+                </h1>
+
+                <Link
+                    to="/about-us/news-blog"
+                    className="mt-4 text-sm text-secondary hover:underline"
+                >
+                    Back to News & Blogs
+                </Link>
+            </div>
+        );
+    }
+
+
+
+    const imagePath = post.Image?.[0]?.url;
+
+    const image = imagePath
+        ? `${import.meta.env.VITE_STRAPI_URL}${imagePath}`
+        : "/group2.jpg";
+
+
+    const formattedDate = post.date
+        ? new Date(post.date).toLocaleDateString("en-US", {
+            month: "long",
+            day: "2-digit",
+            year: "numeric",
+        })
+        : "";
 
     return (
         <motion.div
@@ -150,6 +257,8 @@ const BlogPost = () => {
                         transition={{ delay: 0.2 }}
                     >
                         <div className="lg:pt-1">
+
+                            {/* Category */}
                             <motion.span
                                 className="inline-flex rounded-md bg-secondary px-4 py-3 text-[11px] font-light text-white"
                                 whileHover={{
@@ -165,13 +274,17 @@ const BlogPost = () => {
                                 {post.category}
                             </motion.span>
 
+                            {/* Date + Read time */}
                             <div className="mt-4 flex items-center gap-2 text-[10px] font-light text-gray-400">
-                                <span>{post.date}</span>
+                                <span>{formattedDate}</span>
 
                                 <span className="h-1 w-1 rounded-full bg-gray-400" />
 
-                                <span>{post.readTime}</span>
+                                <span>
+                                    {post.readTime || "5 mins read"}
+                                </span>
                             </div>
+
                         </div>
                     </motion.aside>
 
@@ -186,7 +299,7 @@ const BlogPost = () => {
                             animate="visible"
                             transition={{ delay: 0.25 }}
                         >
-                            {post.title}
+                            {post.Title}
                         </motion.h1>
 
                         {/* Hero image */}
@@ -198,15 +311,21 @@ const BlogPost = () => {
                             transition={{ delay: 0.35 }}
                         >
                             <motion.img
-                                src="/group2.jpg"
-                                alt="Alert MFB"
-                                className="h-full w-full object-cover"
+                                src={image}
+                                alt={
+                                    post.Image?.[0]?.alternativeText ||
+                                    post.Title
+                                }
+                                className="h-full w-full object-contain"
                                 initial={{ scale: 1.06 }}
                                 animate={{ scale: 1 }}
                                 whileHover={{ scale: 1.025 }}
                                 transition={{
                                     duration: 1.2,
                                     ease: [0.22, 1, 0.36, 1],
+                                }}
+                                onError={(e) => {
+                                    e.currentTarget.src = "/group2.jpg";
                                 }}
                             />
                         </motion.div>
@@ -222,12 +341,15 @@ const BlogPost = () => {
                                 amount: 0.5,
                             }}
                         >
-                            <span className="text-xs">by {post.author}</span>
+                            <span className="text-xs">
+                                by {post.autor}
+                            </span>
 
                             <span className="h-1 w-1 rounded-full bg-gray-400" />
 
                             <div className="flex items-center gap-2">
 
+                                {/* Twitter */}
                                 <motion.a
                                     href="#"
                                     aria-label="Twitter"
@@ -241,6 +363,7 @@ const BlogPost = () => {
                                     <BsTwitter size={12} />
                                 </motion.a>
 
+                                {/* Instagram */}
                                 <motion.a
                                     href="#"
                                     aria-label="Instagram"
@@ -254,6 +377,7 @@ const BlogPost = () => {
                                     <BsInstagram size={12} />
                                 </motion.a>
 
+                                {/* Facebook */}
                                 <motion.a
                                     href="#"
                                     aria-label="Facebook"
@@ -267,6 +391,7 @@ const BlogPost = () => {
                                     <FaFacebook size={12} />
                                 </motion.a>
 
+                                {/* LinkedIn */}
                                 <motion.a
                                     href="#"
                                     aria-label="LinkedIn"
@@ -295,105 +420,46 @@ const BlogPost = () => {
                             }}
                         >
 
-                            <motion.p variants={paragraphAnimation} className="mb-6">
-                                <strong className="font-medium">
-                                    Meet The DreamMaker
-                                </strong>{" "}
-                                is a series that spotlights the people behind
-                                the work at Moniepoint. Each week, we introduce
-                                you to a DreamMaker (as Moniepoint employees
-                                are known), sharing what they do, the impact
-                                they're making, and a few fun things you might
-                                not know about them.
-                            </motion.p>
+                            {post.content?.length > 0 ? (
+                                post.content.map((block, index) => {
 
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                Hi, hi, Uche, how are you doing today?
-                            </motion.p>
+                                    const text =
+                                        block.children
+                                            ?.map((child) => child.text)
+                                            .join("") || "";
 
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Uche:</strong>{" "}
-                                I'm doing great, thanks for having me.
-                            </motion.p>
+                                    if (!text.trim()) {
+                                        return (
+                                            <div
+                                                key={index}
+                                                className="h-4"
+                                            />
+                                        );
+                                    }
 
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                Before we dive into the conversation, I have
-                                some warm-up questions. Would you rather have
-                                tea or coffee?
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Uche:</strong>{" "}
-                                Coffee, black.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                Would you rather be hot or cold?
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Uche:</strong>{" "}
-                                Cold, it's easier to manage than being hot.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                Lastly, would you rather stay at home with
-                                everything you need or have the opportunity to
-                                go out?
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Uche:</strong>{" "}
-                                Home, definitely.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                Another home buddy in the group chat.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-6">
-                                <strong className="font-medium">Uche:</strong>{" "}
-                                There is rice at home.
-                            </motion.p>
-
-
-                            <motion.p variants={paragraphAnimation} className="mb-6">
-                                <strong className="font-medium">Uche:</strong>{" "}
-                                It's been almost a year (11 months), and
-                                honestly, it feels like I've been here much
-                                longer (in a good way). I've been lucky to have
-                                a very supportive team; they've made a lot of
-                                the hard work not seem so overwhelming. Special
-                                shoutout to Cyril, Excel, Esther, Henry,
-                                Abdulquadir, Nwachukwu, and, of course, my
-                                manager, Olamide. They've been great.
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                Glad you're having a great time here, and, of
-                                course, a special shoutout to your team!
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation} className="mb-2">
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                Have you always wanted to do Compliance,
-                                though?
-                            </motion.p>
-
-                            <motion.p variants={paragraphAnimation}>
-                                <strong className="font-medium">Nifemi:</strong>{" "}
-                                Please indulge me. What are these hobbies?
-                            </motion.p>
+                                    return (
+                                        <motion.p
+                                            key={index}
+                                            variants={paragraphAnimation}
+                                            className="mb-6"
+                                        >
+                                            {text}
+                                        </motion.p>
+                                    );
+                                })
+                            ) : (
+                                <motion.p
+                                    variants={paragraphAnimation}
+                                    className="mb-6"
+                                >
+                                    This article does not have any content yet.
+                                </motion.p>
+                            )}
 
                         </motion.div>
 
                         {/* Bottom image */}
+
                         <motion.div
                             className="mt-16 h-[220px] w-full overflow-hidden rounded-[20px] sm:h-[260px] lg:h-[300px]"
                             variants={imageReveal}

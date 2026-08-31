@@ -204,7 +204,7 @@ const Footer = () => {
 
                     {/* Content */}
                     <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-                        <h2 className="text-4xl font-semibold text-white md:text-5xl">
+                        <h2 className="text-4xl font-semibold text-white md:text-6xl">
                             Bank Smart, Bank Alert.
                         </h2>
 
@@ -237,7 +237,7 @@ const Footer = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             viewport={{ once: true }}
-                            className="text-2xl md:text-[30px] font-medium text-primary mb-5"
+                            className="text-2xl md:text-[23.31px] font-semibold text-primary mb-5"
                         >
                             Let&apos;s Build Your Financial Future
                         </motion.h2>

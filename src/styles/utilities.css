@@ -21,3 +21,7 @@
 .text-gray {
   color : var(--gray-color)
 }
+
+.bg-gray2 {
+  color: var(--gray-color2);
+}

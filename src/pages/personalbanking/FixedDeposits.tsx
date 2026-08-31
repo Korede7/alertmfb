@@ -95,15 +95,15 @@ const FixedDeposits = () => {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-[10px] font-semibold tracking-[0.6em] text-secondary">
+          <p className="text-[10px] font-semibold tracking-[10px] text-secondary">
             FIXED DEPOSITS
           </p>
-          <h1 className="mt-2 text-2xl sm:text-3xl font-medium leading-tight text-primary sm:text-[32px]">
+          <h1 className="mt-2 text-2xl sm:text-6xl font-semibold  text-primary">
             Grow your money.
             <br />
             Guaranteed Returns
           </h1>
-          <p className="mx-auto mt-3 max-w-md text-[13px] text-primary px-3 sm:px-0">
+          <p className="mx-auto mt-3  text-[16px] text-primary px-3 sm:px-0">
             Lock in a competitive rate for a fixed tenor and watch your money
             grow — with zero market risk.
           </p>
@@ -292,15 +292,15 @@ const FixedDeposits = () => {
           </div>
         </div>
 
-        {/* --------------------------------------------------------- Steps */}
+        {/* Steps */}
         <div 
           ref={stepsAnimation.ref}
-          className={`shadow-lg bg-white p-3 sm:p-4 mt-4 rounded-xl mx-2 sm:mx-0 transition-all duration-1000 ease-out delay-1000 ${
+          className={`shadow-lg bg-white p-3 sm:p-4 mt-4 rounded-2xl mx-2 sm:mx-0 transition-all duration-1000 ease-out delay-1000 ${
             stepsAnimation.isVisible 
               ? "opacity-100 translate-y-0" 
               : "opacity-0 translate-y-10"
           }`}
-        >
+         >
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-2">
           {[
             "Choose your amount & tenor",
@@ -309,23 +309,23 @@ const FixedDeposits = () => {
           ].map((label, index) => (
             <div
               key={label}
-              className="flex flex-col items-center gap-4 rounded-lg bg-gray px-3 py-4 text-center transition-all duration-500 hover:scale-105 hover:shadow-md"
+              className="flex flex-col items-center gap-4 rounded-2xl py-7 bg-gray px-3 py-4 text-center"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-gray-100 to-gray-300 border border-white text-primary shadow-lg ">
                 <ArrowRightFromLine className="h-3 w-3 text-[#0D1533]" />
               </span>
-              <span className="text-[10px] font-medium text-primary">
+              <span className="text-[12px] font-medium text-primary">
                 {label}
               </span>
             </div>
           ))}
         </div>
 
-        <h2 className="mt-6 text-center text-base font-medium text-primary sm:text-left">
+        <h2 className="mt-6 text-center text-base font-semibold text-primary sm:text-left">
           Three Simple Steps to Open Fixed Deposit Amount
         </h2>
-        <p className="mt-1.5 text-center text-[10px] leading-relaxed text-slate-500 sm:text-left">
+        <p className="mt-1.5 text-center text-[12px] leading-relaxed text-slate-500 sm:text-left">
           Step 1: Use the calculator above to find a tenor that matches your
           goal. Step 2: Transfer from your Current or Savings account, or via
           bank transfer and the last step: A digital certificate will be

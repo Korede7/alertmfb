@@ -36,7 +36,7 @@ const SavingsAccount = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-[11px] font-semibold tracking-[0.8em] text-secondary inline-block"
+                    className="text-[11px] font-semibold tracking-[10px] text-secondary inline-block"
                 >
                     SAVINGS ACCOUNT
                 </motion.span>
@@ -45,7 +45,7 @@ const SavingsAccount = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, delay: 0.1 }}
-                    className="mt-3 text-4xl md:text-5xl font-medium text-primary leading-tight"
+                    className="mt-3 text-4xl md:text-6xl font-semibold text-primary leading-tight"
                 >
                     Earn While You Save
                 </motion.h1>
@@ -224,7 +224,10 @@ const SavingsAccount = () => {
                 transition={{ duration: 0.7 }}
                 className="max-w-5xl mx-auto px-6 mt-12"
             >
-                <div className="flex flex-col md:flex-row items-center justify-between gap-8 rounded-[22px] bg-white px-8 py-8 md:px-12 shadow-[0_20px_60px_rgba(18,24,63,0.08)]">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8 rounded-[22px] bg-white px-8 py-8 md:px-12 " 
+                style={{
+                    boxShadow: "0 4px 16px 0 rgba(8, 27, 51, 0.05)"
+                }}>
 
                     {/* Left */}
                     <div>

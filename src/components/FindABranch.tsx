@@ -125,7 +125,7 @@ const FindABranch = () => {
         {/* Typewriter heading */}
         <motion.div
           variants={itemVariants}
-          className="text-white text-xl md:text-5xl font-bold mb-4 min-h-[3.5rem] md:min-h-[4.5rem] flex items-center justify-center"
+          className="text-white text-xl md:text-6xl font-semibold mb-4 min-h-[3.5rem] md:min-h-[4.5rem] flex items-center justify-center"
         >
           <span>{displayText}</span>
           {!isTypingComplete && (

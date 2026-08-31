@@ -96,17 +96,17 @@ const CurrentAccount = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 variants={containerVariants}
-                className="max-w-3xl mx-auto text-center px-6 pt-16 pb-10"
+                className="max-w-5xl mx-auto text-center px-6 pt-16 pb-10"
             >
                 <motion.span
                     variants={fadeUpVariants}
-                    className="text-[11px] font-semibold tracking-[0.8em] text-secondary inline-block"
+                    className="text-[11px] font-semibold tracking-[10px] text-secondary inline-block"
                 >
                     CURRENT ACCOUNT
                 </motion.span>
                 <motion.h1
                     variants={fadeUpVariants}
-                    className="mt-3 text-2xl md:text-5xl font-medium text-primary leading-tight"
+                    className="mt-3 text-2xl md:text-6xl font-semibold text-primary leading-tight"
                 >
                     Your everyday money Account
                 </motion.h1>

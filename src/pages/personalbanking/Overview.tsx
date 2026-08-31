@@ -11,6 +11,7 @@ const Overview = () => {
     const [activeTab, setActiveTab] = useState("current-account");
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+
     useEffect(() => {
         setIsVisible(true)
     }, []);
@@ -106,7 +107,8 @@ const Overview = () => {
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1] sm:leading-[0.95] font-semibold tracking-[-1.5px] sm:tracking-[-2px] lg:tracking-[-2.5px] text-primary">
                             Banking made
                             <br />
-                            for Real life.
+                            {line2}
+                            <span className="inline-block w-[2px] h-[0.9em] ml-1 bg-primary animate-pulse align-middle" />
                         </h1>
 
                         <p className="mt-4 sm:mt-6 lg:mt-8 max-w-full lg:max-w-[420px] text-sm sm:text-base lg:text-[17px] leading-6 sm:leading-7 text-primary">

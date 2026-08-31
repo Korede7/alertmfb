@@ -1,6 +1,6 @@
 import { IoLogoApple } from "react-icons/io";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
-import { Shield, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { BsMenuButtonWide } from "react-icons/bs";
@@ -326,10 +326,10 @@ const Overview = () => {
                             whileTap={{ scale: 0.98 }}
                             className="w-full flex items-center justify-between rounded-xl bg-primary backdrop-blur-xl border border-white/60 shadow-sm px-4 py-3 text-sm font-medium text-primary transition-all duration-300 hover:shadow-md"
                         >
-                            <motion.span 
+                            <motion.span
                                 className="flex items-center gap-2 text-white"
-                                animate={{ 
-                                    scale: isDropdownOpen ? 1.05 : 1 
+                                animate={{
+                                    scale: isDropdownOpen ? 1.05 : 1
                                 }}
                                 transition={{ duration: 0.2 }}
                             >
@@ -338,9 +338,9 @@ const Overview = () => {
                             </motion.span>
                             <motion.div
                                 animate={{ rotate: isDropdownOpen ? 180 : 0 }}
-                                transition={{ 
-                                    duration: 0.4, 
-                                    ease: "easeInOut" 
+                                transition={{
+                                    duration: 0.4,
+                                    ease: "easeInOut"
                                 }}
                             >
                                 <ChevronDown size={18} />
@@ -354,7 +354,7 @@ const Overview = () => {
                                     initial={{ opacity: 0, y: -20, scale: 0.9 }}
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: -20, scale: 0.9 }}
-                                    transition={{ 
+                                    transition={{
                                         duration: 0.3,
                                         ease: "easeOut",
                                         staggerChildren: 0.05,
@@ -368,11 +368,11 @@ const Overview = () => {
                                             onClick={() => scrollToSection(item.id)}
                                             initial={{ opacity: 0, x: -10 }}
                                             animate={{ opacity: 1, x: 0 }}
-                                            transition={{ 
+                                            transition={{
                                                 duration: 0.2,
                                                 delay: index * 0.05
                                             }}
-                                            whileHover={{ 
+                                            whileHover={{
                                                 scale: 1.02,
                                                 backgroundColor: activeTab === item.id ? "#171338" : "rgba(23, 19, 56, 0.05)"
                                             }}
@@ -393,22 +393,15 @@ const Overview = () => {
             </div>
 
             {/* Footer */}
-            <div className={`mt-20 sm:mt-28 md:mt-32 lg:mt-27 border-t border-[#141B4D]/10 bg-gray transition-all duration-1000 delay-1100 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'
-                }`}>
-                <div className="w-full px-3 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-col lg:flex-row items-center justify-between gap-2 sm:gap-3 text-[10px] sm:text-[11px] text-[#141B4D]/70">
-                    <div className="flex items-center gap-1.5 sm:gap-2 text-center lg:text-left">
-                        <Shield className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
-                        <span className="text-center lg:text-left">
-                            Alert Microfinance Bank Limited is licensed by the Central Bank
-                            of Nigeria (CBN). Deposits are insured by the NDIC.
-                        </span>
-                    </div>
-                    <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:gap-5 whitespace-nowrap">
-                        <a href="#" className="hover:underline transition-all duration-300 hover:text-[#141B4D]">Privacy Policy</a>
-                        <a href="#" className="hover:underline transition-all duration-300 hover:text-[#141B4D]">Terms &amp; Conditions</a>
-                        <a href="#" className="hover:underline transition-all duration-300 hover:text-[#141B4D]">Cookie Policy</a>
-                        <a href="#" className="hover:underline transition-all duration-300 hover:text-[#141B4D]">AML/CFT Disclosure</a>
-                    </div>
+            <div className="absolute bottom-0 sm:mt-0 z-10 flex h-auto w-full flex-col gap-2 bg-gray px-4 py-2 text-[10px] text-primary backdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">
+                <p className="text-center sm:text-left">
+                    © Alert Microfinance Bank Limited is licensed by the Central Bank of Nigeria (CBN). Deposits are insured by the NDIC.
+                </p>
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
+                    <a href="#" className="hover:text-[#17145D] transition">Privacy Policy</a>
+                    <a href="#" className="hover:text-[#17145D] transition">Terms & Conditions</a>
+                    <a href="#" className="hover:text-[#17145D] transition">Cookie Policy</a>
+                    <a href="#" className="hover:text-[#17145D] transition">AML/CFT Disclosure</a>
                 </div>
             </div>
         </div>

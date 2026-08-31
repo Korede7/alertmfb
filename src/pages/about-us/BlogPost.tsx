@@ -304,7 +304,7 @@ const BlogPost = () => {
 
                         {/* Hero image */}
                         <motion.div
-                            className="mt-8 h-[265px] w-full overflow-hidden rounded-[20px] sm:h-[320px] lg:h-[380px]"
+                            className="mt-8 h-[265px] w-full overflow-hidden  sm:h-[320px] lg:h-[380px]"
                             variants={imageReveal}
                             initial="hidden"
                             animate="visible"
@@ -461,7 +461,7 @@ const BlogPost = () => {
                         {/* Bottom image */}
 
                         <motion.div
-                            className="mt-16 h-[220px] w-full overflow-hidden rounded-[20px] sm:h-[260px] lg:h-[300px]"
+                            className="mt-2 sm:mt-2 h-[350px] w-full overflow-hidden rounded-[20px] sm:h-[360px] lg:h-[500px]"
                             variants={imageReveal}
                             initial="hidden"
                             whileInView="visible"
@@ -471,44 +471,27 @@ const BlogPost = () => {
                             }}
                         >
                             <motion.div
-                                className="relative flex h-full w-full items-center justify-center overflow-hidden bg-gradient-to-br from-[#17134F] via-[#383369] to-[#8A87A7]"
-                                whileHover={{
-                                    scale: 1.01,
-                                }}
-                                transition={{
-                                    duration: 0.6,
-                                    ease: [0.22, 1, 0.36, 1],
-                                }}
+                                className=" h-[365px] w-full overflow-hidden  sm:h-[420px] lg:h-[480px]"
+                                variants={imageReveal}
+                                initial="hidden"
+                                animate="visible"
+                                transition={{ delay: 0.35 }}
                             >
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.12),transparent_45%)]" />
-
-                                <motion.div
-                                    className="relative flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-sm sm:h-[70px] sm:w-[70px]"
-                                    initial={{
-                                        opacity: 0,
-                                        scale: 0.8,
-                                        rotate: -10,
-                                    }}
-                                    whileInView={{
-                                        opacity: 1,
-                                        scale: 1,
-                                        rotate: 0,
-                                    }}
-                                    viewport={{
-                                        once: true,
-                                    }}
+                                <motion.img
+                                    src={image}
+                                    alt={
+                                        post.Image?.[0]?.alternativeText ||
+                                        post.Title
+                                    }
+                                    className="h-full w-full object-contain"
+                                    initial={{ scale: 1.06 }}
+                                    animate={{ scale: 1 }}
+                                    whileHover={{ scale: 1.025 }}
                                     transition={{
-                                        duration: 0.8,
-                                        delay: 0.2,
+                                        duration: 1.2,
                                         ease: [0.22, 1, 0.36, 1],
                                     }}
-                                >
-                                    <img
-                                        src="/whiteLogo.png"
-                                        alt="Alert MFB"
-                                        className="h-8 w-8 object-contain sm:h-9 sm:w-9"
-                                    />
-                                </motion.div>
+                                />
                             </motion.div>
                         </motion.div>
 

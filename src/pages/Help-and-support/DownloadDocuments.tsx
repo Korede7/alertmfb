@@ -42,7 +42,7 @@ const DownloadDocuments = () => {
         <div>
             <section
                 ref={sectionRef}
-                className=" w-full bg-white px-5 pt-44 sm:px-8 sm:pt-48 md:pt-52 lg:px-10 overflow-y-auto"
+                className=" w-full bg-white px-5 pt-44 sm:px-8 sm:pt-48 md:pt-52 lg:px-10 overflow-y-hidden"
             >
                 <div className="mx-auto flex h-full w-full max-w-5xl flex-col">
                     {/* ================= HERO ================= */}

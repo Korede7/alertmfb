@@ -392,21 +392,21 @@ const Cards = () => {
                 {/* Stats with counters */}
                 <motion.div
                     ref={statsRef}
-                    className="mt-6 sm:mt-8 md:mt-10 bg-white rounded-2xl shadow-xs px-3 sm:px-4 py-6 sm:py-8 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
+                    className="mt-6 sm:mt-8 md:mt-10 bg-white rounded-2xl px-3 sm:px-4 py-3 sm:py-4 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
                     initial={{ opacity: 0, y: 50 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6 }}
-                    whileHover={{ boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+                    // whileHover={{ boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
                 >
                     {stats.map((stat, index) => (
                         <motion.div
                             key={stat.label}
-                            whileHover={{ scale: 1.05 }}
+                            // whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.2 }}
                             className="text-center"
                         >
                             <motion.p
-                                className="text-primary text-xl sm:text-2xl md:text-3xl font-semibold mb-0.5 sm:mb-1"
+                                className="text-primary text-xl sm:text-[40px] md:text-[40px] font-semibold mb-0.5 "
                                 initial={{ opacity: 0, scale: 0.5 }}
                                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                                 transition={{
@@ -421,8 +421,7 @@ const Cards = () => {
                                     : `${counts[index]}${stat.suffix}`}
                             </motion.p>
                             <motion.p
-                                className="text-[#f4a54b] text-[9px] sm:text-xs font-medium"
-                                whileHover={{ color: "#d4893a" }}
+                                className="text-[#f4a54b] text-[9px] sm:text-[14px] font-normal"
                             >
                                 {stat.label}
                             </motion.p>

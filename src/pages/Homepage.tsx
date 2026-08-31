@@ -21,7 +21,7 @@ type LayoutContext = {
 
 const images = [
   { src: "/heroBg7.jpg", textClass: "text-primary", buttonClass: "border-primary text-primary hover:bg-gray-50", bgClass: "bg-white", buttonClass2: "border-white text-primary bg-primary" },
-  { src: "/h.png", textClass: "text-white", buttonClass: "border-white text-white", bgClass: "bg-primary", buttonClass2: "border-white text-primary bg-transparent" },
+
 ];
 
 const quickLinks = [

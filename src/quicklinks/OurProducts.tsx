@@ -59,7 +59,7 @@ const OurProducts = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-4 text-2xl font-medium leading-tight text-primary sm:text-5xl"
+          className="mt-4 text-2xl font-medium leading-tight text-primary sm:text-[63.53px]"
         >
           One Bank for
           <br />
@@ -187,14 +187,16 @@ const OurProducts = () => {
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 + (index * 0.15) }}
+            transition={{ duration: 0.2 }}
             whileHover={{
               y: -8,
               scale: 1.02,
-              boxShadow: "0 20px 40px -12px rgba(0,0,0,0.15)"
+              boxShadow: "0 30px 50px -18px rgba(0, 0, 0, 0.08)"
             }}
 
-            className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm"
+              className="rounded-2xl  bg-white p-6 shadow-xs shadow-black/20" style={{
+              boxShadow : "0 4px 16px 0 rgba(8, 27, 51, 0.05)"
+            }} 
           >
 
 

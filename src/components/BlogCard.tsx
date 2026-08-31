@@ -55,7 +55,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
     return (
         <Link
             to={postPath}
-            className="group block cursor-pointer rounded-2xl border border-gray-200 p-3 shadow-md py-6"
+            className="group block cursor-pointer p-3 py-6"
         >
             {/* Image */}
             <div className="relative mb-5 flex h-[320px] w-full items-center justify-center overflow-hidden rounded-2xl transition-transform duration-500 group-hover:-translate-y-1 sm:h-[250px]">

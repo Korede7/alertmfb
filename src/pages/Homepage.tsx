@@ -196,7 +196,7 @@ const Homepage = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className={`mt-6 max-w-2xl text-sm leading-7 ${activeImage.textClass} sm:mt-10 sm:text-base lg:text-[18px] font-regular`}
+          className={`mt-6 max-w-2xl text-sm leading-7 ${activeImage.textClass} sm:mt-10 sm:text-base lg:text-[18px] font`}
         >
           Join over 30,000 Nigerians choosing smarter business loans,
           reliable asset management, and secure everyday payments.

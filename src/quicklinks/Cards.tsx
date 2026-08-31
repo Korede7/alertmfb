@@ -406,7 +406,7 @@ const Cards = () => {
                             className="text-center"
                         >
                             <motion.p
-                                className="text-primary text-xl sm:text-[40px] md:text-[40px] font-semibold mb-0.5 "
+                                className="text-primary text-xl sm:text-[40px] md:text-[40px] font-semibold"
                                 initial={{ opacity: 0, scale: 0.5 }}
                                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                                 transition={{

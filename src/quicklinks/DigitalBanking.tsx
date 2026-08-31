@@ -212,7 +212,7 @@ const DigitalBanking = () => {
                     <p className="text-[10px] sm:text-[13px] ml-1 tracking-[0.7em] sm:tracking-[0.9em] font-bold text-secondary mb-2 sm:mb-3">
                         DIGITAL BANKING
                     </p>
-                    <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl leading-[1.15] font-extrabold text-[#171338] mb-3 sm:mb-4 min-h-[3.5rem] sm:min-h-[4.5rem]">
+                    <h1 className="text-lg sm:text-xl md:text-2xl lg:text-5xl xl:text-4xl leading-[1.15] font-extrabold text-[#171338] mb-3 sm:mb-4 min-h-[3.5rem] sm:min-h-[4.5rem]">
                         {typedHeading}
                         <motion.span
                             className="inline-block ml-1"

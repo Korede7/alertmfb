@@ -52,7 +52,7 @@ const GetStarted = () => {
 
                     <motion.h2
                         variants={itemVariants}
-                        className="text-primary text-2xl sm:text-3xl md:text-5xl font-medium mb-4 leading-tight px-2"
+                        className="text-primary text-2xl sm:text-3xl md:text-6xl font-semibold mb-4 leading-tight px-2"
                     >
                         Bank Smart, Bank Alert.
                     </motion.h2>

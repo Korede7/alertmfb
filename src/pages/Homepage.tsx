@@ -184,7 +184,7 @@ const Homepage = () => {
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           exit={{ opacity: 0, filter: "blur(10px)" }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className={`mt-4 max-w-4xl text-3xl font-semibold leading-[1.05] tracking-[-2px] ${activeImage.textClass} sm:mt-8 sm:text-4xl lg:text-5xl`}
+          className={`mt-4 max-w-4xl text-3xl font-semibold leading-[1.05] tracking-[-2px] ${activeImage.textClass} md:mt-10 sm:mt-10 sm:text-4xl lg:text-[63.53px]`}
         >
           Banking That Moves at the
           <br />
@@ -196,7 +196,7 @@ const Homepage = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className={`mt-6 max-w-2xl text-sm leading-7 ${activeImage.textClass} sm:mt-10 sm:text-base lg:text-lg`}
+          className={`mt-6 max-w-2xl text-sm leading-7 ${activeImage.textClass} sm:mt-10 sm:text-base lg:text-[18px] font-regular`}
         >
           Join over 30,000 Nigerians choosing smarter business loans,
           reliable asset management, and secure everyday payments.
@@ -380,7 +380,7 @@ const Homepage = () => {
       </div>
 
       {/* Sticky Footer */}
-      <div className="absolute bottom-0 sm:mt-0 z-10 flex h-auto w-full flex-col gap-2 bg-gray px-4 py-2 text-[10px] text-primary backdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">
+      <div className="absolute fixed bottom-0 sm:mt-0 z-10 flex h-auto w-full flex-col gap-2 bg-gray px-4 py-2 text-[10px] text-primary backdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">
         <p className="text-center sm:text-left">
           © Alert Microfinance Bank Limited is licensed by the Central Bank of Nigeria (CBN). Deposits are insured by the NDIC.
         </p>

@@ -96,7 +96,7 @@ const SMELoans = () => {
               SME LOANS
             </motion.p>
             <motion.h2 
-              className="text-primary text-3xl sm:text-4xl md:text-5xl font-medium leading-tight"
+              className="text-primary text-3xl sm:text-4xl md:text-5xl font-semibold lg:text-6xl leading-[1]"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}

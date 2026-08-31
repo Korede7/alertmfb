@@ -393,7 +393,7 @@ const Overview = () => {
             </div>
 
             {/* Footer */}
-            <div className="absolute bottom-0 sm:mt-0 z-10 flex h-auto w-full flex-col gap-2 bg-gray px-4 py-2 text-[10px] text-primary backdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">
+            <div className="absolute fixed bottom-0 sm:mt-0 z-10 flex h-auto w-full flex-col gap-2 bg-gray px-4 py-2 text-[10px] text-primary backdrop-blur-sm sm:h-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-xs lg:px-10">
                 <p className="text-center sm:text-left">
                     © Alert Microfinance Bank Limited is licensed by the Central Bank of Nigeria (CBN). Deposits are insured by the NDIC.
                 </p>

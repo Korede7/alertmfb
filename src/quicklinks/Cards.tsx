@@ -157,7 +157,7 @@ const Cards = () => {
                 {/* Animated heading */}
                 <motion.h2
                     variants={itemVariants}
-                    className="text-primary text-xl sm:text-2xl md:text-3xl lg:text-5xl font-medium mb-3 sm:mb-4"
+                    className="text-primary text-xl sm:text-2xl md:text-3xl lg:text-6xl font-semibold mb-3 sm:mb-4"
                 >
                     A card for every way you pay
                 </motion.h2>
@@ -165,7 +165,7 @@ const Cards = () => {
                 {/* Animated description */}
                 <motion.p
                     variants={itemVariants}
-                    className="text-primary text-xs sm:text-sm font-medium md:text-base max-w-xs sm:max-w-md mx-auto mb-6 sm:mb-8 px-2"
+                    className="text-primary text-[sm] sm:text-[18px] font-medium md:text-base max-w-xs sm:max-w-lg mx-auto mb-6 sm:mb-8 px-2"
                 >
                     From everyday spending to international payments and budgeting,
                     Alert MFB cards give you full control.

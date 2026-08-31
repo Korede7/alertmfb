@@ -134,16 +134,16 @@ const Navbar = ({ theme }: NavbarProps) => {
 
     return (
         <nav
-            className={`w-full fixed left-0 top-0 z-50 transition-colors duration-300 ${scrolled ? "bg-white shadow-lg" : "bg-transparent"
+            className={`w-full fixed left-0 top-0 z-50  ${scrolled ? "bg-white" : "bg-transparent"
                 }`}
         >
-            <div className="mx-auto flex h-17 max-w-6xl mt-3 items-center justify-between px-6 sm:px-8 lg:px-10">
+            <div className="mx-auto flex h-17 max-w-6xl mt-1 mb-1 items-center justify-between px-6 sm:px-8 lg:px-10">
                 {/* Left */}
                 <div className="flex items-center gap-8 sm:gap-10 lg:gap-10">
                     {/* Logo */}
                     <Link to="/" className="flex items-center">
                         <motion.div
-                            className="flex items-center rounded-full shadow-xs bg-purple-100/50 pr-8 pl-0 cursor-pointer"
+                            className="flex items-center rounded-full bg-purple-100/50 pr-8 pl-0 cursor-pointer"
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
@@ -155,8 +155,8 @@ const Navbar = ({ theme }: NavbarProps) => {
                                     src={theme.textClass === "text-white" ? "/logo2.jpg" : "/whiteLogo.png"}
                                     alt="Alert MFB"
                                     className={`object-contain rounded-full ${theme.textClass === "text-white"
-                                            ? "h-10 w-10"      
-                                            : "h-6 w-6"      
+                                        ? "h-10 w-10"
+                                        : "h-6 w-6"
                                         }`}
                                 />
                             </div>
@@ -236,12 +236,9 @@ const Navbar = ({ theme }: NavbarProps) => {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className={`flex h-8 xl:h-9 items-center whitespace-nowrap rounded-full pl-4 xl:pl-6 pr-0.5 cursor-pointer text-xs sm:text-sm md:text-[13px] font-medium transition-all duration-300 ${theme.textClass === "text-white"
-                                ? "bg-white text-primary hover:bg-[#f8f8f8]"
-                                : "bg-primary text-white hover:bg-[#100b33]"
-                                }`}
+                            className={`flex h-8 xl:h-9 items-center whitespace-nowrap rounded-full pl-4 xl:pl-6 pr-0.5 cursor-pointer text-xs sm:text-sm md:text-[13px] font-medium transition-all duration-300 bg-primary`}
                         >
-                            <span>Sign In</span>
+                            <span className="text-white">Sign In</span>
 
                             <span
                                 className={`ml-3.5 xl:ml-5 flex h-6 w-6 xl:h-8 xl:w-8 items-center justify-center rounded-full ${theme.textClass === "text-white"

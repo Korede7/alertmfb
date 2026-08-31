@@ -49,7 +49,7 @@ const OurProducts = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xs font-semibold tracking-[0.9rem] uppercase tracking-[0.25em] text-secondary sm:text-sm"
+          className="text-xs font-semibold uppercase tracking-[10px] text-secondary sm:text-sm"
         >
           Our Products
         </motion.p>
@@ -59,7 +59,7 @@ const OurProducts = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-4 text-2xl font-medium leading-tight text-primary sm:text-[63.53px]"
+          className="mt-4 text-2xl font-semibold leading-[1.05] tracking-[-2px] text-primary sm:text-6xl"
         >
           One Bank for
           <br />

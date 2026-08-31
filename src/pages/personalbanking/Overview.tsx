@@ -12,7 +12,7 @@ const Overview = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     useEffect(() => {
-        setIsVisible(true);
+        setIsVisible(true)
     }, []);
 
     const segmentedNav = [

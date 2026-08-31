@@ -14,6 +14,7 @@ import Loans from "../pages/loans/Loans";
 import PersonalBanking from "../pages/personalbanking/PersonalBanking";
 
 export const routes = [
+  
   {
     element: <HomeLayout />,
 

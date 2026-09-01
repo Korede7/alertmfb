@@ -306,7 +306,7 @@ const FixedDeposits = () => {
             "Choose your amount & tenor",
             "Fund from an existing account",
             "Receive your Certificate of Deposit",
-          ].map((label, index) => (
+          ].map((label, index) => ( 
             <div
               key={label}
               className="flex flex-col items-center gap-4 rounded-2xl py-7 bg-gray px-3 py-4 text-center"
